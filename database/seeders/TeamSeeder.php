@@ -14,20 +14,33 @@ class TeamSeeder extends Seeder
     {
         $teams = [
             [
-                'name' => 'Ahmed Hemdan',
-                'position' => 'CEO and Founder',
+                'name' => [
+                    'en' => 'Ahmed Hemdan',
+                    'ar' => 'أحمد حمدان',
+                ],
+                'position' => [
+                    'en' => 'CEO and Founder',
+                    'ar' => 'الرئيس التنفيذي والمؤسس',
+                ],
                 'image' => 'https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/team-images/1767365666184.jpg',
-                'bio' => 'Founder and CEO with extensive experience in business development and digital transformation.',
+                'bio' => [
+                    'en' => 'Founder and CEO with extensive experience in business development and digital transformation.',
+                    'ar' => 'مؤسس ورئيس تنفيذي يتمتع بخبرة واسعة في تطوير الأعمال والتحول الرقمي.',
+                ],
                 'email' => null,
                 'linkedin_url' => null,
                 'twitter_url' => null,
+                'facebook_url' => null,
                 'order' => 1,
                 'is_active' => true,
             ],
         ];
 
-        foreach ($teams as $team) {
-            Team::create($team);
+        // Clear existing team members
+        Team::query()->delete();
+        
+        foreach ($teams as $teamData) {
+            Team::create($teamData);
         }
     }
 }

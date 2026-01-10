@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('position');
-            $table->string('image');
-            $table->text('bio')->nullable();
-            $table->string('email')->nullable();
+            $table->json('name'); // Multilingual: {en: "Name", ar: "الاسم"}
+            $table->json('position'); // Multilingual: {en: "Position", ar: "المنصب"}
+            $table->string('image'); // Image path (not translatable)
+            $table->json('bio')->nullable(); // Multilingual
+            $table->string('email')->nullable(); // Email (not translatable)
             $table->string('linkedin_url')->nullable();
             $table->string('twitter_url')->nullable();
+            $table->string('facebook_url')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

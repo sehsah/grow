@@ -14,11 +14,15 @@ class Team extends Model
         'email',
         'linkedin_url',
         'twitter_url',
+        'facebook_url',
         'order',
         'is_active',
     ];
 
     protected $casts = [
+        'name' => 'array',
+        'position' => 'array',
+        'bio' => 'array',
         'is_active' => 'boolean',
     ];
 }

@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->text('full_description')->nullable();
-            $table->string('category')->nullable(); // e.g., Visual Identity Design, Digital Marketing, Web Development
-            $table->string('image');
-            $table->json('gallery')->nullable(); // Array of images
-            $table->string('client_name')->nullable();
+            $table->json('title'); // Multilingual: {en: "Title", ar: "العنوان"}
+            $table->json('description'); // Multilingual
+            $table->json('full_description')->nullable(); // Multilingual
+            $table->json('category')->nullable(); // Multilingual: {en: "Category", ar: "الفئة"}
+            $table->string('image'); // Image path (not translatable)
+            $table->json('gallery')->nullable(); // Array of images (not translatable)
+            $table->json('client_name')->nullable(); // Multilingual
             $table->date('project_date')->nullable();
             $table->string('project_url')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_active')->default(true);
-            $table->text('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
+            $table->json('meta_title')->nullable(); // Multilingual
+            $table->json('meta_description')->nullable(); // Multilingual
             $table->timestamps();
         });
     }

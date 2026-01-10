@@ -24,6 +24,13 @@ class Project extends Model
     ];
 
     protected $casts = [
+        'title' => 'array',
+        'description' => 'array',
+        'full_description' => 'array',
+        'category' => 'array',
+        'client_name' => 'array',
+        'meta_title' => 'array',
+        'meta_description' => 'array',
         'gallery' => 'array',
         'project_date' => 'date',
         'is_featured' => 'boolean',

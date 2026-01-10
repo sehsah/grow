@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Services\Schemas;
 
+use App\Filament\Helpers\MultilingualHelper;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
@@ -24,44 +26,60 @@ class ServiceForm
                             ->schema([
                                 Section::make('Basic Information')
                                     ->schema([
-                                        TextInput::make('title')
-                                            ->required()
-                                            ->maxLength(255)
-                                            ->live(onBlur: true)
-                                            ->afterStateUpdated(function ($state, callable $set) {
-                                                if (empty($state)) {
-                                                    return;
-                                                }
-                                                $set('slug', Str::slug($state));
-                                            }),
-                                        
+                                        MultilingualHelper::multilingualTextInput(
+                                            'title',
+                                            'Title',
+                                            [
+                                                'required' => true,
+                                                'maxLength' => 255,
+                                                'live' => true,
+                                                'afterStateUpdated' => function ($state, callable $set, $get) {
+                                                    $enTitle = $get('title.en');
+                                                    if ($enTitle) {
+                                                        $set('slug', Str::slug($enTitle));
+                                                    }
+                                                },
+                                            ]
+                                        ),
+
                                         TextInput::make('slug')
                                             ->required()
                                             ->unique(ignoreRecord: true)
                                             ->maxLength(255)
-                                            ->helperText('Auto-generated from title'),
-                                        
-                                        Textarea::make('short_description')
-                                            ->rows(3)
-                                            ->maxLength(500)
-                                            ->helperText('Brief description shown in listings'),
-                                        
-                                        Textarea::make('description')
-                                            ->rows(5)
-                                            ->columnSpanFull(),
-                                        
-                                        Select::make('category')
-                                            ->options([
-                                                'Business Consulting' => 'Business Consulting',
-                                                'Sales' => 'Sales',
-                                                'Talent Acquisition' => 'Talent Acquisition',
-                                                'Web Development' => 'Web Development',
-                                            ])
-                                            ->searchable(),
-                                    ])
-                                    ->columns(2),
+                                            ->helperText('Auto-generated from English title'),
+
+                                        MultilingualHelper::multilingualTextarea(
+                                            'short_description',
+                                            'Short Description',
+                                            [
+                                                'rows' => 3,
+                                                'maxLength' => 500,
+                                                'en_helper' => 'Brief description shown in listings (English)',
+                                                'ar_helper' => 'وصف موجز يظهر في القوائم (العربية)',
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualRichEditor(
+                                            'description',
+                                            'Description',
+                                            [
+                                                'en_helper' => 'Full description of the service (English)',
+                                                'ar_helper' => 'وصف كامل للخدمة (العربية)',
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualTextInput(
+                                            'category',
+                                            'Category',
+                                            [
+                                                'maxLength' => 255,
+                                                'en_placeholder' => 'e.g., Business Consulting',
+                                                'ar_placeholder' => 'مثل: استشارات الأعمال',
+                                            ]
+                                        ),
+                                    ]),
                             ]),
-                        
+
                         Tabs\Tab::make('Media & Settings')
                             ->schema([
                                 Section::make('Media')
@@ -72,26 +90,26 @@ class ServiceForm
                                             ->visibility('public')
                                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                                             ->maxSize(5120),
-                                        
+
                                         TextInput::make('icon')
                                             ->label('Icon Class/Name')
                                             ->helperText('SVG icon class or name (e.g., lucide-building2)')
                                             ->placeholder('lucide-building2'),
                                     ])
                                     ->columns(2),
-                                
+
                                 Section::make('Settings')
                                     ->schema([
                                         TextInput::make('order')
                                             ->numeric()
                                             ->default(0)
                                             ->helperText('Order for display (lower numbers appear first)'),
-                                        
+
                                         Toggle::make('is_featured')
                                             ->label('Featured Service')
                                             ->default(false)
                                             ->helperText('Show as featured service'),
-                                        
+
                                         Toggle::make('is_active')
                                             ->label('Active')
                                             ->default(true)
@@ -99,21 +117,32 @@ class ServiceForm
                                     ])
                                     ->columns(3),
                             ]),
-                        
+
                         Tabs\Tab::make('SEO')
                             ->schema([
                                 Section::make('SEO Information')
                                     ->schema([
-                                        TextInput::make('meta_title')
-                                            ->maxLength(255)
-                                            ->helperText('SEO title (defaults to title if empty)'),
-                                        
-                                        Textarea::make('meta_description')
-                                            ->rows(3)
-                                            ->maxLength(500)
-                                            ->helperText('SEO description for search engines'),
-                                    ])
-                                    ->columns(1),
+                                        MultilingualHelper::multilingualTextInput(
+                                            'meta_title',
+                                            'Meta Title',
+                                            [
+                                                'maxLength' => 255,
+                                                'en_helper' => 'SEO title (defaults to title if empty)',
+                                                'ar_helper' => 'عنوان SEO (يستخدم العنوان إذا كان فارغاً)',
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualTextarea(
+                                            'meta_description',
+                                            'Meta Description',
+                                            [
+                                                'rows' => 3,
+                                                'maxLength' => 500,
+                                                'en_helper' => 'SEO description for search engines',
+                                                'ar_helper' => 'وصف SEO لمحركات البحث',
+                                            ]
+                                        ),
+                                    ]),
                             ]),
                     ]),
             ]);

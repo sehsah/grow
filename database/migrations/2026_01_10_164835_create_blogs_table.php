@@ -13,19 +13,19 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('excerpt')->nullable();
-            $table->text('content')->nullable(); // Full blog content
-            $table->string('image');
+            $table->json('title'); // Multilingual: {en: "Title", ar: "العنوان"}
+            $table->json('excerpt')->nullable(); // Multilingual
+            $table->json('content')->nullable(); // Multilingual: Full blog content
+            $table->string('image'); // Image path (not translatable)
             $table->string('slug')->unique();
-            $table->string('author')->nullable();
+            $table->json('author')->nullable(); // Multilingual
             $table->timestamp('published_at')->nullable();
             $table->integer('read_time')->default(5); // in minutes
             $table->integer('order')->default(0);
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_active')->default(true);
-            $table->text('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
+            $table->json('meta_title')->nullable(); // Multilingual
+            $table->json('meta_description')->nullable(); // Multilingual
             $table->timestamps();
         });
     }

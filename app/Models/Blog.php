@@ -24,6 +24,12 @@ class Blog extends Model
     ];
 
     protected $casts = [
+        'title' => 'array',
+        'excerpt' => 'array',
+        'content' => 'array',
+        'author' => 'array',
+        'meta_title' => 'array',
+        'meta_description' => 'array',
         'published_at' => 'datetime',
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
@@ -35,7 +41,9 @@ class Blog extends Model
 
         static::creating(function ($blog) {
             if (empty($blog->slug)) {
-                $blog->slug = Str::slug($blog->title);
+                // Use English title for slug generation
+                $title = is_array($blog->title) ? ($blog->title['en'] ?? reset($blog->title)) : $blog->title;
+                $blog->slug = Str::slug($title);
             }
         });
     }

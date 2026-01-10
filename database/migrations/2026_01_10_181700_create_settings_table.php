@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique();
-            $table->text('value')->nullable();
-            $table->string('type')->default('text'); // text, number, image, json
-            $table->string('group')->nullable(); // stats, values, general, etc.
-            $table->text('description')->nullable();
+            $table->json('value')->nullable();
+            $table->string('group')->nullable(); // e.g., homepage, aboutpage, contactpage, general
             $table->timestamps();
         });
     }

@@ -14,6 +14,10 @@ class Setting extends Model
         'description',
     ];
 
+    protected $casts = [
+        'value' => 'array', // Cast value to array for flexible storage
+    ];
+
     /**
      * Get a setting value by key
      */
