@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\LanguageController;
 
 // Home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -34,3 +35,6 @@ Route::get('/career/{id}', [CareerController::class, 'show'])->name('career.show
 // Contact page
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// Language switching
+Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
