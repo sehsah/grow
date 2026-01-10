@@ -26,19 +26,20 @@
                     <div class="hidden md:flex items-center gap-8">
                         <a class="relative text-sm font-medium transition-colors animated-underline text-primary" href="/">{{ __('common.home') }}</a>
                         <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/about">{{ __('common.about') }}</a>
-                        <div class="relative group pt-2 pb-2 -mt-2 -mb-2">
-                            <button type="button" class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground">{{ __('common.services') }}
+                        <div class="relative pt-2 pb-2 -mt-2 -mb-2">
+                            <button type="button" class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground ">{{ __('common.services') }}
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    class="lucide lucide-chevron-down w-4 h-4 transition-transform duration-200 group-hover:rotate-180">
+                                    class="lucide lucide-chevron-down w-4 h-4 transition-transform duration-200">
                                     <path d="m6 9 6 6 6-6"></path>
                                 </svg>
                             </button>
-                            <div class="absolute top-full left-0 mt-2 pt-2 w-64 bg-card border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-50 opacity-0  -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+                            <div class="absolute top-full left-0 mt-2 pt-2 w-64 bg-card border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-50 opacity-0 invisible -translate-y-2">
                                 <div class="p-2">
-                                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors" href="/services"><span class="text-sm font-medium hover:text-primary transition-colors">{{ __('common.all_services') }}</span></a>
+                                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors" href="/services">
+                                    <span class="text-sm font-medium hover:text-primary transition-colors">{{ __('common.all_services') }}</span></a>
                                     <div class="border-t border-border my-2"></div>
                                     @if(isset($services) && is_iterable($services))
                                         @foreach ($services as $service)
@@ -335,6 +336,7 @@
         </footer>
 
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile Menu
@@ -353,7 +355,7 @@
             }
 
             // Mobile Services Dropdown
-            const mobileServicesBtn = Array.from(document.querySelectorAll('.md\\:hidden button')).find(btn => btn.textContent.trim().includes('Services'));
+            const mobileServicesBtn = Array.from(document.querySelectorAll('.md\\:hidden button')).find(btn => btn.textContent.trim().includes('{{ __('common.services') }}') || btn.textContent.trim().includes('Services'));
             if (mobileServicesBtn) {
                 const dropdown = mobileServicesBtn.nextElementSibling;
                 const icon = mobileServicesBtn.querySelector('svg');
@@ -367,25 +369,65 @@
             }
 
             // Desktop Services Dropdown
-            const desktopServicesGroup = document.querySelector('.hidden.md\\:flex .group');
-            if (desktopServicesGroup) {
-                const btn = desktopServicesGroup.querySelector('button');
-                const dropdown = desktopServicesGroup.querySelector('.absolute');
+            const desktopNav = document.querySelector('.hidden.md\\:flex');
+            let serviceWrapper = null;
+            let btn = null;
+            let dropdown = null;
+            let icon = null;
 
-                if (btn && dropdown) {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        dropdown.classList.toggle('!opacity-100');
-                        dropdown.classList.toggle('!visible');
-                        dropdown.classList.toggle('!translate-y-0');
-                    });
-
-                    document.addEventListener('click', (e) => {
-                        if (!desktopServicesGroup.contains(e.target)) {
-                            dropdown.classList.remove('!opacity-100', '!visible', '!translate-y-0');
-                        }
-                    });
+            if (desktopNav) {
+                const buttons = desktopNav.querySelectorAll('button');
+                for (const b of buttons) {
+                    if (b.textContent.trim().includes('{{ __('common.services') }}') || b.textContent.trim().includes('Services')) {
+                        btn = b;
+                        serviceWrapper = btn.parentElement;
+                        dropdown = serviceWrapper.querySelector('.absolute');
+                        icon = btn.querySelector('svg');
+                        break;
+                    }
                 }
+            }
+
+            if (btn && dropdown && icon) {
+                let timeoutId;
+
+                const showMenu = () => {
+                    clearTimeout(timeoutId);
+                    dropdown.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+                    dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
+                    icon.classList.add('rotate-180');
+                };
+
+                const hideMenu = () => {
+                    timeoutId = setTimeout(() => {
+                        dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                        dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                        icon.classList.remove('rotate-180');
+                    }, 200);
+                };
+
+                // Hover events
+                btn.addEventListener('mouseenter', showMenu);
+                btn.addEventListener('mouseleave', hideMenu);
+                dropdown.addEventListener('mouseenter', showMenu);
+                dropdown.addEventListener('mouseleave', hideMenu);
+
+                // Click event
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (dropdown.classList.contains('opacity-100')) {
+                         hideMenu();
+                    } else {
+                         showMenu();
+                    }
+                });
+
+                // Close on click outside
+                document.addEventListener('click', (e) => {
+                    if (!serviceWrapper.contains(e.target)) {
+                        hideMenu();
+                    }
+                });
             }
         });
     </script>

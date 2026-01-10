@@ -94,7 +94,7 @@
                 <div class="relative mt-16 animate-fade-in animation-delay-400">
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/30 -rotate-1"></div>
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/20 rotate-1"></div>
-                    <div class="relative rounded-xl overflow-hidden"><img src="{{ asset($settings['hero_image'] ?? '/assets/hero-image-U-fWZ3Pk.jpg') }}"
+                    <div class="relative rounded-xl overflow-hidden"><img src="{{ asset('images/hero-image.jpg') }}"
                             alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
                         <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent">
                         </div>

@@ -15,7 +15,7 @@ class ProjectsController extends Controller
         $projects = Project::where('is_active', true)
             ->orderBy('order', 'asc')
             ->get();
-        
+
         return view('projects', compact('projects'));
     }
 
@@ -27,7 +27,7 @@ class ProjectsController extends Controller
         $project = Project::where('id', $id)
             ->where('is_active', true)
             ->firstOrFail();
-        
-        return view('projects.show', compact('project'));
+
+        return view('project-show', compact('project'));
     }
 }
