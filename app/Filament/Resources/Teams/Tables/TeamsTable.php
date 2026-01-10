@@ -5,7 +5,7 @@ namespace App\Filament\Resources\Teams\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -22,37 +22,37 @@ class TeamsTable
                     ->circular()
                     ->defaultImageUrl(url('/images/placeholder.png'))
                     ->size(50),
-                
+
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable()
                     ->weight('bold'),
-                
+
                 TextColumn::make('position')
                     ->searchable()
                     ->sortable()
                     ->badge()
                     ->color('primary'),
-                
+
                 TextColumn::make('email')
                     ->searchable()
                     ->copyable()
                     ->copyMessage('Email copied!')
                     ->toggleable(isToggledHiddenByDefault: true),
-                
+
                 TextColumn::make('bio')
                     ->limit(50)
                     ->wrap()
                     ->toggleable(isToggledHiddenByDefault: true),
-                
+
                 ToggleColumn::make('is_active')
                     ->label('Active')
                     ->sortable(),
-                
+
                 TextColumn::make('order')
                     ->sortable()
                     ->alignCenter(),
-                
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -66,8 +66,8 @@ class TeamsTable
                     ]),
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->defaultSort('order', 'asc')
             ->toolbarActions([

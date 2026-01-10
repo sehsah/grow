@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ config('app.name', 'Grow') }}</title>
+    @php
+        $siteTitle = \App\Helpers\SettingsHelper::site('title', 'COMPACT');
+        $siteLogo = \App\Helpers\SettingsHelper::site('logo', '/assets/logo-DSroQpd9.png');
+    @endphp
+    <title>{{ $siteTitle }}</title>
     <meta name="description" content="{{ config('app.description', 'Grow Application') }}" />
-    <meta name="author" content="{{ config('app.name') }}" />
+    <meta name="author" content="{{ $siteTitle }}" />
     <link rel="stylesheet" crossorigin href="{{ asset('assets/index-I91yRjam.css') }}">
 </head>
 
@@ -15,7 +19,7 @@
         <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
             <div class="container-custom">
                 <nav class="flex items-center justify-between h-20"><a class="flex items-center gap-2"
-                        href="/"><img src="/assets/logo-DSroQpd9.png" alt="COMPACT" class="h-12 w-auto"></a>
+                        href="/"><img src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
                     <div class="hidden md:flex items-center gap-8"><a
                             class="relative text-sm font-medium transition-colors animated-underline text-primary"
                             href="/">Home</a><a
@@ -152,7 +156,7 @@
             <div
                 class="md:hidden fixed inset-0 top-0 z-50 bg-background transition-all duration-300 opacity-0 invisible pointer-events-none">
                 <div class="flex items-center justify-between h-20 px-4 border-b border-border"><a href="/"><img
-                            src="/assets/logo-DSroQpd9.png" alt="COMPACT" class="h-10 w-auto"></a><button
+                            src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-10 w-auto"></a><button
                         class="p-2 text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
@@ -303,11 +307,17 @@
             <div class="absolute top-8 right-8 hidden lg:block"><img
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABRCAYAAABv/dCnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVHhe7dvNTQJBGMbxWQ0mYAHc5UoPeqUFGsBE6MEe8CAFUANX7IErBivBPGRHje4Tlpl34rvJ8082zC4Jk/zYD7JA1e/fHoP601X9qH4lGJJgSIIhCYYkGJJgSIIhCYYkGFJnYRaL+WkplfYYkmBIgiG5gJnPn8LDw329Vi7Mgbna5AJmt9uF1eq1KA5eG3Ngrja5gNlu38Js9lgMJ6JgDszVJjfnmFI4KSjI1cnXGicVBbmCQVY4OSjIHQzKxclFQS5hUCqOBQpyC4MuxbFCQa5hUFscSxTkHgadw7FGQde93s1zPXbd4fDx9QkZj8Ph8LR9MOibo6DOfUUb947NZnNan0wm5ijoX2BybzCNRndhOp2GqqrCer0O+/17/Uxay+VLPfquE+eYpoByPJZ7T3UokTq1x/y8+uDwwYIxtjVdrXLqDAy7JGNcAqcTMAwlVgLHPcw5lJg1jmuYtigxSxy3MJeixKxwXMKkosQscNzB5KLEcnFcwVihxHJw3MBYo8RScVzAlEKJpeC4gBmPx8VQYhEHc7Wpsz+Zj7cumm4ZWOTuquQlwZAEQ9LfckjaY0iCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYBoL4RMWTkEpzvUU8AAAAABJRU5ErkJggg=="
                     alt="" class="w-8 h-8 animate-spin" style="animation-duration: 8s;"></div>
+            @php
+                $siteAddress = \App\Helpers\SettingsHelper::site('address', '');
+                $sitePhone = \App\Helpers\SettingsHelper::site('phone', '+966 54 055 2004');
+                $sitePhoneSecondary = \App\Helpers\SettingsHelper::site('phone_secondary', '+966 56 442 6319');
+                $siteEmail = \App\Helpers\SettingsHelper::site('email', 'info@compactod.com');
+            @endphp
             <div class="container-custom py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     <div class="space-y-4"><a class="inline-block" href="/"><img
-                                src="/assets/logo-DSroQpd9.png" alt="COMPACT" class="h-12 w-auto"></a>
-                        <p class="text-muted-foreground text-sm leading-relaxed">COMPACT delivers integrated business
+                                src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
+                        <p class="text-muted-foreground text-sm leading-relaxed">{{ $siteTitle }} delivers integrated business
                             solutions designed to drive measurable growth and sustainable innovation.</p>
                         <div class="flex gap-3 pt-2"><a href="https://www.facebook.com/Compactodco" target="_blank"
                                 rel="noopener noreferrer"
@@ -400,12 +410,7 @@
                                         d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
                                     </path>
                                     <circle cx="12" cy="10" r="3"></circle>
-                                </svg><span class="whitespace-pre-line">Saudi Arabia Office
-                                    Wadi Makkah, King Khalid Road, Riyadh, Kingdom of Saudi Arabia – 12514
-
-                                    Egypt Office
-                                    63 Syria Street, Al Agouza, Giza, Egypt
-                                    +2 010 980 52005</span></li>
+                                </svg><span class="whitespace-pre-line">{{ $siteAddress }}</span></li>
                             <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -414,8 +419,9 @@
                                     <path
                                         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                     </path>
-                                </svg><a href="tel:+966 54 055 2004" class="hover:text-primary transition-colors"
-                                    dir="ltr">+966 54 055 2004</a></li>
+                                </svg><a href="tel:{{ str_replace(' ', '', $sitePhone) }}" class="hover:text-primary transition-colors"
+                                    dir="ltr">{{ $sitePhone }}</a></li>
+                            @if($sitePhoneSecondary)
                             <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -424,8 +430,9 @@
                                     <path
                                         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                     </path>
-                                </svg><a href="tel:+966 56 442 6319" class="hover:text-primary transition-colors"
-                                    dir="ltr">+966 56 442 6319</a></li>
+                                </svg><a href="tel:{{ str_replace(' ', '', $sitePhoneSecondary) }}" class="hover:text-primary transition-colors"
+                                    dir="ltr">{{ $sitePhoneSecondary }}</a></li>
+                            @endif
                             <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -433,13 +440,13 @@
                                     class="lucide lucide-mail text-primary flex-shrink-0">
                                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                                </svg><a href="mailto:info@compactod.com"
-                                    class="hover:text-primary transition-colors">info@compactod.com</a></li>
+                                </svg><a href="mailto:{{ $siteEmail }}"
+                                    class="hover:text-primary transition-colors">{{ $siteEmail }}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="mt-12 pt-8 border-t border-border text-center">
-                    <p class="text-sm text-muted-foreground">© 2026 COMPACT. All rights reserved.<a
+                    <p class="text-sm text-muted-foreground">© {{ date('Y') }} {{ $siteTitle }}. All rights reserved.<a
                             class="mx-2 text-muted-foreground/30 hover:text-primary transition-colors"
                             href="/admin">•</a></p>
                 </div>

@@ -19,7 +19,7 @@ class Setting extends Model
     ];
 
     /**
-     * Get a setting value by key
+     * Get a setting value by key (returns raw value/array)
      */
     public static function getValue(string $key, $default = null)
     {
@@ -36,9 +36,37 @@ class Setting extends Model
             ['key' => $key],
             [
                 'value' => $value,
-                'type' => $type,
                 'group' => $group,
             ]
         );
+    }
+
+    /**
+     * Get a setting value by key with locale support
+     */
+    public static function getSetting(string $key, $default = null, ?string $locale = null): mixed
+    {
+        $setting = static::where('key', $key)->first();
+
+        if (!$setting) {
+            return $default;
+        }
+
+        $value = $setting->value;
+
+        // If value is an array and locale is specified, return translated value
+        if (is_array($value) && $locale !== null) {
+            $fallback = config('app.fallback_locale', 'en');
+            return $value[$locale] ?? $value[$fallback] ?? $default;
+        }
+
+        // If value is an array and no locale specified, use current locale
+        if (is_array($value) && $locale === null) {
+            $currentLocale = app()->getLocale();
+            $fallback = config('app.fallback_locale', 'en');
+            return $value[$currentLocale] ?? $value[$fallback] ?? $default;
+        }
+
+        return $value ?? $default;
     }
 }
