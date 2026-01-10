@@ -16,7 +16,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Create admin user for Filament
-        $this->call(AdminUserSeeder::class);
+        $this->call([
+            AdminUserSeeder::class,
+            ServiceSeeder::class,
+            ProjectSeeder::class,
+            BlogSeeder::class,
+        ]);
 
         // User::factory(10)->create();
 

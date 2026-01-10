@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -11,7 +12,11 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        return view('projects');
+        $projects = Project::where('is_active', true)
+            ->orderBy('order', 'asc')
+            ->get();
+        
+        return view('projects', compact('projects'));
     }
 
     /**
@@ -19,7 +24,10 @@ class ProjectsController extends Controller
      */
     public function show(string $id)
     {
-        // TODO: Implement single project view
-        return view('projects.show', compact('id'));
+        $project = Project::where('id', $id)
+            ->where('is_active', true)
+            ->firstOrFail();
+        
+        return view('projects.show', compact('project'));
     }
 }

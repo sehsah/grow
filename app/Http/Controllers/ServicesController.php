@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -11,7 +12,11 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        return view('services');
+        $services = Service::where('is_active', true)
+            ->orderBy('order', 'asc')
+            ->get();
+        
+        return view('services', compact('services'));
     }
 
     /**
@@ -19,8 +24,10 @@ class ServicesController extends Controller
      */
     public function show(string $slug)
     {
-        // TODO: Implement individual service view
-        // Example: /services/organizational-development
-        return view('services.show', compact('slug'));
+        $service = Service::where('slug', $slug)
+            ->where('is_active', true)
+            ->firstOrFail();
+        
+        return view('services.show', compact('service'));
     }
 }
