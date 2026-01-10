@@ -72,7 +72,7 @@ class SiteSettings extends Page implements HasForms
 
         // Set the form data directly to $this->data since we're using statePath('data')
         $this->data = $formData;
-        // Also fill the form to ensure it's properly initialized
+        // Fill the form to ensure all fields are properly hydrated
         $this->form->fill($formData);
     }
 

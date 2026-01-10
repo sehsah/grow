@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @php
-        $siteTitle = \App\Helpers\SettingsHelper::site('title', 'COMPACT');
-        $siteLogo = \App\Helpers\SettingsHelper::site('logo', '/assets/logo-DSroQpd9.png');
+        $siteTitle = \App\Helpers\SettingsHelper::site('title');
+        $siteLogo = \App\Helpers\SettingsHelper::site('logo');
     @endphp
     <title>{{ $siteTitle }}</title>
     <meta name="description" content="{{ config('app.description', 'Grow Application') }}" />
@@ -18,132 +18,53 @@
     <div class="min-h-screen flex flex-col">
         <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
             <div class="container-custom">
-                <nav class="flex items-center justify-between h-20"><a class="flex items-center gap-2"
-                        href="/"><img src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
-                    <div class="hidden md:flex items-center gap-8"><a
-                            class="relative text-sm font-medium transition-colors animated-underline text-primary"
-                            href="/">Home</a><a
-                            class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
-                            href="/about">About</a>
-                        <div class="relative"><button
-                                class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground">Services<svg
+                <nav class="flex items-center justify-between h-20">
+                    <a class="flex items-center gap-2"
+                        href="/">
+                        <img src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto">
+                    </a>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-primary" href="/">Home</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/about">About</a>
+                        <div class="relative group pt-2 pb-2 -mt-2 -mb-2">
+                            <button type="button" class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground">Services
+                                <svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    class="lucide lucide-chevron-down w-4 h-4 transition-transform">
+                                    class="lucide lucide-chevron-down w-4 h-4 transition-transform duration-200 group-hover:rotate-180">
                                     <path d="m6 9 6 6 6-6"></path>
-                                </svg></button>
-                            <div
-                                class="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-50 opacity-0 invisible -translate-y-2">
-                                <div class="p-2"><a
-                                        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors group"
-                                        href="/services"><span
-                                            class="text-sm font-medium group-hover:text-primary transition-colors">All
-                                            Services</span></a>
-                                    <div class="border-t border-border my-2"></div><a
-                                        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors group"
-                                        href="/services/organizational-development">
-                                        <div
-                                            class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-building2 w-4 h-4 text-primary">
-                                                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                                                <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                                                <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                                                <path d="M10 6h4"></path>
-                                                <path d="M10 10h4"></path>
-                                                <path d="M10 14h4"></path>
-                                                <path d="M10 18h4"></path>
-                                            </svg>
-                                        </div><span
-                                            class="text-sm font-medium group-hover:text-primary transition-colors">Organizational
-                                            Development</span>
-                                    </a><a
-                                        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors group"
-                                        href="/services/crm">
-                                        <div
-                                            class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-users w-4 h-4 text-primary">
-                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                                <circle cx="9" cy="7" r="4"></circle>
-                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                            </svg>
-                                        </div><span
-                                            class="text-sm font-medium group-hover:text-primary transition-colors">CRM
-                                            Services</span>
-                                    </a><a
-                                        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors group"
-                                        href="/services/outsourcing">
-                                        <div
-                                            class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-handshake w-4 h-4 text-primary">
-                                                <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
-                                                <path
-                                                    d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4">
-                                                </path>
-                                                <path d="m21 3 1 11h-2"></path>
-                                                <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path>
-                                                <path d="M3 4h8"></path>
-                                            </svg>
-                                        </div><span
-                                            class="text-sm font-medium group-hover:text-primary transition-colors">Outsourcing</span>
-                                    </a><a
-                                        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors group"
-                                        href="/services/it-development">
-                                        <div
-                                            class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-code w-4 h-4 text-primary">
-                                                <polyline points="16 18 22 12 16 6"></polyline>
-                                                <polyline points="8 6 2 12 8 18"></polyline>
-                                            </svg>
-                                        </div><span
-                                            class="text-sm font-medium group-hover:text-primary transition-colors">IT
-                                            Development</span>
-                                    </a><a
-                                        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors group"
-                                        href="/services/dskghjshfdgjk">
-                                        <div
-                                            class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-settings w-4 h-4 text-primary">
-                                                <path
-                                                    d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
-                                                </path>
-                                                <circle cx="12" cy="12" r="3"></circle>
-                                            </svg>
-                                        </div><span
-                                            class="text-sm font-medium group-hover:text-primary transition-colors">gfdhlkfgl</span>
-                                    </a>
+                                </svg>
+                            </button>
+                            <div class="absolute top-full left-0 mt-2 pt-2 w-64 bg-card border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-50 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+                                <div class="p-2">
+                                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors" href="/services"><span class="text-sm font-medium hover:text-primary transition-colors">All Services</span></a>
+                                    <div class="border-t border-border my-2"></div>
+                                    @if(isset($services) && is_iterable($services))
+                                        @foreach ($services as $service)
+                                        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors" href="/services/{{ $service->slug ?? '#' }}">
+                                            <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                                {!! $service->icon ?? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>' !!}
+                                            </div>
+                                            <span class="text-sm font-medium hover:text-primary transition-colors">{{ $service->title ?? 'Service' }}</span>
+                                        </a>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
-                        </div><a
-                            class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
-                            href="/projects">Projects</a><a
-                            class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
-                            href="/blog">Blog</a><a
-                            class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
-                            href="/career">Career</a><a
-                            class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
-                            href="/contact">Contact</a>
+                        </div>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/projects">Projects</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/blog">Blog</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/career">Career</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/contact">Contact</a>
                     </div>
-                    <div class="hidden md:flex items-center gap-4"><button
-                            class="px-3 py-1.5 text-sm font-medium border border-border rounded-full hover:border-primary hover:text-primary transition-colors">العربية</button><a
-                            class="btn-primary" href="/contact">Let's Talk</a></div><button
-                        class="md:hidden p-2 text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                    <div class="hidden md:flex items-center gap-4">
+                        <button class="px-3 py-1.5 text-sm font-medium border border-border rounded-full hover:border-primary hover:text-primary transition-colors">العربية</button>
+                        <a class="btn-primary" href="/contact">Let's Talk</a>
+                    </div>
+                    <button
+                        class="md:hidden p-2 text-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-menu">
@@ -309,9 +230,9 @@
                     alt="" class="w-8 h-8 animate-spin" style="animation-duration: 8s;"></div>
             @php
                 $siteAddress = \App\Helpers\SettingsHelper::site('address', '');
-                $sitePhone = \App\Helpers\SettingsHelper::site('phone', '+966 54 055 2004');
-                $sitePhoneSecondary = \App\Helpers\SettingsHelper::site('phone_secondary', '+966 56 442 6319');
-                $siteEmail = \App\Helpers\SettingsHelper::site('email', 'info@compactod.com');
+                $sitePhone = \App\Helpers\SettingsHelper::site('phone');
+                $sitePhoneSecondary = \App\Helpers\SettingsHelper::site('phone_secondary');
+                $siteEmail = \App\Helpers\SettingsHelper::site('email');
             @endphp
             <div class="container-custom py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">

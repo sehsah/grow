@@ -120,22 +120,7 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     @foreach($services as $index => $service)
                     <div class="service-card group animate-fade-in" style="animation-delay: {{ ($index + 1) * 100 }}ms; margin-top: {{ $index % 2 === 1 ? '2rem' : '0px' }};">
-                        @if($service->icon)
-                            <div class="w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">{!! $service->icon !!}</div>
-                        @else
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-building2 w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
-                                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                                <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                                <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                                <path d="M10 6h4"></path>
-                                <path d="M10 10h4"></path>
-                                <path d="M10 14h4"></path>
-                                <path d="M10 18h4"></path>
-                            </svg>
-                        @endif
+                        <div class="w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">{!! $service->icon !!}</div>
                         <h3 class="text-2xl font-bold mb-3"><span class="">{{ $service->title }}</span></h3>
                         <p class="text-muted-foreground mb-6"><span class="">{{ $service->short_description ?? $service->description ?? 'Service description' }}</span></p>
                         <a class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
