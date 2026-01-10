@@ -36,6 +36,18 @@ class Service extends Model
         'is_active' => 'boolean',
     ];
 
+    /**
+     * Translatable attributes - these will return strings based on current locale
+     */
+    protected $translatable = [
+        'title',
+        'short_description',
+        'description',
+        'category',
+        'meta_title',
+        'meta_description',
+    ];
+
     protected static function boot()
     {
         parent::boot();
@@ -47,35 +59,5 @@ class Service extends Model
                 $service->slug = Str::slug($title);
             }
         });
-    }
-
-    /**
-     * Get the title in the current locale
-     */
-    public function getTitleTranslatedAttribute(): ?string
-    {
-        $title = $this->attributes['title'] ?? null;
-        if (!$title) {
-            return null;
-        }
-        
-        // If it's already an array (after cast), use it directly
-        if (is_array($title)) {
-            $locale = app()->getLocale();
-            $fallback = config('app.fallback_locale', 'en');
-            return $title[$locale] ?? $title[$fallback] ?? null;
-        }
-        
-        // If it's a JSON string, decode it
-        if (is_string($title)) {
-            $decoded = json_decode($title, true);
-            if (is_array($decoded)) {
-                $locale = app()->getLocale();
-                $fallback = config('app.fallback_locale', 'en');
-                return $decoded[$locale] ?? $decoded[$fallback] ?? null;
-            }
-        }
-        
-        return $title;
     }
 }

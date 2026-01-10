@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    use HasTranslations;
+
     protected $fillable = [
         'title',
         'description',
@@ -36,5 +39,17 @@ class Project extends Model
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
     ];
-    
+
+    /**
+     * Translatable attributes - these will return strings based on current locale
+     */
+    protected $translatable = [
+        'title',
+        'description',
+        'full_description',
+        'category',
+        'client_name',
+        'meta_title',
+        'meta_description',
+    ];
 }

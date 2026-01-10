@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Blog extends Model
 {
+    use HasTranslations;
+
     protected $fillable = [
         'title',
         'excerpt',
@@ -33,6 +36,18 @@ class Blog extends Model
         'published_at' => 'datetime',
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
+    ];
+
+    /**
+     * Translatable attributes - these will return strings based on current locale
+     */
+    protected $translatable = [
+        'title',
+        'excerpt',
+        'content',
+        'author',
+        'meta_title',
+        'meta_description',
     ];
 
     protected static function boot()
