@@ -50,12 +50,10 @@
                 <div class="grid lg:grid-cols-2 gap-12 items-center w-full mx-0 my-[160px]">
                     <div>
                         <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight animate-fade-in"><span
-                                class="">Business Excellence Solutions</span><br><span class="text-primary">YOU CAN
-                                GROW WITH</span></h1>
+                                class="">{{ $settings['hero_title'] ?? 'Business Excellence Solutions' }}</span><br><span class="text-primary">{{ $settings['hero_subtitle'] ?? 'YOU CAN GROW WITH' }}</span></h1>
                         <p
                             class="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-in animation-delay-200">
-                            <span class="">We provide integrated business solutions that drive growth and innovation
-                                for organizations across the Middle East.</span></p>
+                            <span class="">{{ $settings['hero_description'] ?? 'We provide integrated business solutions that drive growth and innovation for organizations across the Middle East.' }}</span></p>
                         <div class="mt-10 flex flex-wrap gap-4 animate-fade-in animation-delay-300"><a class="btn-primary"
                                 href="/about"><span class="">Explore Our Services</span><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -96,7 +94,7 @@
                 <div class="relative mt-16 animate-fade-in animation-delay-400">
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/30 -rotate-1"></div>
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/20 rotate-1"></div>
-                    <div class="relative rounded-xl overflow-hidden"><img src="/assets/hero-image-U-fWZ3Pk.jpg"
+                    <div class="relative rounded-xl overflow-hidden"><img src="{{ asset($settings['hero_image'] ?? '/assets/hero-image-U-fWZ3Pk.jpg') }}"
                             alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
                         <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent">
                         </div>
@@ -115,30 +113,33 @@
         <section class="section-padding bg-dark-card">
             <div class="container-custom">
                 <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="">Our Services</span> <span
-                            class="text-primary">Comprehensive business solutions tailored to your needs</span></h2>
-                    <p class="text-muted-foreground"><span class="">We offer comprehensive solutions tailored to
-                            your unique business needs, driving growth and digital transformation.</span></p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="">{{ $settings['services_title'] ?? 'Our Services' }}</span> <span
+                            class="text-primary">{{ $settings['services_subtitle'] ?? 'Comprehensive business solutions tailored to your needs' }}</span></h2>
+                    <p class="text-muted-foreground"><span class="">{{ $settings['services_description'] ?? 'We offer comprehensive solutions tailored to your unique business needs, driving growth and digital transformation.' }}</span></p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="service-card group animate-fade-in animation-delay-100" style="margin-top: 0px;"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-building2 w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
-                            <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                            <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                            <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                            <path d="M10 6h4"></path>
-                            <path d="M10 10h4"></path>
-                            <path d="M10 14h4"></path>
-                            <path d="M10 18h4"></path>
-                        </svg>
-                        <h3 class="text-2xl font-bold mb-3"><span class="">Organizational Development</span></h3>
-                        <p class="text-muted-foreground mb-6"><span class="">Transform your organization with
-                                strategic planning and process optimization.</span></p><a
-                            class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
-                            href="/services/organizational-development"><span class="">Learn More</span><svg
+                    @foreach($services as $index => $service)
+                    <div class="service-card group animate-fade-in" style="animation-delay: {{ ($index + 1) * 100 }}ms; margin-top: {{ $index % 2 === 1 ? '2rem' : '0px' }};">
+                        @if($service->icon)
+                            <div class="w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">{!! $service->icon !!}</div>
+                        @else
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-building2 w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
+                                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+                                <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                                <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+                                <path d="M10 6h4"></path>
+                                <path d="M10 10h4"></path>
+                                <path d="M10 14h4"></path>
+                                <path d="M10 18h4"></path>
+                            </svg>
+                        @endif
+                        <h3 class="text-2xl font-bold mb-3"><span class="">{{ $service->title }}</span></h3>
+                        <p class="text-muted-foreground mb-6"><span class="">{{ $service->short_description ?? $service->description ?? 'Service description' }}</span></p>
+                        <a class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
+                            href="{{ route('services.show', $service->slug) }}"><span class="">Learn More</span><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-arrow-right">
@@ -146,81 +147,7 @@
                                 <path d="m12 5 7 7-7 7"></path>
                             </svg></a>
                     </div>
-                    <div class="service-card group animate-fade-in animation-delay-200" style="margin-top: 2rem;"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-users w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                        <h3 class="text-2xl font-bold mb-3"><span class="">CRM Solutions</span></h3>
-                        <p class="text-muted-foreground mb-6"><span class="">Implement and optimize customer
-                                relationship management systems.</span></p><a
-                            class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
-                            href="/services/crm"><span class="">Learn More</span><svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-arrow-right">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg></a>
-                    </div>
-                    <div class="service-card group animate-fade-in animation-delay-300" style="margin-top: 0px;"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-cog w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
-                            <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
-                            <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-                            <path d="M12 2v2"></path>
-                            <path d="M12 22v-2"></path>
-                            <path d="m17 20.66-1-1.73"></path>
-                            <path d="M11 10.27 7 3.34"></path>
-                            <path d="m20.66 17-1.73-1"></path>
-                            <path d="m3.34 7 1.73 1"></path>
-                            <path d="M14 12h8"></path>
-                            <path d="M2 12h2"></path>
-                            <path d="m20.66 7-1.73 1"></path>
-                            <path d="m3.34 17 1.73-1"></path>
-                            <path d="m17 3.34-1 1.73"></path>
-                            <path d="m11 13.73-4 6.93"></path>
-                        </svg>
-                        <h3 class="text-2xl font-bold mb-3"><span class="">Outsourcing Services</span></h3>
-                        <p class="text-muted-foreground mb-6"><span class="">Access skilled professionals and
-                                resources to support your operations.</span></p><a
-                            class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
-                            href="/services/outsourcing"><span class="">Learn More</span><svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-arrow-right">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg></a>
-                    </div>
-                    <div class="service-card group animate-fade-in animation-delay-400" style="margin-top: 2rem;"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-target w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <circle cx="12" cy="12" r="6"></circle>
-                            <circle cx="12" cy="12" r="2"></circle>
-                        </svg>
-                        <h3 class="text-2xl font-bold mb-3"><span class="">IT Development</span></h3>
-                        <p class="text-muted-foreground mb-6"><span class="">Custom software development and digital
-                                transformation solutions.</span></p><a
-                            class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
-                            href="/services/it-development"><span class="">Learn More</span><svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-arrow-right">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg></a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -230,8 +157,7 @@
                         class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-4 md:mb-6 animate-fade-in"><span
                             class="">Why Choose Us</span></span>
                     <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100"><span
-                            class="">Our Strengths</span><br><span class="text-primary">&amp; Competitive
-                            Advantages</span></h2>
+                            class="">{{ $settings['strengths_title'] ?? 'Our Strengths' }}</span><br><span class="text-primary">{{ $settings['strengths_subtitle'] ?? '& Competitive Advantages' }}</span></h2>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16">
                     <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
@@ -246,7 +172,7 @@
                                 </path>
                                 <circle cx="12" cy="8" r="6"></circle>
                             </svg></div>
-                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">10+ Years
+                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">{{ $settings['years_experience'] ?? '10+' }} Years
                                 Experience</span></h3>
                         <p class="text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-none"><span
                                 class="">Proven track record of delivering successful projects across various
@@ -264,7 +190,7 @@
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg></div>
-                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">100+ Team
+                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">{{ $settings['team_members'] ?? '100+' }} Team
                                 Members</span></h3>
                         <p class="text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-none"><span
                                 class="">Expert professionals dedicated to your business success.</span></p>
@@ -317,11 +243,9 @@
                                     <circle cx="12" cy="12" r="6"></circle>
                                     <circle cx="12" cy="12" r="2"></circle>
                                 </svg></div>
-                            <h3 class="text-lg md:text-2xl font-bold"><span class="">Our Mission</span></h3>
+                            <h3 class="text-lg md:text-2xl font-bold"><span class="">{{ $settings['mission_title'] ?? 'Our Mission' }}</span></h3>
                         </div>
-                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed"><span class="">To
-                                empower businesses to achieve their full potential through innovative solutions and
-                                exceptional services that drive growth and success.</span></p>
+                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed"><span class="">{{ $settings['mission_text'] ?? 'To empower businesses to achieve their full potential through innovative solutions and exceptional services that drive growth and success.' }}</span></p>
                     </div>
                     <div
                         class="group p-5 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-secondary/50 to-secondary/30 border border-border hover:border-primary/40 transition-all duration-300 animate-fade-in animation-delay-200">
@@ -337,11 +261,9 @@
                                     </path>
                                     <circle cx="12" cy="12" r="3"></circle>
                                 </svg></div>
-                            <h3 class="text-lg md:text-2xl font-bold"><span class="">Our Vision</span></h3>
+                            <h3 class="text-lg md:text-2xl font-bold"><span class="">{{ $settings['vision_title'] ?? 'Our Vision' }}</span></h3>
                         </div>
-                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed"><span class="">To be
-                                the leading trusted partner for digital transformation and organizational development in the
-                                Arab region.</span></p>
+                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed"><span class="">{{ $settings['vision_text'] ?? 'To be the leading trusted partner for digital transformation and organizational development in the Arab region.' }}</span></p>
                     </div>
                 </div>
                 <div class="text-center">
@@ -407,99 +329,55 @@
                         class="inline-block px-4 py-2 rounded-full border border-border text-sm font-medium mb-6 animate-fade-in"><span
                             class="">Complete Work</span></span>
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in animation-delay-100"><span
-                            class="">Creative Projects</span><br><span class="text-primary">We've Delivered To
-                            Clients</span></h2>
+                            class="">{{ $settings['projects_title'] ?? 'Creative Projects' }}</span><br><span class="text-primary">{{ $settings['projects_subtitle'] ?? 'We\'ve Delivered To Clients' }}</span></h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="space-y-8">
-                        <div class="group animate-fade-in animation-delay-200">
-                            <div
-                                class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
-                                <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767369371739-yfw62o.jpg"
-                                        alt="Visual Identity Design for “Latoga” Fashion Brand"
-                                        class="transition-transform duration-500 group-hover:scale-110"></div>
-                                <div class="absolute bottom-8 left-8 flex gap-2"><span
-                                        class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">Visual Identity
-                                        Design </span></div>
-                            </div><a href="/projects/955a075e-8684-4ec9-87e3-0931cdf2f5b5">
-                                <h3
-                                    class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">
-                                    Visual Identity Design for “Latoga” Fashion Brand</h3>
+                        @foreach($projects->filter(fn($p, $i) => $i % 2 === 0)->take(2) as $index => $project)
+                        <div class="group animate-fade-in" style="animation-delay: {{ ($index + 2) * 100 }}ms;">
+                            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
+                                <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
+                                    <img src="{{ $project->image }}" alt="{{ $project->title }}" class="transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="absolute bottom-8 left-8 flex gap-2">
+                                    <span class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">{{ $project->category }}</span>
+                                </div>
+                            </div>
+                            <a href="{{ route('projects.show', $project->id) }}">
+                                <h3 class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">{{ $project->title }}</h3>
                             </a>
-                            <p class="text-muted-foreground text-sm mt-2 line-clamp-2">COMPACT developed a complete visual
-                                identity for Latoga, a fashion brand, to create a modern, consistent, and recognizable brand
-                                presence. The project covered logo development, color and typography systems, visual
-                                elements, and brand applications across digital and marketing touchpoints.</p>
+                            <p class="text-muted-foreground text-sm mt-2 line-clamp-2">{{ $project->description ?? $project->short_description ?? 'Project description' }}</p>
                         </div>
-                        <div class="group animate-fade-in animation-delay-400">
-                            <div
-                                class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-700/50 to-slate-800/50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
-                                <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767369631707-8gr9oq.webp"
-                                        alt="Website Development for Rento Co for vehicles rental service  "
-                                        class="transition-transform duration-500 group-hover:scale-110"></div>
-                                <div class="absolute bottom-8 left-8 flex gap-2"><span
-                                        class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">Web
-                                        Development</span></div>
-                            </div><a href="/projects/4f4bbdb8-4328-498e-aa13-77d121ec9aea">
-                                <h3
-                                    class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">
-                                    Website Development for Rento Co for vehicles rental service </h3>
-                            </a>
-                            <p class="text-muted-foreground text-sm mt-2 line-clamp-2">Rento Car Rental Website – UI/UX
-                                Design &amp; Development (Moken)
-
-                                Rento by Moken: Car Rental Website Development</p>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="space-y-8 md:mt-16">
-                        <div class="group animate-fade-in animation-delay-300">
-                            <div
-                                class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-500/30 to-gray-600/30 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
-                                <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767369194317-uge4kq.png"
-                                        alt="Digital Marketing for Matrix (Masfoofat Al-Taqnia)"
-                                        class="transition-transform duration-500 group-hover:scale-110"></div>
-                                <div class="absolute bottom-8 left-8 flex gap-2"><span
-                                        class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">Digital
-                                        Marketing</span></div>
-                            </div><a href="/projects/6f5ad5ae-b5a8-4559-b941-aae8d4eb50ec">
-                                <h3
-                                    class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">
-                                    Digital Marketing for Matrix (Masfoofat Al-Taqnia)</h3>
+                        @foreach($projects->filter(fn($p, $i) => $i % 2 === 1)->take(2) as $index => $project)
+                        <div class="group animate-fade-in" style="animation-delay: {{ ($index + 3) * 100 }}ms;">
+                            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-500/30 to-gray-600/30 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
+                                <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
+                                    <img src="{{ $project->image }}" alt="{{ $project->title }}" class="transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                @if($project->category)
+                                <div class="absolute bottom-8 left-8 flex gap-2">
+                                    <span class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">{{ $project->category }}</span>
+                                </div>
+                                @endif
+                            </div>
+                            <a href="{{ route('projects.show', $project->id) }}">
+                                <h3 class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">{{ $project->title }}</h3>
                             </a>
-                            <p class="text-muted-foreground text-sm mt-2 line-clamp-2">COMPACT delivered integrated digital
-                                marketing for Matrix (Masfoofat Al-Taqnia) to increase brand visibility, generate qualified
-                                leads, and improve performance through content strategy, paid campaigns, and
-                                analytics-driven optimization.</p>
+                            <p class="text-muted-foreground text-sm mt-2 line-clamp-2">{{ $project->description ?? $project->short_description ?? 'Project description' }}</p>
                         </div>
-                        <div class="group animate-fade-in animation-delay-500">
-                            <div
-                                class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-500/30 to-gray-600/30 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
-                                <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767368479210-m929sc.png"
-                                        alt="Digital Marketing Management for yallagoom website "
-                                        class="transition-transform duration-500 group-hover:scale-110"></div>
-                                <div class="absolute bottom-8 left-8 flex gap-2"><span
-                                        class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">Digital
-                                        Marketing </span></div>
-                            </div><a href="/projects/07348e75-2bbc-4938-afc0-33f7e2dcf0de">
-                                <h3
-                                    class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">
-                                    Digital Marketing Management for yallagoom website </h3>
-                            </a>
-                            <p class="text-muted-foreground text-sm mt-2 line-clamp-2">Digital Marketing Management for
-                                yallagoom website </p>
-                        </div>
-                        <div class="pt-4"><a class="btn-outline inline-flex items-center gap-2" href="/projects"><span
-                                    class="">View All</span><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                    height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-arrow-right">
+                        @endforeach
+                        <div class="pt-4">
+                            <a class="btn-outline inline-flex items-center gap-2" href="{{ route('projects') }}">
+                                <span class="">View All</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
-                                </svg></a></div>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -629,19 +507,18 @@
                             href="/about"><span class="">View Teams</span></a></div>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="group animate-fade-in" style="animation-delay: 100ms;">
-                        <div class="relative overflow-hidden rounded-lg"><img
-                                src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/team-images/1767365666184.jpg"
-                                alt="Ahmed Hemdan" class="grayscale group-hover:grayscale-0 transition-all duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
+                    @foreach($teams as $index => $team)
+                    <div class="group animate-fade-in" style="animation-delay: {{ ($index + 1) * 100 }}ms;">
+                        <div class="relative overflow-hidden rounded-lg">
+                            <img src="{{ $team->image }}" alt="{{ $team->name }}" class="grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         <div class="mt-4">
-                            <p class="text-muted-foreground text-sm">CEO and Founder</p>
-                            <h3 class="font-bold text-lg">Ahmed Hemdan</h3>
+                            <p class="text-muted-foreground text-sm">{{ $team->position }}</p>
+                            <h3 class="font-bold text-lg">{{ $team->name }}</h3>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -667,76 +544,21 @@
                             <path d="m9 18 6-6-6-6"></path>
                         </svg></button>
                     <div class="overflow-hidden mx-12">
-                        <div class="flex transition-transform duration-500 ease-in-out"
-                            style="transform: translateX(-66.6667%);">
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;"><a
-                                    href="https://www.yallagoom.com/ar/" target="_blank" rel="noopener noreferrer"
-                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367824956.png"
-                                        alt="https://www.yallagoom.com/ar/"
-                                        class="max-h-full max-w-full object-contain"></a></div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;"><a href="https://rentocars.com/"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367220752.webp"
-                                        alt="Rento" class="max-h-full max-w-full object-contain"></a></div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;"><a href="https://rabiah.com.sa/"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767366848382.jpg"
-                                        alt=" Rabiah Garden Trading &amp; Contracting - شركة رابيه الحديقه "
-                                        class="max-h-full max-w-full object-contain"></a></div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;">
-                                <div
-                                    class="bg-white rounded-xl p-6 h-28 flex items-center justify-center border border-border/10">
-                                    <img src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367098549.webp"
-                                        alt="Kazdora" class="max-h-full max-w-full object-contain"></div>
+                        <div class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(-66.6667%);">
+                            @foreach($partners as $partner)
+                            <div class="flex-shrink-0 px-2" style="width: {{ 100 / max(6, count($partners)) }}%;">
+                                @if($partner->website_url)
+                                <a href="{{ $partner->website_url }}" target="_blank" rel="noopener noreferrer"
+                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10">
+                                    <img src="{{ $partner->logo }}" alt="{{ $partner->name }}" class="max-h-full max-w-full object-contain">
+                                </a>
+                                @else
+                                <div class="bg-white rounded-xl p-6 h-28 flex items-center justify-center border border-border/10">
+                                    <img src="{{ $partner->logo }}" alt="{{ $partner->name }}" class="max-h-full max-w-full object-contain">
+                                </div>
+                                @endif
                             </div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;">
-                                <div
-                                    class="bg-white rounded-xl p-6 h-28 flex items-center justify-center border border-border/10">
-                                    <img src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367125833.webp"
-                                        alt="Beta" class="max-h-full max-w-full object-contain"></div>
-                            </div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;">
-                                <div
-                                    class="bg-white rounded-xl p-6 h-28 flex items-center justify-center border border-border/10">
-                                    <img src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367147116.webp"
-                                        alt="B Web" class="max-h-full max-w-full object-contain"></div>
-                            </div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;"><a href="https://www.se.com.sa/en"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367396296.webp"
-                                        alt="SEC" class="max-h-full max-w-full object-contain"></a></div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;">
-                                <div
-                                    class="bg-white rounded-xl p-6 h-28 flex items-center justify-center border border-border/10">
-                                    <img src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367176198.webp"
-                                        alt="Cinnabon" class="max-h-full max-w-full object-contain"></div>
-                            </div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;"><a
-                                    href="https://fitnessunionsa.com/" target="_blank" rel="noopener noreferrer"
-                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367317608.webp"
-                                        alt="Ethad" class="max-h-full max-w-full object-contain"></a></div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;">
-                                <div
-                                    class="bg-white rounded-xl p-6 h-28 flex items-center justify-center border border-border/10">
-                                    <img src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367294316.webp"
-                                        alt="PMT" class="max-h-full max-w-full object-contain"></div>
-                            </div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;"><a href="https://ciphersol.com/"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767367443004.webp"
-                                        alt="https://ciphersol.com/" class="max-h-full max-w-full object-contain"></a>
-                            </div>
-                            <div class="flex-shrink-0 px-2" style="width: 16.6667%;"><a href="https://matrixai.sa/"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10"><img
-                                        src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/partner-logos/1767368005279.png"
-                                        alt="https://matrixai.sa/" class="max-h-full max-w-full object-contain"></a></div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="flex justify-center gap-2 mt-6"><button

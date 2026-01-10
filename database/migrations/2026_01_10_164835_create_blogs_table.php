@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('slug')->unique();
             $table->string('author')->nullable();
-            $table->date('published_at')->nullable();
+            $table->timestamp('published_at')->nullable();
             $table->integer('read_time')->default(5); // in minutes
             $table->integer('order')->default(0);
             $table->boolean('is_featured')->default(false);

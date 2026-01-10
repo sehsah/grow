@@ -16,12 +16,7 @@
                                     <path d="M20 0 L20 40 M0 20 L40 20 M5 5 L35 35 M35 5 L5 35" stroke="currentColor"
                                         stroke-width="1" fill="none"></path>
                                 </svg></div>
-                            <p class="text-muted-foreground max-w-md"><span class="">COMPACT delivers integrated
-                                    business solutions across: Organizational Development, Business Development, CRM
-                                    Solutions, Digital Transformation &amp; Automation, Dashboards &amp; Reporting, System
-                                    Integration, Websites &amp; Mobile Apps, and 360° Digital Marketing—plus Governance
-                                    Solutions, Recruitment &amp; Training, Financial Consulting, and Legal Consulting</span>
-                            </p>
+                            <p class="text-muted-foreground max-w-md"><span class="">{{ $settings['intro_text'] ?? 'COMPACT delivers integrated business solutions across: Organizational Development, Business Development, CRM Solutions, Digital Transformation & Automation, Dashboards & Reporting, System Integration, Websites & Mobile Apps, and 360° Digital Marketing—plus Governance Solutions, Recruitment & Training, Financial Consulting, and Legal Consulting' }}</span></p>
                         </div>
                     </div>
                     <div
@@ -52,24 +47,17 @@
                             class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">About Us</span>
                         <h2 class="text-3xl md:text-4xl font-bold mb-6"><span class="">Your Partner in Business
                                 Excellence</span></h2>
-                        <p class="text-muted-foreground leading-relaxed mb-4"><span class="">COMPACT delivers
-                                integrated business solutions across: Organizational Development, Business Development, CRM
-                                Solutions, Digital Transformation &amp; Automation, Dashboards &amp; Reporting, System
-                                Integration, Websites &amp; Mobile Apps, and 360° Digital Marketing—plus Governance
-                                Solutions, Recruitment &amp; Training, Financial Consulting, and Legal Consulting</span></p>
-                        <p class="text-muted-foreground leading-relaxed mb-4"><span class="">Backed by over a decade
-                                of experience, we help organizations achieve measurable goals and transform operations for
-                                sustainable growth.</span></p>
-                        <p class="text-muted-foreground leading-relaxed"><span class="">Our team blends deep industry
-                                expertise with innovative, results-driven approaches on every project.</span></p>
+                        <p class="text-muted-foreground leading-relaxed mb-4"><span class="">{{ $settings['intro_text'] ?? 'COMPACT delivers integrated business solutions across: Organizational Development, Business Development, CRM Solutions, Digital Transformation & Automation, Dashboards & Reporting, System Integration, Websites & Mobile Apps, and 360° Digital Marketing—plus Governance Solutions, Recruitment & Training, Financial Consulting, and Legal Consulting' }}</span></p>
+                        <p class="text-muted-foreground leading-relaxed mb-4"><span class="">{{ $settings['description_text'] ?? 'Backed by over a decade of experience, we help organizations achieve measurable goals and transform operations for sustainable growth.' }}</span></p>
+                        <p class="text-muted-foreground leading-relaxed"><span class="">{{ $settings['team_expertise'] ?? 'Our team blends deep industry expertise with innovative, results-driven approaches on every project.' }}</span></p>
                     </div>
                     <div class="relative animate-fade-in animation-delay-200">
-                        <div class="aspect-[4/3] rounded-2xl overflow-hidden"><img src="/assets/team-marketer-DnNglUX8.jpg"
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden"><img src="{{ asset($settings['team_image'] ?? '/assets/team-marketer-DnNglUX8.jpg') }}"
                                 alt="Our Team"
                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
                         </div>
                         <div class="absolute bottom-4 left-4 bg-primary px-6 py-4 rounded-lg"><span
-                                class="text-3xl font-bold text-primary-foreground">10+</span>
+                                class="text-3xl font-bold text-primary-foreground">{{ $settings['years_experience'] ?? '10+' }}</span>
                             <p class="text-sm text-primary-foreground/80">Years Experience</p>
                         </div>
                     </div>
@@ -87,7 +75,7 @@
                         <div class="flex items-center gap-4 mb-4">
                             <div
                                 class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span class="">150+</span></span></div>
+                                <span class="text-2xl font-bold text-primary"><span class="">{{ $settings['clients_count'] ?? '150+' }}</span></span></div>
                             <h3 class="text-lg font-bold"><span class="">Clients</span></h3>
                         </div>
                         <p class="text-sm text-muted-foreground leading-relaxed"><span class="">Trusted by leading
@@ -98,7 +86,7 @@
                         <div class="flex items-center gap-4 mb-4">
                             <div
                                 class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span class="">200+</span></span></div>
+                                <span class="text-2xl font-bold text-primary"><span class="">{{ $settings['projects_count'] ?? '200+' }}</span></span></div>
                             <h3 class="text-lg font-bold"><span class="">Projects</span></h3>
                         </div>
                         <p class="text-sm text-muted-foreground leading-relaxed"><span class="">Successfully
@@ -109,7 +97,7 @@
                         <div class="flex items-center gap-4 mb-4">
                             <div
                                 class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span class="">50+</span></span></div>
+                                <span class="text-2xl font-bold text-primary"><span class="">{{ $settings['experts_count'] ?? '50+' }}</span></span></div>
                             <h3 class="text-lg font-bold"><span class="">Experts</span></h3>
                         </div>
                         <p class="text-sm text-muted-foreground leading-relaxed"><span class="">Dedicated
@@ -120,7 +108,7 @@
                         <div class="flex items-center gap-4 mb-4">
                             <div
                                 class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span class="">10+</span></span></div>
+                                <span class="text-2xl font-bold text-primary"><span class="">{{ $settings['years_experience'] ?? '10+' }}</span></span></div>
                             <h3 class="text-lg font-bold"><span class="">Years</span></h3>
                         </div>
                         <p class="text-sm text-muted-foreground leading-relaxed"><span class="">Industry
@@ -144,9 +132,7 @@
                                 <circle cx="12" cy="12" r="2"></circle>
                             </svg></div>
                         <h3 class="text-2xl font-bold mb-4"><span class="">Our Mission</span></h3>
-                        <p class="text-muted-foreground leading-relaxed"><span class="">To empower organizations
-                                with innovative, data-driven solutions that accelerate sustainable growth and strengthen
-                                operational excellence</span></p>
+                        <p class="text-muted-foreground leading-relaxed"><span class="">{{ $settings['mission_text'] ?? 'To empower organizations with innovative, data-driven solutions that accelerate sustainable growth and strengthen operational excellence' }}</span></p>
                     </div>
                     <div
                         class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in animation-delay-200">
@@ -161,9 +147,7 @@
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg></div>
                         <h3 class="text-2xl font-bold mb-4"><span class="">Our Vision</span></h3>
-                        <p class="text-muted-foreground leading-relaxed"><span class="">To be the Middle East’s most
-                                trusted business consulting partner, delivering transformative solutions and consistently
-                                exceptional results.</span></p>
+                        <p class="text-muted-foreground leading-relaxed"><span class="">{{ $settings['vision_text'] ?? 'To be the Middle East\'s most trusted business consulting partner, delivering transformative solutions and consistently exceptional results.' }}</span></p>
                     </div>
                 </div>
             </div>
@@ -173,8 +157,7 @@
                 <div class="text-center mb-12 animate-fade-in"><span
                         class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6"><span
                             class="">Our Values</span></span>
-                    <p class="text-muted-foreground max-w-2xl mx-auto"><span class="">We are guided by integrity,
-                            innovation, collaboration, and a commitment to excellence in everything we do.</span></p>
+                    <p class="text-muted-foreground max-w-2xl mx-auto"><span class="">{{ $settings['values_text'] ?? 'We are guided by integrity, innovation, collaboration, and a commitment to excellence in everything we do.' }}</span></p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
                     <div class="group text-center animate-fade-in" style="animation-delay: 0ms;">
@@ -302,16 +285,13 @@
                                 d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
                             </path>
                         </svg></div>
-                    <blockquote class="text-xl md:text-2xl italic text-muted-foreground mb-8 leading-relaxed">"COMPACT
-                        completely transformed our business with their innovative solutions! Their exceptional expertise
-                        went beyond expectations, creating a visually stunning and user-friendly experience. The team's
-                        attention to detail and commitment is unmatched!"</blockquote>
+                    <blockquote class="text-xl md:text-2xl italic text-muted-foreground mb-8 leading-relaxed">"{{ $settings['testimonial_text'] ?? 'COMPACT completely transformed our business with their innovative solutions! Their exceptional expertise went beyond expectations, creating a visually stunning and user-friendly experience. The team\'s attention to detail and commitment is unmatched!' }}"</blockquote>
                     <div class="flex items-center justify-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center"><span
-                                class="text-lg font-bold text-primary">A</span></div>
+                                class="text-lg font-bold text-primary">{{ substr($settings['testimonial_author'] ?? 'Ahmed Hassan', 0, 1) }}</span></div>
                         <div class="text-left">
-                            <p class="font-bold">Ahmed Hassan</p>
-                            <p class="text-sm text-muted-foreground">CEO &amp; Founder</p>
+                            <p class="font-bold">{{ $settings['testimonial_author'] ?? 'Ahmed Hassan' }}</p>
+                            <p class="text-sm text-muted-foreground">{{ $settings['testimonial_author_position'] ?? 'CEO & Founder' }}</p>
                         </div>
                     </div>
                 </div>
@@ -432,176 +412,23 @@
                             <path d="m9 18 6-6-6-6"></path>
                         </svg></button>
                     <div class="overflow-hidden mx-6 md:mx-16">
-                        <div class="flex transition-transform duration-500 ease-out"
-                            style="transform: translateX(-100%);">
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/beta-egypt-MRqrJC6s.webp" alt="Beta Egypt"
+                        <div class="flex transition-transform duration-500 ease-out" style="transform: translateX(-100%);">
+                            @foreach($partners as $partner)
+                            <div class="flex-shrink-0 px-2 md:px-3" style="width: {{ 100 / max(6, count($partners)) }}%;">
+                                @if($partner->website_url)
+                                <a href="{{ $partner->website_url }}" target="_blank" rel="noopener noreferrer"
+                                    class="block bg-white rounded-xl p-4 md:p-6 h-[80px] md:h-[100px] flex items-center justify-center hover:shadow-lg transition-shadow border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
+                                    <img src="{{ $partner->logo }}" alt="{{ $partner->name }}"
+                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
+                                </a>
+                                @else
+                                <div class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
+                                    <img src="{{ $partner->logo }}" alt="{{ $partner->name }}"
                                         class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
                                 </div>
+                                @endif
                             </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/businessway-B8O6SX9S.webp" alt="Businessway"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/cinnabon-Bz2_o0I6.webp" alt="Cinnabon"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/ciphersol-CwhBd79c.webp" alt="CipherSol"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/fawry-Dz-N_cdI.webp" alt="Fawry"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/foodics-CaXrLxRO.webp" alt="Foodics"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/kazdora-uQ48DegU.webp" alt="Kazdora"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/mince-qD1HABXE.webp" alt="Mince Burgers"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/mori-sushi-D21c8P5x.webp" alt="Mori Sushi"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/ncb-alahly-CQTOcXQQ.webp" alt="NCB Al-Ahly"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="data:image/webp;base64,UklGRlAFAABXRUJQVlA4WAoAAAAQAAAAXgAARgAAQUxQSGQCAAABoERt2/FIesI2k2rbtm17Zdvujtq2xrZt27baVtm+F9//D/7Jds5ExATovy5dXs+f81dwx5caL+Sn7vPauZYnFn7RPJ643wWI2I0vAn4pEUcqFxlfLY60kav9+sX3YtaII77fjKeyyJl9KySuNC6Vkmbu3bF1y5bo3BZSg1g4NMVqWigUbtovEg6Fw+FwJBxwgLpegJOPwIUDAA/flceJ9pI+xHarhgIpdYx6hcCE/dg3dYLKDj36I3B3hsGJW/qUlKT3SZo+Zcr8D8iuPBTS2GDsIKeICf2j4Rg8GQpvqOwIjcY8jO04me9wwiepE3QYCg9zsrRU6jIvXGGCpDK5TJdjW1g8fR0yEoEmFm9z0mgMvYfB9EIGS8NhQcq/wHO/kbri+a2vvHF43XG3xZv8YXSDjkOh19c8ItdTXGiawnjHqcEDABuWFgKX+snydVLXrw/tOUl6YAh0nktG9Rq5hAOpVjlOqnApc2d44928cwLgRDkb66KohkCnSpdYuJjkCsEMu2nOGYztfoOBFm+QOHvGjElDaro0FDppH++/U3xYwQwmOC/FZqdxo7/FW/zhk/VQCjqpSU5xUW5TBVMZb2Q7p+zOs9cfyzJOfwZX9337245ykt7npN9mGHSS+zl4TQpmWuU65yGAx4Dk5cDKPOAJt/Q63/lsBmUldpAGpKeOlAKn00YblzImOqRSnvHjT0kPN230xPUPHgIoqCZVqhaQra9KgldyJwRdkiuQ4JPkCiaUdEjpy8YzpfySVLLULiOxouLolGJIbyLb4CeQv1hxtf2mpdX0J8vP3trDHV/+byRWUDggxgIAAJAQAJ0BKl8ARwA+kUCaSqWjoiGldmvQsBIJZQDWiYA92vAL/47qD/po/c3A1gbwDzk/6r0x84H0p7BHSZ8oA0m7mFFMCXJU4DCaHkqoi3qc+0+zqsI4yE2TsdcldK4jtQgOWUPnsosAE3lyy+BX2OSd6fwK9Lfyla2MdvvREOi4aJ81T+9tKMafQCVykAD++/1R39iDETyc1kuyVCSOoNAUO4INePtdhbcDaihX7P3dRmPMUD9k7TdsYt/rLv99Jqc+ZBLFv58MmxA7uRYoD48O5h7ekJW/lG/lTwd217/UOOuXYNh/1YGfVpn3j9FEXtd8gBZhwNypI/+biK/JBBz3ErBiDXF7bhdqHHJ3vNL7j20gieFXBeLDxeLvDj/Dx3qA31VpsLgrdfgU5tYXKaKmpx32xFtDnZQA2KBAn4al0I0g98+q+jB3CQMwLv+MmwqXdwvYRlw7mOOhxln5PWrJeey3RTcNTtL7V6jMAfs6SL6hAfsr82deisLuXWoR+iGKTCVfla/WbZmS33nM4SWtPweFxdXEhCtfC6/wr1xbAHLT8UH11MSxH6r78+8oYWgFVNJPdg9tq1G6P45+z0LaTcUXdWHF+OxEhBciS+fySYaO+gG0bdUG1/yoIk96C8wlur6a4GW7XP3XNCNgrVgsHXHyLEbOhuYL3FjFWHAN9j8X9s/4ubz8bsgEZRwxDsulbykwDkJA/mTR/ILqDQDm/rHLSsj3xGSfy9kAucYbXHbtkJyYL3lLv1VGxmQE8XJOG5BFqNDpRGsA7jC/FvEZwLaT6x5vKIkcRiIJrnr+1kgMXdjcbK2mYq++XPNmjRFcweN+MYZmU0NjqtLbIQ0PxXX11EC3jqhtd2JQotKppdCTfcRPbfnJVF12mA8gN4A/UJf8W9v/V3IIxkIqbkL8f8lP+5rhJWN9P//NaL/2+BGIAAAA"
-                                        alt="PMT" class="max-h-12 md:max-h-16 max-w-full w-auto object-contain"
-                                        draggable="false"></div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/rento-CeoYu8s5.webp" alt="Rento"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/shawarma-classic-B2mGNky2.webp" alt="Shawarma Classic"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/telgani-BSTslxfU.webp" alt="Telgani"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/zacks-BhRFpL6P.webp" alt="Zacks"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/saudi-electricity-C1A_200v.webp" alt="Saudi Electricity"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/burgernow-CFj6abeZ.webp" alt="Burgernow"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/suez-insurance-182U0zqV.webp" alt="Suez Insurance"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/misr-life-insurance-Ds3zZM3l.webp" alt="Misr Life Insurance"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/ministry-of-culture-gjaNJ2WB.webp" alt="Ministry of Culture"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/egyptian-opera-jRd0Ggej.webp" alt="Egyptian Opera"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/theeb-D8ZFBsPd.webp" alt="Theeb"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/raneen-CERVWUfG.webp" alt="Raneen"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 px-2 md:px-3" style="width: 16.6667%;">
-                                <div
-                                    class="flex items-center justify-center p-4 md:p-6 h-[80px] md:h-[100px] rounded-xl bg-white border border-border/30 hover:border-primary/50 hover:scale-105 transition-all duration-300">
-                                    <img src="/assets/fitness-union-sDf3OAGv.webp" alt="Fitness Union"
-                                        class="max-h-12 md:max-h-16 max-w-full w-auto object-contain" draggable="false">
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="flex justify-center gap-2 mt-6"><button

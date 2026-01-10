@@ -25,7 +25,7 @@ Route::get('/projects/{id}', [ProjectsController::class, 'show'])->name('project
 
 // Blog pages
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Career pages
 Route::get('/career', [CareerController::class, 'index'])->name('career');

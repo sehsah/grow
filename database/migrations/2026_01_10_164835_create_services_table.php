@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('short_description')->nullable();
             $table->text('description')->nullable();
             $table->string('category')->nullable(); // e.g., Business Consulting, Sales, etc.
-            $table->string('icon')->nullable(); // SVG icon name or class
+            $table->text('icon')->nullable(); // SVG icon HTML
             $table->string('image')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('is_featured')->default(false);

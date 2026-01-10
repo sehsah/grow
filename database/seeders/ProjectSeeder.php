@@ -80,7 +80,7 @@ Rento by Moken: Car Rental Website Development',
                 'meta_description' => 'Complete digital marketing management services for Yallagoom website.',
             ],
         ];
-
+        Project::truncate();
         foreach ($projects as $project) {
             Project::create($project);
         }

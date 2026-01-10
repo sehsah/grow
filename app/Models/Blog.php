@@ -24,7 +24,7 @@ class Blog extends Model
     ];
 
     protected $casts = [
-        'published_at' => 'date',
+        'published_at' => 'datetime',
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
     ];
