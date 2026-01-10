@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Teams\Schemas;
 
+use App\Filament\Helpers\MultilingualHelper;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
@@ -22,16 +22,25 @@ class TeamForm
                             ->schema([
                                 Section::make('Basic Information')
                                     ->schema([
-                                        TextInput::make('name')
-                                            ->required()
-                                            ->maxLength(255)
-                                            ->label('Full Name'),
+                                        MultilingualHelper::multilingualTextInput(
+                                            'name',
+                                            'Full Name',
+                                            [
+                                                'required' => true,
+                                                'maxLength' => 255,
+                                            ]
+                                        ),
                                         
-                                        TextInput::make('position')
-                                            ->required()
-                                            ->maxLength(255)
-                                            ->label('Position/Title')
-                                            ->placeholder('e.g., CEO & Founder, Senior Developer'),
+                                        MultilingualHelper::multilingualTextInput(
+                                            'position',
+                                            'Position/Title',
+                                            [
+                                                'required' => true,
+                                                'maxLength' => 255,
+                                                'en_placeholder' => 'e.g., CEO & Founder',
+                                                'ar_placeholder' => 'مثل: الرئيس التنفيذي والمؤسس',
+                                            ]
+                                        ),
                                         
                                         FileUpload::make('image')
                                             ->image()
@@ -40,16 +49,20 @@ class TeamForm
                                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                                             ->maxSize(5120)
                                             ->required()
-                                            ->label('Profile Photo'),
-                                        
-                                        Textarea::make('bio')
-                                            ->rows(4)
-                                            ->maxLength(1000)
-                                            ->label('Bio/Biography')
-                                            ->helperText('Brief biography about the team member')
+                                            ->label('Profile Photo')
                                             ->columnSpanFull(),
-                                    ])
-                                    ->columns(2),
+                                        
+                                        MultilingualHelper::multilingualRichEditor(
+                                            'bio',
+                                            'Bio/Biography',
+                                            [
+                                                'rows' => 4,
+                                                'maxLength' => 1000,
+                                                'en_helper' => 'Brief biography about the team member (English)',
+                                                'ar_helper' => 'سيرة ذاتية موجزة عن عضو الفريق (العربية)',
+                                            ]
+                                        ),
+                                    ]),
                             ]),
                         
                         Tabs\Tab::make('Contact & Social')

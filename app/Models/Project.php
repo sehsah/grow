@@ -36,4 +36,5 @@ class Project extends Model
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
     ];
+    
 }

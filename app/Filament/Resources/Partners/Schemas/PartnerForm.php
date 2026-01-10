@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Partners\Schemas;
 
+use App\Filament\Helpers\MultilingualHelper;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
@@ -17,10 +17,14 @@ class PartnerForm
             ->components([
                 Section::make('Partner Information')
                     ->schema([
-                        TextInput::make('name')
-                            ->required()
-                            ->maxLength(255)
-                            ->label('Partner Name'),
+                        MultilingualHelper::multilingualTextInput(
+                            'name',
+                            'Partner Name',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                            ]
+                        ),
                         
                         FileUpload::make('logo')
                             ->image()
@@ -37,12 +41,17 @@ class PartnerForm
                             ->label('Website URL')
                             ->helperText('Optional: Partner website URL'),
                         
-                        Textarea::make('description')
-                            ->rows(3)
-                            ->maxLength(500)
-                            ->helperText('Optional: Brief description about the partner'),
-                    ])
-                    ->columns(2),
+                        MultilingualHelper::multilingualTextarea(
+                            'description',
+                            'Description',
+                            [
+                                'rows' => 3,
+                                'maxLength' => 500,
+                                'en_helper' => 'Optional: Brief description about the partner',
+                                'ar_helper' => 'اختياري: وصف موجز عن الشريك',
+                            ]
+                        ),
+                    ]),
                 
                 Section::make('Settings')
                     ->schema([

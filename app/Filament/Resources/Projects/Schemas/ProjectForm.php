@@ -2,10 +2,11 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
+use App\Filament\Helpers\MultilingualHelper;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Select;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Toggle;
@@ -24,35 +25,56 @@ class ProjectForm
                             ->schema([
                                 Section::make('Basic Information')
                                     ->schema([
-                                        TextInput::make('title')
-                                            ->required()
-                                            ->maxLength(255),
-                                        
-                                        Textarea::make('description')
-                                            ->required()
-                                            ->rows(4)
-                                            ->columnSpanFull(),
-                                        
-                                        Textarea::make('full_description')
-                                            ->rows(6)
-                                            ->columnSpanFull(),
-                                        
-                                        Select::make('category')
-                                            ->options([
-                                                'Visual Identity Design' => 'Visual Identity Design',
-                                                'Digital Marketing' => 'Digital Marketing',
-                                                'Web Development' => 'Web Development',
-                                                'Mobile Development' => 'Mobile Development',
-                                                'UI/UX Design' => 'UI/UX Design',
-                                            ])
-                                            ->searchable(),
-                                        
-                                        TextInput::make('client_name')
-                                            ->maxLength(255),
-                                    ])
-                                    ->columns(2),
+                                        MultilingualHelper::multilingualTextInput(
+                                            'title',
+                                            'Title',
+                                            [
+                                                'required' => true,
+                                                'maxLength' => 255,
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualTextarea(
+                                            'description',
+                                            'Description',
+                                            [
+                                                'required' => true,
+                                                'rows' => 4,
+                                                'en_helper' => 'Short description shown in listings (English)',
+                                                'ar_helper' => 'وصف موجز يظهر في القوائم (العربية)',
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualRichEditor(
+                                            'full_description',
+                                            'Full Description',
+                                            [
+                                                'rows' => 6,
+                                                'en_helper' => 'Complete project description (English)',
+                                                'ar_helper' => 'وصف المشروع الكامل (العربية)',
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualTextInput(
+                                            'category',
+                                            'Category',
+                                            [
+                                                'maxLength' => 255,
+                                                'en_placeholder' => 'e.g., Visual Identity Design',
+                                                'ar_placeholder' => 'مثل: تصميم الهوية البصرية',
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualTextInput(
+                                            'client_name',
+                                            'Client Name',
+                                            [
+                                                'maxLength' => 255,
+                                            ]
+                                        ),
+                                    ]),
                             ]),
-                        
+
                         Tabs\Tab::make('Media & Project Info')
                             ->schema([
                                 Section::make('Media')
@@ -64,25 +86,25 @@ class ProjectForm
                                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                                             ->maxSize(5120)
                                             ->required(),
-                                        
+
                                         Textarea::make('gallery')
                                             ->rows(3)
                                             ->helperText('JSON array of image URLs')
                                             ->columnSpanFull(),
                                     ])
                                     ->columns(2),
-                                
+
                                 Section::make('Project Information')
                                     ->schema([
                                         DatePicker::make('project_date')
                                             ->displayFormat('d/m/Y')
                                             ->native(false),
-                                        
+
                                         TextInput::make('project_url')
                                             ->url()
                                             ->maxLength(255)
                                             ->helperText('Live project URL'),
-                                        
+
                                         TextInput::make('order')
                                             ->numeric()
                                             ->default(0)
@@ -90,7 +112,7 @@ class ProjectForm
                                     ])
                                     ->columns(3),
                             ]),
-                        
+
                         Tabs\Tab::make('Settings & SEO')
                             ->schema([
                                 Section::make('Settings')
@@ -98,25 +120,36 @@ class ProjectForm
                                         Toggle::make('is_featured')
                                             ->label('Featured Project')
                                             ->default(false),
-                                        
+
                                         Toggle::make('is_active')
                                             ->label('Active')
                                             ->default(true),
                                     ])
                                     ->columns(2),
-                                
+
                                 Section::make('SEO Information')
                                     ->schema([
-                                        TextInput::make('meta_title')
-                                            ->maxLength(255)
-                                            ->helperText('SEO title (defaults to title if empty)'),
-                                        
-                                        Textarea::make('meta_description')
-                                            ->rows(3)
-                                            ->maxLength(500)
-                                            ->helperText('SEO description for search engines'),
-                                    ])
-                                    ->columns(1),
+                                        MultilingualHelper::multilingualTextInput(
+                                            'meta_title',
+                                            'Meta Title',
+                                            [
+                                                'maxLength' => 255,
+                                                'en_helper' => 'SEO title (defaults to title if empty)',
+                                                'ar_helper' => 'عنوان SEO (يستخدم العنوان إذا كان فارغاً)',
+                                            ]
+                                        ),
+
+                                        MultilingualHelper::multilingualTextarea(
+                                            'meta_description',
+                                            'Meta Description',
+                                            [
+                                                'rows' => 3,
+                                                'maxLength' => 500,
+                                                'en_helper' => 'SEO description for search engines',
+                                                'ar_helper' => 'وصف SEO لمحركات البحث',
+                                            ]
+                                        ),
+                                    ]),
                             ]),
                     ]),
             ]);
