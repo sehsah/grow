@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             PartnerSeeder::class,
             TeamSeeder::class,
+            WorkingProcessSeeder::class,
+            TargetFieldSeeder::class,
             SettingSeeder::class,
         ]);
 

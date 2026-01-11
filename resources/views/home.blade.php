@@ -382,98 +382,19 @@
                         class="hidden md:block absolute top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-border to-transparent">
                     </div>
                     <div class="grid md:grid-cols-4 gap-8 relative">
-                        <div class="text-center animate-fade-in relative" style="animation-delay: 0ms;">
+                        @foreach($workingProcesses as $index => $process)
+                        <div class="text-center animate-fade-in relative" style="animation-delay: {{ $index * 150 }}ms;">
                             <div class="flex justify-center mb-6"><span
-                                    class="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">Step
-                                    01</span></div>
+                                    class="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">{{ $process->step_number }}</span></div>
                             <div
                                 class="w-16 h-16 rounded-full bg-secondary/50 border border-border flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:border-primary hover:bg-primary/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-users w-7 h-7 text-foreground">
-                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg></div>
-                            <h3 class="text-lg font-bold mb-3"><span class="">Research</span></h3>
+                                {!! $process->icon ?? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-7 h-7 text-foreground"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>' !!}
+                            </div>
+                            <h3 class="text-lg font-bold mb-3"><span class="">{{ $process->title }}</span></h3>
                             <p class="text-muted-foreground text-sm leading-relaxed max-w-[200px] mx-auto"><span
-                                    class="">In-depth research to uncover insights and drive informed
-                                    decisions.</span></p>
+                                    class="">{{ $process->description }}</span></p>
                         </div>
-                        <div class="text-center animate-fade-in relative" style="animation-delay: 150ms;">
-                            <div class="flex justify-center mb-6"><span
-                                    class="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">Step
-                                    02</span></div>
-                            <div
-                                class="w-16 h-16 rounded-full bg-secondary/50 border border-border flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:border-primary hover:bg-primary/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-building2 w-7 h-7 text-foreground">
-                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                                    <path d="M10 6h4"></path>
-                                    <path d="M10 10h4"></path>
-                                    <path d="M10 14h4"></path>
-                                    <path d="M10 18h4"></path>
-                                </svg></div>
-                            <h3 class="text-lg font-bold mb-3"><span class="">Concept Design</span></h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed max-w-[200px] mx-auto"><span
-                                    class="">Creative concept designs that transform ideas into impactful
-                                    solutions.</span></p>
-                        </div>
-                        <div class="text-center animate-fade-in relative" style="animation-delay: 300ms;">
-                            <div class="flex justify-center mb-6"><span
-                                    class="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">Step
-                                    03</span></div>
-                            <div
-                                class="w-16 h-16 rounded-full bg-secondary/50 border border-border flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:border-primary hover:bg-primary/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-cog w-7 h-7 text-foreground">
-                                    <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
-                                    <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-                                    <path d="M12 2v2"></path>
-                                    <path d="M12 22v-2"></path>
-                                    <path d="m17 20.66-1-1.73"></path>
-                                    <path d="M11 10.27 7 3.34"></path>
-                                    <path d="m20.66 17-1.73-1"></path>
-                                    <path d="m3.34 7 1.73 1"></path>
-                                    <path d="M14 12h8"></path>
-                                    <path d="M2 12h2"></path>
-                                    <path d="m20.66 7-1.73 1"></path>
-                                    <path d="m3.34 17 1.73-1"></path>
-                                    <path d="m17 3.34-1 1.73"></path>
-                                    <path d="m11 13.73-4 6.93"></path>
-                                </svg></div>
-                            <h3 class="text-lg font-bold mb-3"><span class="">Implementation</span></h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed max-w-[200px] mx-auto"><span
-                                    class="">Efficient implementation of tailored strategies to achieve goals.</span>
-                            </p>
-                        </div>
-                        <div class="text-center animate-fade-in relative" style="animation-delay: 450ms;">
-                            <div class="flex justify-center mb-6"><span
-                                    class="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">Step
-                                    04</span></div>
-                            <div
-                                class="w-16 h-16 rounded-full bg-secondary/50 border border-border flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:border-primary hover:bg-primary/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-target w-7 h-7 text-foreground">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <circle cx="12" cy="12" r="6"></circle>
-                                    <circle cx="12" cy="12" r="2"></circle>
-                                </svg></div>
-                            <h3 class="text-lg font-bold mb-3"><span class="">Testing</span></h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed max-w-[200px] mx-auto"><span
-                                    class="">Testing to ensure flawless functionality and optimal user
-                                    experience.</span></p>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -515,23 +436,29 @@
                     <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100">Trusted By<br><span
                             class="text-primary">Leading Companies</span></h2>
                 </div>
-                <div class="relative"><button
+                <div class="relative" id="partners-carousel">
+                    <button
+                        id="partners-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left w-5 h-5">
                             <path d="m15 18-6-6 6-6"></path>
-                        </svg></button><button
+                        </svg>
+                    </button>
+                    <button
+                        id="partners-next"
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-5 h-5">
                             <path d="m9 18 6-6-6-6"></path>
-                        </svg></button>
+                        </svg>
+                    </button>
                     <div class="overflow-hidden mx-12">
-                        <div class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(-66.6667%);">
+                        <div id="partners-track" class="flex transition-transform duration-500 ease-in-out">
                             @foreach($partners as $partner)
-                            <div class="flex-shrink-0 px-2" style="width: {{ 100 / max(6, count($partners)) }}%;">
+                            <div class="flex-shrink-0 px-2 partners-slide" style="width: 16.6667%;">
                                 @if($partner->website_url)
                                 <a href="{{ $partner->website_url }}" target="_blank" rel="noopener noreferrer"
                                     class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10">
@@ -546,21 +473,9 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="flex justify-center gap-2 mt-6"><button
-                            class="w-2 h-2 rounded-full transition-all bg-muted-foreground/30"
-                            aria-label="Go to slide 1"></button><button
-                            class="w-2 h-2 rounded-full transition-all bg-muted-foreground/30"
-                            aria-label="Go to slide 2"></button><button
-                            class="w-2 h-2 rounded-full transition-all bg-muted-foreground/30"
-                            aria-label="Go to slide 3"></button><button
-                            class="w-2 h-2 rounded-full transition-all bg-muted-foreground/30"
-                            aria-label="Go to slide 4"></button><button
-                            class="w-2 h-2 rounded-full transition-all w-6 bg-primary"
-                            aria-label="Go to slide 5"></button><button
-                            class="w-2 h-2 rounded-full transition-all bg-muted-foreground/30"
-                            aria-label="Go to slide 6"></button><button
-                            class="w-2 h-2 rounded-full transition-all bg-muted-foreground/30"
-                            aria-label="Go to slide 7"></button></div>
+                    <div id="partners-dots" class="flex justify-center gap-2 mt-6">
+                        {{-- Dots will be generated by JavaScript --}}
+                    </div>
                 </div>
             </div>
         </section>
@@ -571,90 +486,49 @@
                     <p class="text-primary-foreground/80 text-sm md:text-base">We are proud to serve a wide range of
                         industries</p>
                 </div>
-                <div class="relative">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-8">
-                        <div class="text-center py-4 animate-fade-in" style="animation-delay: 0ms;">
-                            <div
-                                class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-building2 w-6 h-6 md:w-7 md:h-7 text-primary-foreground">
-                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                                    <path d="M10 6h4"></path>
-                                    <path d="M10 10h4"></path>
-                                    <path d="M10 14h4"></path>
-                                    <path d="M10 18h4"></path>
-                                </svg></div><span
-                                class="text-primary-foreground font-medium text-sm md:text-base hover:text-primary-foreground/80 transition-colors cursor-default">Construction</span>
-                        </div>
-                        <div class="text-center py-4 animate-fade-in" style="animation-delay: 100ms;">
-                            <div
-                                class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-shirt w-6 h-6 md:w-7 md:h-7 text-primary-foreground">
-                                    <path
-                                        d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z">
-                                    </path>
-                                </svg></div><span
-                                class="text-primary-foreground font-medium text-sm md:text-base hover:text-primary-foreground/80 transition-colors cursor-default">Fashion-Clothes</span>
-                        </div>
-                        <div class="text-center py-4 animate-fade-in" style="animation-delay: 200ms;">
-                            <div
-                                class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-car w-6 h-6 md:w-7 md:h-7 text-primary-foreground">
-                                    <path
-                                        d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2">
-                                    </path>
-                                    <circle cx="7" cy="17" r="2"></circle>
-                                    <path d="M9 17h6"></path>
-                                    <circle cx="17" cy="17" r="2"></circle>
-                                </svg></div><span
-                                class="text-primary-foreground font-medium text-sm md:text-base hover:text-primary-foreground/80 transition-colors cursor-default">Fleet-Management</span>
-                        </div>
-                        <div class="text-center py-4 animate-fade-in" style="animation-delay: 300ms;">
-                            <div
-                                class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-house w-6 h-6 md:w-7 md:h-7 text-primary-foreground">
-                                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
-                                    <path
-                                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
-                                    </path>
-                                </svg></div><span
-                                class="text-primary-foreground font-medium text-sm md:text-base hover:text-primary-foreground/80 transition-colors cursor-default">Real-Estate</span>
+                <div class="relative" id="target-fields-carousel">
+                    <button
+                        id="target-fields-prev"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+                        aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
+                            <path d="m15 18-6-6 6-6"></path>
+                        </svg>
+                    </button>
+                    <button
+                        id="target-fields-next"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+                        aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="overflow-hidden mx-14">
+                        <div id="target-fields-track" class="flex transition-transform duration-500 ease-in-out">
+                            @foreach($targetFields as $field)
+                            <div class="flex-shrink-0 px-2 target-field-slide" style="width: 25%;">
+                                <div class="text-center py-4">
+                                    <div
+                                        class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
+                                        {!! $field->icon !!}
+                                    </div>
+                                    <span
+                                        class="text-primary-foreground font-medium text-sm md:text-base hover:text-primary-foreground/80 transition-colors cursor-default">{{ $field->name }}</span>
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
-                    <div class="flex justify-center gap-2"><button
-                            class="w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                            aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
-                                <path d="m15 18-6-6 6-6"></path>
-                            </svg></button><button
-                            class="w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                            aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
-                                <path d="m9 18 6-6-6-6"></path>
-                            </svg></button></div>
-                    <div class="flex justify-center gap-2 mt-4"><button
-                            class="w-2 h-2 rounded-full transition-colors bg-primary-foreground"
-                            aria-label="Page 1"></button><button
-                            class="w-2 h-2 rounded-full transition-colors bg-primary-foreground/30 hover:bg-primary-foreground/50"
-                            aria-label="Page 2"></button></div>
+                    <div id="target-fields-dots" class="flex justify-center gap-2 mt-4">
+                        {{-- Dots will be generated by JavaScript --}}
+                    </div>
                 </div>
             </div>
         </section>
+
+
         <section class="section-padding">
             <div class="container-custom">
                 <div
@@ -678,5 +552,179 @@
                 </div>
             </div>
         </section>
+
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('partners-carousel');
+            if (!carousel) return;
+
+            const track = document.getElementById('partners-track');
+            const prevBtn = document.getElementById('partners-prev');
+            const nextBtn = document.getElementById('partners-next');
+            const dotsContainer = document.getElementById('partners-dots');
+            const slides = track.querySelectorAll('.partners-slide');
+
+            if (!track || !prevBtn || !nextBtn || !dotsContainer || slides.length === 0) return;
+
+            const itemsPerSlide = 6;
+            const totalSlides = Math.ceil(slides.length / itemsPerSlide);
+            let currentSlide = 0;
+
+            // Initialize carousel
+            function initCarousel() {
+                // Generate pagination dots
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = `w-2 h-2 rounded-full transition-all ${i === currentSlide ? 'w-6 bg-primary' : 'bg-muted-foreground/30'}`;
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+
+                updateCarousel();
+            }
+
+            function updateCarousel() {
+                // Calculate transform: move by 100% for each slide (6 items per slide)
+                const translateX = -(currentSlide * 100);
+                track.style.transform = `translateX(${translateX}%)`;
+
+                // Update dots
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.remove('bg-muted-foreground/30');
+                        dot.classList.add('w-6', 'bg-primary');
+                    } else {
+                        dot.classList.remove('w-6', 'bg-primary');
+                        dot.classList.add('bg-muted-foreground/30');
+                    }
+                });
+
+                // Update button states
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+                prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+                nextBtn.classList.toggle('opacity-50', currentSlide === totalSlides - 1);
+                nextBtn.classList.toggle('cursor-not-allowed', currentSlide === totalSlides - 1);
+            }
+
+            function goToSlide(slide) {
+                if (slide < 0 || slide >= totalSlides) return;
+                currentSlide = slide;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateCarousel();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                }
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Initialize
+            initCarousel();
+        });
+
+        // Target Fields Carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('target-fields-carousel');
+            if (!carousel) return;
+
+            const track = document.getElementById('target-fields-track');
+            const prevBtn = document.getElementById('target-fields-prev');
+            const nextBtn = document.getElementById('target-fields-next');
+            const dotsContainer = document.getElementById('target-fields-dots');
+            const slides = track ? track.querySelectorAll('.target-field-slide') : [];
+
+            if (!track || !prevBtn || !nextBtn || !dotsContainer || slides.length === 0) return;
+
+            const itemsPerSlide = 4;
+            const totalSlides = Math.ceil(slides.length / itemsPerSlide);
+            let currentSlide = 0;
+
+            // Initialize carousel
+            function initCarousel() {
+                // Generate pagination dots
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = `w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-primary-foreground' : 'bg-primary-foreground/30 hover:bg-primary-foreground/50'}`;
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+
+                updateCarousel();
+            }
+
+            function updateCarousel() {
+                // Calculate transform: move by 100% for each slide (4 items per slide)
+                const translateX = -(currentSlide * 100);
+                track.style.transform = `translateX(${translateX}%)`;
+
+                // Update dots
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.remove('bg-primary-foreground/30');
+                        dot.classList.add('bg-primary-foreground');
+                    } else {
+                        dot.classList.remove('bg-primary-foreground');
+                        dot.classList.add('bg-primary-foreground/30');
+                    }
+                });
+
+                // Update button states
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+                prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+                nextBtn.classList.toggle('opacity-50', currentSlide === totalSlides - 1);
+                nextBtn.classList.toggle('cursor-not-allowed', currentSlide === totalSlides - 1);
+            }
+
+            function goToSlide(slide) {
+                if (slide < 0 || slide >= totalSlides) return;
+                currentSlide = slide;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateCarousel();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                }
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Initialize
+            initCarousel();
+        });
+    </script>
 @endsection

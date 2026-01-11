@@ -33,47 +33,23 @@ class SiteSettings extends Page implements HasForms
 
     public function mount(): void
     {
-        // Load existing settings and transform to form format
-        $siteTitle = Setting::getValue('site.title', ['en' => 'COMPACT', 'ar' => 'COMPACT']);
-        $address = Setting::getValue('site.address', [
-            'en' => "Saudi Arabia Office\nWadi Makkah, King Khalid Road, Riyadh, Kingdom of Saudi Arabia – 12514\n\nEgypt Office\n63 Syria Street, Al Agouza, Giza, Egypt\n+2 010 980 52005",
-            'ar' => "مكتب السعودية\nوادي مكة، طريق الملك خالد، الرياض، المملكة العربية السعودية – 12514\n\nمكتب مصر\n63 شارع سوريا، العجوزة، الجيزة، مصر\n+2 010 980 52005"
-        ]);
-        $phone = Setting::getValue('site.phone', ['en' => '+966 54 055 2004', 'ar' => '+966 54 055 2004']);
-        $phoneSecondary = Setting::getValue('site.phone_secondary', ['en' => '+966 56 442 6319', 'ar' => '+966 56 442 6319']);
-        $email = Setting::getValue('site.email', ['en' => 'info@compactod.com', 'ar' => 'info@compactod.com']);
-
-        // Transform array data to nested format for form fields
-        $formData = [
+        // Load existing settings directly into $this->data
+        $this->data = [
+            'site_title' => Setting::getValue('site.title', ['en' => 'COMPACT', 'ar' => 'COMPACT']),
             'logo' => Setting::getValue('site.logo', '/assets/logo-DSroQpd9.png'),
+            'mission' => Setting::getValue('site.mission', ['en' => '', 'ar' => '']),
+            'vision' => Setting::getValue('site.vision', ['en' => '', 'ar' => '']),
+            'address' => Setting::getValue('site.address', [
+                'en' => "Saudi Arabia Office\nWadi Makkah, King Khalid Road, Riyadh, Kingdom of Saudi Arabia – 12514\n\nEgypt Office\n63 Syria Street, Al Agouza, Giza, Egypt\n+2 010 980 52005",
+                'ar' => "مكتب السعودية\nوادي مكة، طريق الملك خالد، الرياض، المملكة العربية السعودية – 12514\n\nمكتب مصر\n63 شارع سوريا، العجوزة، الجيزة، مصر\n+2 010 980 52005"
+            ]),
+            'phone' => Setting::getValue('site.phone', ['en' => '+966 54 055 2004', 'ar' => '+966 54 055 2004']),
+            'phone_secondary' => Setting::getValue('site.phone_secondary', ['en' => '+966 56 442 6319', 'ar' => '+966 56 442 6319']),
+            'email' => Setting::getValue('site.email', ['en' => 'info@compactod.com', 'ar' => 'info@compactod.com']),
         ];
 
-        // Transform multilingual fields to nested format
-        $multilingualFields = [
-            'site_title' => $siteTitle,
-            'address' => $address,
-            'phone' => $phone,
-            'phone_secondary' => $phoneSecondary,
-            'email' => $email,
-        ];
-
-        foreach ($multilingualFields as $field => $value) {
-            if (is_array($value)) {
-                if (isset($value['en'])) {
-                    $formData[$field . '.en'] = $value['en'];
-                }
-                if (isset($value['ar'])) {
-                    $formData[$field . '.ar'] = $value['ar'];
-                }
-            } else {
-                $formData[$field] = $value;
-            }
-        }
-
-        // Set the form data directly to $this->data since we're using statePath('data')
-        $this->data = $formData;
         // Fill the form to ensure all fields are properly hydrated
-        $this->form->fill($formData);
+        $this->form->fill($this->data);
     }
 
     public function form(Schema $schema): Schema
@@ -102,6 +78,28 @@ class SiteSettings extends Page implements HasForms
                             ->maxSize(5120)
                             ->helperText('Upload your site logo (recommended: SVG or PNG with transparent background)')
                             ->columnSpanFull(),
+                    ]),
+
+                Section::make('About Company')
+                    ->schema([
+                        MultilingualHelper::multilingualTextarea(
+                            'mission',
+                            'Our Mission',
+                            [
+                                'rows' => 3,
+                                'en_placeholder' => 'Enter company mission in English',
+                                'ar_placeholder' => 'أدخل رسالة الشركة بالعربية',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextarea(
+                            'vision',
+                            'Our Vision',
+                            [
+                                'rows' => 3,
+                                'en_placeholder' => 'Enter company vision in English',
+                                'ar_placeholder' => 'أدخل رؤية الشركة بالعربية',
+                            ]
+                        ),
                     ]),
 
                 Section::make('Contact Information')
@@ -170,7 +168,7 @@ class SiteSettings extends Page implements HasForms
                             ->icon('heroicon-o-arrow-uturn-left')
                             ->action('restoreDefaults')
                             ->requiresConfirmation()
-                            ->modalHeading(__('Heading'))
+                            ->modalHeading(__('Restore defaults'))
                             ->modalDescription(__('Are you sure you\'d like to restore defaults? This cannot be undone.'))
                             ->color('danger')
 
@@ -181,41 +179,7 @@ class SiteSettings extends Page implements HasForms
 
     public function save(): void
     {
-        $data = $this->form->getState();
-
-        // Transform nested form data back to JSON array format
-        $translatableFields = ['site_title', 'address', 'phone', 'phone_secondary', 'email'];
-
-        foreach ($translatableFields as $field) {
-            if (isset($data[$field . '.en']) || isset($data[$field . '.ar'])) {
-                $data[$field] = [
-                    'en' => $data[$field . '.en'] ?? '',
-                    'ar' => $data[$field . '.ar'] ?? '',
-                ];
-                // Remove the nested fields
-                unset($data[$field . '.en']);
-                unset($data[$field . '.ar']);
-            }
-        }
-
-        // Save each setting
-        Setting::setValue('site.title', $data['site_title'] ?? ['en' => 'COMPACT', 'ar' => 'COMPACT'], 'json', 'general');
-        Setting::setValue('site.logo', $data['logo'] ?? '/assets/logo-DSroQpd9.png', 'image', 'general');
-        Setting::setValue('site.address', $data['address'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
-        Setting::setValue('site.phone', $data['phone'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
-        Setting::setValue('site.phone_secondary', $data['phone_secondary'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
-        Setting::setValue('site.email', $data['email'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
-
-        // Clear settings cache
-        SettingsHelper::clearCache();
-
-        Notification::make()
-            ->title('Settings saved successfully')
-            ->success()
-            ->send();
-
-        // Reload form data
-        $this->mount();
+        $this->saveChanges();
     }
 
     protected function getFormActions(): array
@@ -232,24 +196,11 @@ class SiteSettings extends Page implements HasForms
     {
         $data = $this->form->getState();
 
-        // Transform nested form data back to JSON array format
-        $translatableFields = ['site_title', 'address', 'phone', 'phone_secondary', 'email'];
-
-        foreach ($translatableFields as $field) {
-            if (isset($data[$field . '.en']) || isset($data[$field . '.ar'])) {
-                $data[$field] = [
-                    'en' => $data[$field . '.en'] ?? '',
-                    'ar' => $data[$field . '.ar'] ?? '',
-                ];
-                // Remove the nested fields
-                unset($data[$field . '.en']);
-                unset($data[$field . '.ar']);
-            }
-        }
-
-        // Save each setting by key using setValue method
+        // Save each setting using data directly as it's already in the correct nested format
         Setting::setValue('site.title', $data['site_title'] ?? ['en' => 'COMPACT', 'ar' => 'COMPACT'], 'json', 'general');
         Setting::setValue('site.logo', $data['logo'] ?? '/assets/logo-DSroQpd9.png', 'image', 'general');
+        Setting::setValue('site.mission', $data['mission'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
+        Setting::setValue('site.vision', $data['vision'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.address', $data['address'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.phone', $data['phone'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.phone_secondary', $data['phone_secondary'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
@@ -263,7 +214,7 @@ class SiteSettings extends Page implements HasForms
             ->title('Settings saved successfully')
             ->send();
 
-        // Reload form data
+        // Refresh data from database
         $this->mount();
     }
 

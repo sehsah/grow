@@ -339,6 +339,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Header Scroll Effect
+            const header = document.querySelector('header');
+            const handleScroll = () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('bg-background/90', 'backdrop-blur-lg', 'border-b', 'border-border');
+                    header.classList.remove('bg-transparent');
+                } else {
+                    header.classList.remove('bg-background/90', 'backdrop-blur-lg', 'border-b', 'border-border');
+                    header.classList.add('bg-transparent');
+                }
+            };
+            
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Initial check
+
             // Mobile Menu
             const mobileMenuBtn = document.querySelector('header nav button.md\\:hidden');
             const mobileMenu = document.querySelector('.md\\:hidden.fixed.inset-0');

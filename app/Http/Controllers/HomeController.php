@@ -6,6 +6,8 @@ use App\Models\Service;
 use App\Models\Project;
 use App\Models\Partner;
 use App\Models\Team;
+use App\Models\WorkingProcess;
+use App\Models\TargetField;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -39,6 +41,16 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
+        // Fetch working processes
+        $workingProcesses = WorkingProcess::where('is_active', true)
+            ->orderBy('order', 'asc')
+            ->get();
+
+        // Fetch target fields
+        $targetFields = TargetField::where('is_active', true)
+            ->orderBy('order', 'asc')
+            ->get();
+
         // Fetch settings for home page
         $settings = [
             'hero_title' => Setting::getValue('home.hero_title', 'Business Excellence Solutions'),
@@ -60,6 +72,6 @@ class HomeController extends Controller
             'team_members' => Setting::getValue('stats.team_members', '100+'),
         ];
 
-        return view('home', compact('services', 'projects', 'partners', 'teams', 'settings'));
+        return view('home', compact('services', 'projects', 'partners', 'teams', 'workingProcesses', 'targetFields', 'settings'));
     }
 }
