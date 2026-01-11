@@ -312,7 +312,7 @@
             <div class="container-custom">
                 <div class="text-center mb-16"><span
                         class="inline-block px-4 py-2 rounded-full border border-border text-sm font-medium mb-6 animate-fade-in"><span
-                            class="">Complete Work</span></span>
+                            class="">@trans('home.complete_work')</span></span>
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in animation-delay-100"><span
                             class="">{{ $settings['projects_title'] ?? 'Creative Projects' }}</span><br><span class="text-primary">{{ $settings['projects_subtitle'] ?? 'We\'ve Delivered To Clients' }}</span></h2>
                 </div>
@@ -371,11 +371,10 @@
             <div class="container-custom">
                 <div class="text-center mb-8"><span
                         class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium animate-fade-in"><span
-                            class="">Working Process</span></span></div>
+                            class="">@trans('home.working_process')</span></span></div>
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100"><span
-                            class="">The Process Behind the</span><br><span class="text-primary">Magic Step by
-                            Step</span></h2>
+                            class="">@trans('home.working_process_subtitle')</span></h2>
                 </div>
                 <div class="relative">
                     <div
@@ -404,13 +403,13 @@
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12">
                     <div><span
                             class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in"><span
-                                class="">Our Team</span></span>
+                                class="">@trans('home.our_team')</span></span>
                         <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100"><span
-                                class="">Meet the Experts Behind </span><br><span
+                                class="">@trans('home.meet_experts') </span><br><span
                                 class="text-primary">COMPACT</span></h2>
                     </div>
                     <div class="animate-fade-in animation-delay-200"><a class="btn-outline inline-flex items-center gap-2"
-                            href="/about"><span class="">View Teams</span></a></div>
+                            href="/about"><span class="">@trans('home.view_teams')</span></a></div>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                     @foreach($teams as $index => $team)
@@ -431,10 +430,9 @@
         <section class="section-padding bg-dark-card">
             <div class="container-custom">
                 <div class="text-center mb-12"><span
-                        class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in">Our
-                        Partners</span>
-                    <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100">Trusted By<br><span
-                            class="text-primary">Leading Companies</span></h2>
+                        class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in">@trans('home.our_partners')</span>
+                    <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100">@trans('home.trusted_by')<br><span
+                            class="text-primary">@trans('home.leading_companies')</span></h2>
                 </div>
                 <div class="relative" id="partners-carousel">
                     <button
@@ -482,9 +480,8 @@
         <section class="py-12 md:py-16 bg-primary ">
             <div class="container-custom">
                 <div class="text-center mb-8 md:mb-12">
-                    <h2 class="text-2xl md:text-3xl font-bold text-primary-foreground mb-2">Our Target Fields</h2>
-                    <p class="text-primary-foreground/80 text-sm md:text-base">We are proud to serve a wide range of
-                        industries</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary-foreground mb-2">@trans('home.target_fields')</h2>
+                    <p class="text-primary-foreground/80 text-sm md:text-base">@trans('home.target_fields_description')</p>
                 </div>
                 <div class="relative" id="target-fields-carousel">
                     <button
@@ -537,10 +534,8 @@
                         class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.3),transparent_50%)]">
                     </div>
                     <div class="relative z-10">
-                        <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="">Let's Start a
-                                Conversation</span></h2>
-                        <p class="text-muted-foreground max-w-xl mx-auto mb-8"><span class="">Get in touch with our
-                                team to discuss how we can help your business grow.</span></p><a class="btn-primary"
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="">@trans('home.lets_start_conversation')</span></h2>
+                        <p class="text-muted-foreground max-w-xl mx-auto mb-8"><span class="">@trans('home.get_in_touch')</span></p><a class="btn-primary"
                             href="/contact"><span class="">Let's Talk</span><svg xmlns="http://www.w3.org/2000/svg"
                                 width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

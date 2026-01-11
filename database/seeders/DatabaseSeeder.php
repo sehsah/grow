@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             WorkingProcessSeeder::class,
             TargetFieldSeeder::class,
+            TranslationSeeder::class,
             SettingSeeder::class,
         ]);
 

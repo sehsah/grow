@@ -12,6 +12,12 @@
     <meta name="description" content="{{ config('app.description', 'Grow Application') }}" />
     <meta name="author" content="{{ $siteTitle }}" />
     <link rel="stylesheet" crossorigin href="{{ asset('assets/index-I91yRjam.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap">
+    <style>
+        html[dir="rtl"] body, html[dir="rtl"] html{
+           font-family: 'Cairo', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -350,7 +356,7 @@
                     header.classList.add('bg-transparent');
                 }
             };
-            
+
             window.addEventListener('scroll', handleScroll);
             handleScroll(); // Initial check
 

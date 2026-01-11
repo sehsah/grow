@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\Service;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
+use App\Helpers\TranslationHelper;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,13 @@ class AppServiceProvider extends ServiceProvider
                 ->get();
             
             $view->with('services', $services);
+        });
+
+        // Register Blade directive for translations
+        Blade::directive('trans', function ($expression) {
+            // Remove quotes and parse the expression
+            $expression = trim($expression, "'\"");
+            return "<?php echo \App\Helpers\TranslationHelper::get('{$expression}'); ?>";
         });
     }
 }
