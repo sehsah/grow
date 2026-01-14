@@ -30,10 +30,10 @@
                         <img src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto">
                     </a>
                     <div class="hidden md:flex items-center gap-8">
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-primary" href="/">{{ __('common.home') }}</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/about">{{ __('common.about') }}</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-primary" href="/">@trans('common.home')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/about">@trans('common.about')</a>
                         <div class="relative pt-2 pb-2 -mt-2 -mb-2">
-                            <button type="button" class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground ">{{ __('common.services') }}
+                            <button type="button" class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground ">@trans('common.services')
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -45,7 +45,7 @@
                             <div class="absolute top-full left-0 mt-2 pt-2 w-64 bg-card border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-50 opacity-0 invisible -translate-y-2">
                                 <div class="p-2">
                                     <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors" href="/services">
-                                    <span class="text-sm font-medium hover:text-primary transition-colors">{{ __('common.all_services') }}</span></a>
+                                    <span class="text-sm font-medium hover:text-primary transition-colors">@trans('common.all_services')</span></a>
                                     <div class="border-t border-border my-2"></div>
                                     @if(isset($services) && is_iterable($services))
                                         @foreach ($services as $service)
@@ -60,17 +60,17 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/projects">{{ __('common.projects') }}</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/blog">{{ __('common.blog') }}</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/career">{{ __('common.career') }}</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/contact">{{ __('common.contact') }}</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/projects">@trans('common.projects')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/blog">@trans('common.blog')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/career">@trans('common.career')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/contact">@trans('common.contact')</a>
                     </div>
                     <div class="hidden md:flex items-center gap-4">
                         <a href="{{ route('lang.switch', ['locale' => app()->getLocale() === 'ar' ? 'en' : 'ar']) }}"
                            class="px-3 py-1.5 text-sm font-medium border border-border rounded-full hover:border-primary hover:text-primary transition-colors">
                             {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
                         </a>
-                        <a class="btn-primary" href="/contact">{{ __('common.lets_talk') }}</a>
+                        <a class="btn-primary" href="/contact">@trans('common.lets_talk')</a>
                     </div>
                     <button
                         class="md:hidden p-2 text-foreground">
@@ -97,11 +97,11 @@
                 <div class="flex flex-col h-[calc(100vh-80px)] overflow-y-auto bg-background">
                     <div class="flex-1 px-6 py-6"><a
                             class="block py-4 text-base font-medium transition-colors border-b border-border text-primary"
-                            href="/">{{ __('common.home') }}</a><a
+                            href="/">@trans('common.home')</a><a
                             class="block py-4 text-base font-medium transition-colors border-b border-border text-foreground"
-                            href="/about">{{ __('common.about') }}</a>
+                            href="/about">@trans('common.about')</a>
                         <div class="border-b border-border"><button
-                                class="flex items-center justify-between w-full py-4 text-base font-medium transition-colors text-foreground">{{ __('common.services') }}<svg
+                                class="flex items-center justify-between w-full py-4 text-base font-medium transition-colors text-foreground">@trans('common.services')<svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
@@ -111,7 +111,7 @@
                             <div class="overflow-hidden transition-all duration-300 bg-background max-h-0 opacity-0">
                                 <div class="pl-4 py-2 space-y-1 border-l-2 border-primary/30 ml-2 mb-2">
                                     <a class="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                                        href="/services">{{ __('common.all_services') }}</a>
+                                        href="/services">@trans('common.all_services')</a>
                                     @if(isset($services) && is_iterable($services))
                                         @foreach ($services as $service)
                                         <a class="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -127,13 +127,13 @@
                             </div>
                         </div><a
                             class="block py-4 text-base font-medium transition-colors border-b border-border text-foreground"
-                            href="/projects">{{ __('common.projects') }}</a><a
+                            href="/projects">@trans('common.projects')</a><a
                             class="block py-4 text-base font-medium transition-colors border-b border-border text-foreground"
-                            href="/blog">{{ __('common.blog') }}</a><a
+                            href="/blog">@trans('common.blog')</a><a
                             class="block py-4 text-base font-medium transition-colors border-b border-border text-foreground"
-                            href="/career">{{ __('common.career') }}</a><a
+                            href="/career">@trans('common.career')</a><a
                             class="block py-4 text-base font-medium transition-colors border-b border-border text-foreground"
-                            href="/contact">{{ __('common.contact') }}</a>
+                            href="/contact">@trans('common.contact')</a>
                     </div>
                     <div class="px-6 py-6 border-t border-border space-y-6 bg-background">
                         <a href="{{ route('lang.switch', ['locale' => app()->getLocale() === 'ar' ? 'en' : 'ar']) }}"
@@ -141,9 +141,9 @@
                             <span class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-xs">{{ app()->getLocale() === 'ar' ? 'EN' : 'ع' }}</span>
                             {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
                         </a>
-                        <a class="btn-primary w-full justify-center" href="/contact">{{ __('common.lets_talk') }}</a>
+                        <a class="btn-primary w-full justify-center" href="/contact">@trans('common.lets_talk')</a>
                         <div>
-                            <p class="text-sm text-muted-foreground mb-3">{{ __('common.follow_us') }}</p>
+                            <p class="text-sm text-muted-foreground mb-3">@trans('common.follow_us')</p>
                             <div class="flex gap-4"><a href="https://facebook.com" target="_blank"
                                     rel="noopener noreferrer"
                                     class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"><svg
@@ -269,29 +269,29 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <h4 class="text-lg font-semibold">{{ __('common.quick_links') }}</h4>
+                        <h4 class="text-lg font-semibold">@trans('common.quick_links')</h4>
                         <ul class="space-y-2">
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                    href="/">{{ __('common.home') }}</a></li>
+                                    href="/">@trans('common.home')</a></li>
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                    href="/about">{{ __('common.about') }}</a></li>
+                                    href="/about">@trans('common.about')</a></li>
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                    href="/services">{{ __('common.services') }}</a></li>
+                                    href="/services">@trans('common.services')</a></li>
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                    href="/projects">{{ __('common.projects') }}</a></li>
+                                    href="/projects">@trans('common.projects')</a></li>
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                    href="/blog">{{ __('common.blog') }}</a></li>
+                                    href="/blog">@trans('common.blog')</a></li>
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                    href="/career">{{ __('common.career') }}</a></li>
+                                    href="/career">@trans('common.career')</a></li>
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                    href="/contact">{{ __('common.contact') }}</a></li>
+                                    href="/contact">@trans('common.contact')</a></li>
                             <li><a href="https://drive.google.com/file/d/10z7YDshKngYTcqCIyvqZewuFFbijFrdY/view?usp=sharing"
                                     target="_blank" rel="noopener noreferrer"
-                                    class="text-muted-foreground hover:text-primary transition-colors text-sm">{{ __('common.company_profile') }}</a></li>
+                                    class="text-muted-foreground hover:text-primary transition-colors text-sm">@trans('common.company_profile')</a></li>
                         </ul>
                     </div>
                     <div class="space-y-4">
-                        <h4 class="text-lg font-semibold">{{ __('common.services') }}</h4>
+                        <h4 class="text-lg font-semibold">@trans('common.services')</h4>
                         <ul class="space-y-2">
                             @if(isset($services) && is_iterable($services))
                                 @foreach ($services->take(4) as $service)
@@ -302,7 +302,7 @@
                         </ul>
                     </div>
                     <div class="space-y-4">
-                        <h4 class="text-lg font-semibold">{{ __('common.contact_info') }}</h4>
+                        <h4 class="text-lg font-semibold">@trans('common.contact_info')</h4>
                         <ul class="space-y-3">
                             <li class="flex items-start gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -349,7 +349,7 @@
                     </div>
                 </div>
                 <div class="mt-12 pt-8 border-t border-border text-center">
-                    <p class="text-sm text-muted-foreground">© {{ date('Y') }} {{ $siteTitle }}. {{ __('common.rights_reserved') }}.<a
+                    <p class="text-sm text-muted-foreground">© {{ date('Y') }} {{ $siteTitle }}. @trans('common.rights_reserved').<a
                             class="mx-2 text-muted-foreground/30 hover:text-primary transition-colors"
                             href="/admin">•</a></p>
                 </div>
@@ -391,7 +391,7 @@
             }
 
             // Mobile Services Dropdown
-            const mobileServicesBtn = Array.from(document.querySelectorAll('.md\\:hidden button')).find(btn => btn.textContent.trim().includes('{{ __('common.services') }}') || btn.textContent.trim().includes('Services'));
+            const mobileServicesBtn = Array.from(document.querySelectorAll('.md\\:hidden button')).find(btn => btn.textContent.trim().includes('@trans('common.services')') || btn.textContent.trim().includes('Services'));
             if (mobileServicesBtn) {
                 const dropdown = mobileServicesBtn.nextElementSibling;
                 const icon = mobileServicesBtn.querySelector('svg');
@@ -414,7 +414,7 @@
             if (desktopNav) {
                 const buttons = desktopNav.querySelectorAll('button');
                 for (const b of buttons) {
-                    if (b.textContent.trim().includes('{{ __('common.services') }}') || b.textContent.trim().includes('Services')) {
+                    if (b.textContent.trim().includes('@trans('common.services')') || b.textContent.trim().includes('Services')) {
                         btn = b;
                         serviceWrapper = btn.parentElement;
                         dropdown = serviceWrapper.querySelector('.absolute');

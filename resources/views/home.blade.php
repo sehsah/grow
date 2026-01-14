@@ -335,8 +335,8 @@
                         class="inline-block px-4 py-2 rounded-full border border-border text-sm font-medium mb-6 animate-fade-in">
                         <span class="">@trans('home.complete_work')</span></span>
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in animation-delay-100"><span
-                            class="">{{ setting('home.projects_title') }}</span><br><span
-                            class="text-primary">{{ setting('home.projects_subtitle') }}</span>
+                            class="">@trans('home.projects_title')</span><br><span
+                            class="text-primary">@trans('home.projects_subtitle')</span>
                     </h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">

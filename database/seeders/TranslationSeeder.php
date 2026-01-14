@@ -33,6 +33,23 @@ class TranslationSeeder extends Seeder
                 'description' => 'Section title for working process',
             ],
             [
+                'key' => 'home.projects_title',
+                'value' => [
+                    'en' => 'Creative Projects',
+                    'ar' => 'مشاريع إبداعية',
+                ],
+                'group' => 'home',
+                'description' => 'Title for projects section',
+            ],
+            [
+                'key' => 'home.projects_subtitle',
+                'value' => [
+                    'en' => 'We\'ve Delivered To Clients',
+                    'ar' => 'لقد تم تسليمها للعملاء',
+                ],
+                'group' => 'home',
+                'description' => 'Subtitle for projects section',
+            ],
                 'key' => 'home.working_process_subtitle',
                 'value' => [
                     'en' => 'The Process Behind the Magic Step by Step',
