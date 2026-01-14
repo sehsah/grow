@@ -39,6 +39,9 @@ class SiteSettings extends Page implements HasForms
         $this->data = [
             'site_title' => Setting::getValue('site.title'),
             'logo' => Setting::getValue('site.logo', '/assets/logo-DSroQpd9.png'),
+            'hero_title' => Setting::getValue('home.hero_title'),
+            'hero_subtitle' => Setting::getValue('home.hero_subtitle'),
+            'hero_description' => Setting::getValue('home.hero_description'),
             'mission' => Setting::getValue('site.mission'),
             'mission_title' => Setting::getValue('site.mission_title'),
             'vision' => Setting::getValue('site.vision'),
@@ -83,6 +86,38 @@ class SiteSettings extends Page implements HasForms
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
                             ->maxSize(5120)
                             ->columnSpanFull(),
+                    ]),
+                Section::make('Hero Section')
+                    ->schema([
+                        MultilingualHelper::multilingualTextInput(
+                            'hero_title',
+                            'Hero Title',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The title of the hero section',
+                                'ar_helper' => 'عنوان القسم الرئيسي',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextInput(
+                            'hero_subtitle',
+                            'Hero Subtitle',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The subtitle of the hero section',
+                                'ar_helper' => 'العنوان الفرعي للقسم الرئيسي',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextarea(
+                            'hero_description',
+                            'Hero Description',
+                            [
+                                'rows' => 3,
+                                'en_placeholder' => 'Enter hero description in English',
+                                'ar_placeholder' => 'أدخل وصف القسم الرئيسي بالعربية',
+                            ]
+                        ),
                     ]),
 
                 Section::make('About Company')
@@ -342,6 +377,9 @@ class SiteSettings extends Page implements HasForms
         // Save each setting using data directly as it's already in the correct nested format
         Setting::setValue('site.title', $data['site_title'] ?? ['en' => 'COMPACT', 'ar' => 'COMPACT'], 'json', 'general');
         Setting::setValue('site.logo', $data['logo'] ?? '/assets/logo-DSroQpd9.png', 'image', 'general');
+        Setting::setValue('home.hero_title', $data['hero_title'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
+        Setting::setValue('home.hero_subtitle', $data['hero_subtitle'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
+        Setting::setValue('home.hero_description', $data['hero_description'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
         Setting::setValue('site.mission', $data['mission'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.mission_title', $data['mission_title'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.vision', $data['vision'] ?? ['en' => '', 'ar' => ''], 'json', 'general');

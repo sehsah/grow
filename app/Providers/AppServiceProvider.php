@@ -34,9 +34,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Register Blade directive for translations
         Blade::directive('trans', function ($expression) {
-            // Remove quotes and parse the expression
-            $expression = trim($expression, "'\"");
-            return "<?php echo \App\Helpers\TranslationHelper::get('{$expression}'); ?>";
+            return "<?php echo \App\Helpers\TranslationHelper::get({$expression}); ?>";
         });
     }
 }
