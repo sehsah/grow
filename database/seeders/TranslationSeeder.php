@@ -50,6 +50,7 @@ class TranslationSeeder extends Seeder
                 'group' => 'home',
                 'description' => 'Subtitle for projects section',
             ],
+            [
                 'key' => 'home.working_process_subtitle',
                 'value' => [
                     'en' => 'The Process Behind the Magic Step by Step',
