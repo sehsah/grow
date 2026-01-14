@@ -51,6 +51,7 @@ class SiteSettings extends Page implements HasForms
             'phone' => Setting::getValue('site.phone'),
             'phone_secondary' => Setting::getValue('site.phone_secondary'),
             'email' => Setting::getValue('site.email'),
+            'social_links' => Setting::getValue('site.social_links'),
         ];
 
         // Fill the form to ensure all fields are properly hydrated
@@ -268,6 +269,39 @@ class SiteSettings extends Page implements HasForms
                                     ]),
                             ]),
                     ]),
+
+                Section::make('Social Media')
+                    ->schema([
+                        Repeater::make('social_links')
+                            ->label('Social Media Links')
+                            ->reorderable()
+                            ->collapsible()
+                            ->itemLabel(fn (array $state): ?string => $state['platform'] ?? 'Social Link')
+                            ->schema([
+                                Select::make('platform')
+                                    ->label('Platform')
+                                    ->options([
+                                        'facebook' => 'Facebook',
+                                        'twitter' => 'Twitter',
+                                        'linkedin' => 'LinkedIn',
+                                        'instagram' => 'Instagram',
+                                        'youtube' => 'YouTube',
+                                        'snapchat' => 'Snapchat',
+                                        'tiktok' => 'TikTok',
+                                    ])
+                                    ->required()
+                                    ->columnSpan(1),
+                                \Filament\Forms\Components\TextInput::make('url')
+                                    ->label('URL')
+                                    ->url()
+                                    ->required()
+                                    ->placeholder('https://...')
+                                    ->columnSpan(2),
+                            ])
+                            ->columns(3)
+                            ->columnSpanFull(),
+                    ]),
+
                     Actions::make([
                         Action::make(__('Save Changes'))
                             ->icon('heroicon-o-check-circle')
@@ -320,6 +354,7 @@ class SiteSettings extends Page implements HasForms
         Setting::setValue('site.phone', $data['phone'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.phone_secondary', $data['phone_secondary'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.email', $data['email'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
+        Setting::setValue('site.social_links', $data['social_links'] ?? [], 'json', 'general');
 
         // Clear settings cache
         SettingsHelper::clearCache();
