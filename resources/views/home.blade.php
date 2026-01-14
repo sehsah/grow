@@ -50,10 +50,10 @@
                 <div class="grid lg:grid-cols-2 gap-12 items-center w-full mx-0 my-[160px]">
                     <div>
                         <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight animate-fade-in"><span
-                                class="">{{ $settings['hero_title'] ?? 'Business Excellence Solutions' }}</span><br><span class="text-primary">{{ $settings['hero_subtitle'] ?? 'YOU CAN GROW WITH' }}</span></h1>
+                                class="">{{ setting('home.hero_title', 'Business Excellence Solutions') }}</span><br><span class="text-primary">{{ setting('home.hero_subtitle', 'YOU CAN GROW WITH') }}</span></h1>
                         <p
                             class="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-in animation-delay-200">
-                            <span class="">{{ $settings['hero_description'] ?? 'We provide integrated business solutions that drive growth and innovation for organizations across the Middle East.' }}</span></p>
+                            <span class="">{{ setting('home.hero_description', 'We provide integrated business solutions that drive growth and innovation for organizations across the Middle East.') }}</span></p>
                         <div class="mt-10 flex flex-wrap gap-4 animate-fade-in animation-delay-300"><a class="btn-primary"
                                 href="/about"><span class="">Explore Our Services</span><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -113,9 +113,9 @@
         <section class="section-padding bg-dark-card">
             <div class="container-custom">
                 <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="">{{ $settings['services_title'] ?? 'Our Services' }}</span> <span
-                            class="text-primary">{{ $settings['services_subtitle'] ?? 'Comprehensive business solutions tailored to your needs' }}</span></h2>
-                    <p class="text-muted-foreground"><span class="">{{ $settings['services_description'] ?? 'We offer comprehensive solutions tailored to your unique business needs, driving growth and digital transformation.' }}</span></p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="">{{ setting('home.services_title', 'Our Services') }}</span> <span
+                            class="text-primary">{{ setting('home.services_subtitle', 'Comprehensive business solutions tailored to your needs') }}</span></h2>
+                    <p class="text-muted-foreground"><span class="">{{ setting('home.services_description', 'We offer comprehensive solutions tailored to your unique business needs, driving growth and digital transformation.') }}</span></p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     @foreach($services as $index => $service)
@@ -141,10 +141,27 @@
                 <div class="text-center mb-8 md:mb-16"><span
                         class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-4 md:mb-6 animate-fade-in"><span
                             class="">Why Choose Us</span></span>
-                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100"><span
-                            class="">{{ $settings['strengths_title'] ?? 'Our Strengths' }}</span><br><span class="text-primary">{{ $settings['strengths_subtitle'] ?? '& Competitive Advantages' }}</span></h2>
+                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100"><span class="">{{ setting('home.strengths_title', __('Our Strengths')) }}</span><br>
+                    <span class="text-primary">{{ setting('home.strengths_subtitle', __('Competitive Advantages')) }}</span></h2>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16">
+                    @if(!empty($competitiveAdvantages))
+                        @foreach($competitiveAdvantages as $index => $advantage)
+                            <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                                style="animation-delay: {{ $index * 100 }}ms;">
+                                <div
+                                    class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                                    {!! $advantage['icon'] ?? '' !!}
+                                </div>
+                                <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2">
+                                    <span class="">{{ $advantage['title'][app()->getLocale()] ?? '' }}</span>
+                                </h3>
+                                <p class="text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-none">
+                                    <span class="">{{ $advantage['description'][app()->getLocale()] ?? '' }}</span>
+                                </p>
+                            </div>
+                        @endforeach
+                    @else
                     <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                         style="animation-delay: 0ms;">
                         <div
@@ -157,7 +174,7 @@
                                 </path>
                                 <circle cx="12" cy="8" r="6"></circle>
                             </svg></div>
-                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">{{ $settings['years_experience'] ?? '10+' }} Years
+                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">{{ setting('stats.years_experience', '10+') }} Years
                                 Experience</span></h3>
                         <p class="text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-none"><span
                                 class="">Proven track record of delivering successful projects across various
@@ -175,7 +192,7 @@
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg></div>
-                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">{{ $settings['team_members'] ?? '100+' }} Team
+                        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2"><span class="">{{ setting('stats.team_members', '100+') }} Team
                                 Members</span></h3>
                         <p class="text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-none"><span
                                 class="">Expert professionals dedicated to your business success.</span></p>
@@ -213,7 +230,9 @@
                         <p class="text-xs md:text-sm text-muted-foreground line-clamp-3 md:line-clamp-none"><span
                                 class="">ISO certified processes ensuring highest quality standards.</span></p>
                     </div>
+                    @endif
                 </div>
+
                 <div class="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
                     <div
                         class="group p-5 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300 animate-fade-in">
@@ -228,9 +247,13 @@
                                     <circle cx="12" cy="12" r="6"></circle>
                                     <circle cx="12" cy="12" r="2"></circle>
                                 </svg></div>
-                            <h3 class="text-lg md:text-2xl font-bold"><span class="">{{ $settings['mission_title'] ?? 'Our Mission' }}</span></h3>
+                            <h3 class="text-lg md:text-2xl font-bold">
+                                <span class="">{{ setting('site.mission_title') }}</span>
+                            </h3>
                         </div>
-                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed"><span class="">{{ $settings['mission_text'] ?? 'To empower businesses to achieve their full potential through innovative solutions and exceptional services that drive growth and success.' }}</span></p>
+                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
+                            <span class="">{{ setting('site.mission') }}</span>
+                        </p>
                     </div>
                     <div
                         class="group p-5 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-secondary/50 to-secondary/30 border border-border hover:border-primary/40 transition-all duration-300 animate-fade-in animation-delay-200">
@@ -246,57 +269,24 @@
                                     </path>
                                     <circle cx="12" cy="12" r="3"></circle>
                                 </svg></div>
-                            <h3 class="text-lg md:text-2xl font-bold"><span class="">{{ $settings['vision_title'] ?? 'Our Vision' }}</span></h3>
+                            <h3 class="text-lg md:text-2xl font-bold"><span class="">{{ setting('site.vision_title') }}</span></h3>
                         </div>
-                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed"><span class="">{{ $settings['vision_text'] ?? 'To be the leading trusted partner for digital transformation and organizational development in the Arab region.' }}</span></p>
+                        <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
+                            <span class="">{{ setting('site.vision') }}</span>
+                        </p>
                     </div>
                 </div>
                 <div class="text-center">
                     <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-8"><span class="">Our Core Values</span></h3>
                     <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-6 md:mb-8">
-                        <div class="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors animate-fade-in"
-                            style="animation-delay: 0ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-heart w-4 h-4 md:w-5 md:h-5 text-primary">
-                                <path
-                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
-                                </path>
-                            </svg><span class="text-xs md:text-sm font-medium"><span class="">Passion</span></span>
-                        </div>
-                        <div class="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors animate-fade-in"
-                            style="animation-delay: 50ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-shield w-4 h-4 md:w-5 md:h-5 text-primary">
-                                <path
-                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
-                                </path>
-                            </svg><span class="text-xs md:text-sm font-medium"><span
-                                    class="">Integrity</span></span></div>
-                        <div class="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors animate-fade-in"
-                            style="animation-delay: 100ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-users w-4 h-4 md:w-5 md:h-5 text-primary">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg><span class="text-xs md:text-sm font-medium"><span class="">Teamwork</span></span>
-                        </div>
-                        <div class="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors animate-fade-in"
-                            style="animation-delay: 150ms;"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-lightbulb w-4 h-4 md:w-5 md:h-5 text-primary">
-                                <path
-                                    d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5">
-                                </path>
-                                <path d="M9 18h6"></path>
-                                <path d="M10 22h4"></path>
-                            </svg><span class="text-xs md:text-sm font-medium"><span
-                                    class="">Innovation</span></span></div>
+                        @foreach($coreValues as $index => $coreValue)
+                            <div class="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors animate-fade-in" style="animation-delay: {{ $index * 50 }}ms;">
+                                {!! $coreValue['icon'] !!}
+                                <span class="text-xs md:text-sm font-medium">
+                                    <span class="">{{ $coreValue['title'][app()->getLocale()] ?? '' }}</span>
+                                </span>
+                            </div>
+                        @endforeach
                     </div><a class="btn-outline inline-flex items-center gap-2 text-sm md:text-base" href="/about"><span
                             class="">Learn More About Us</span><svg xmlns="http://www.w3.org/2000/svg"
                             width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -314,7 +304,7 @@
                         class="inline-block px-4 py-2 rounded-full border border-border text-sm font-medium mb-6 animate-fade-in"><span
                             class="">@trans('home.complete_work')</span></span>
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in animation-delay-100"><span
-                            class="">{{ $settings['projects_title'] ?? 'Creative Projects' }}</span><br><span class="text-primary">{{ $settings['projects_subtitle'] ?? 'We\'ve Delivered To Clients' }}</span></h2>
+                            class="">{{ setting('home.projects_title', 'Creative Projects') }}</span><br><span class="text-primary">{{ setting('home.projects_subtitle', 'We\'ve Delivered To Clients') }}</span></h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="space-y-8">

@@ -6,6 +6,8 @@ use App\Filament\Helpers\MultilingualHelper;
 use App\Helpers\SettingsHelper;
 use App\Models\Setting;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -35,17 +37,20 @@ class SiteSettings extends Page implements HasForms
     {
         // Load existing settings directly into $this->data
         $this->data = [
-            'site_title' => Setting::getValue('site.title', ['en' => 'COMPACT', 'ar' => 'COMPACT']),
+            'site_title' => Setting::getValue('site.title'),
             'logo' => Setting::getValue('site.logo', '/assets/logo-DSroQpd9.png'),
-            'mission' => Setting::getValue('site.mission', ['en' => '', 'ar' => '']),
-            'vision' => Setting::getValue('site.vision', ['en' => '', 'ar' => '']),
-            'address' => Setting::getValue('site.address', [
-                'en' => "Saudi Arabia Office\nWadi Makkah, King Khalid Road, Riyadh, Kingdom of Saudi Arabia – 12514\n\nEgypt Office\n63 Syria Street, Al Agouza, Giza, Egypt\n+2 010 980 52005",
-                'ar' => "مكتب السعودية\nوادي مكة، طريق الملك خالد، الرياض، المملكة العربية السعودية – 12514\n\nمكتب مصر\n63 شارع سوريا، العجوزة، الجيزة، مصر\n+2 010 980 52005"
-            ]),
-            'phone' => Setting::getValue('site.phone', ['en' => '+966 54 055 2004', 'ar' => '+966 54 055 2004']),
-            'phone_secondary' => Setting::getValue('site.phone_secondary', ['en' => '+966 56 442 6319', 'ar' => '+966 56 442 6319']),
-            'email' => Setting::getValue('site.email', ['en' => 'info@compactod.com', 'ar' => 'info@compactod.com']),
+            'mission' => Setting::getValue('site.mission'),
+            'mission_title' => Setting::getValue('site.mission_title'),
+            'vision' => Setting::getValue('site.vision'),
+            'vision_title' => Setting::getValue('site.vision_title'),
+            'strengths_title' => Setting::getValue('home.strengths_title'),
+            'strengths_subtitle' => Setting::getValue('home.strengths_subtitle'),
+            'competitive_advantages' => Setting::getValue('home.competitive_advantages'),
+            'core_values' => Setting::getValue('home.core_values'),
+            'address' => Setting::getValue('site.address'),
+            'phone' => Setting::getValue('site.phone'),
+            'phone_secondary' => Setting::getValue('site.phone_secondary'),
+            'email' => Setting::getValue('site.email'),
         ];
 
         // Fill the form to ensure all fields are properly hydrated
@@ -76,12 +81,21 @@ class SiteSettings extends Page implements HasForms
                             ->visibility('public')
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
                             ->maxSize(5120)
-                            ->helperText('Upload your site logo (recommended: SVG or PNG with transparent background)')
                             ->columnSpanFull(),
                     ]),
 
                 Section::make('About Company')
                     ->schema([
+                        MultilingualHelper::multilingualTextInput(
+                            'mission_title',
+                            'Mission Title',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The title of the mission',
+                                'ar_helper' => 'عنوان الرسالة',
+                            ]
+                        ),
                         MultilingualHelper::multilingualTextarea(
                             'mission',
                             'Our Mission',
@@ -89,6 +103,16 @@ class SiteSettings extends Page implements HasForms
                                 'rows' => 3,
                                 'en_placeholder' => 'Enter company mission in English',
                                 'ar_placeholder' => 'أدخل رسالة الشركة بالعربية',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextInput(
+                            'vision_title',
+                            'Vision Title',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The title of the vision',
+                                'ar_helper' => 'عنوان الرؤية',
                             ]
                         ),
                         MultilingualHelper::multilingualTextarea(
@@ -100,6 +124,91 @@ class SiteSettings extends Page implements HasForms
                                 'ar_placeholder' => 'أدخل رؤية الشركة بالعربية',
                             ]
                         ),
+                    ]),
+
+                Section::make('Core Values')
+                    ->schema([
+                        Repeater::make('core_values')
+                            ->label('Core Values')
+                            ->reorderable()
+                            ->collapsible()
+                            ->itemLabel(fn (array $state): ?string => data_get($state, 'title.en') ?: 'Core Value')
+                            ->schema([
+                                Textarea::make('icon')
+                                    ->label('Icon')
+                                    ->rows(3)
+                                    ->columnSpanFull(),
+
+                                MultilingualHelper::multilingualTextInput(
+                                    'title',
+                                    'Value',
+                                    [
+                                        'required' => true,
+                                        'maxLength' => 80,
+                                        'en_placeholder' => 'e.g., Passion',
+                                        'ar_placeholder' => 'مثل: الشغف',
+                                    ]
+                                ),
+                            ])
+                            ->columnSpanFull(),
+                    ]),
+
+                Section::make('Competitive Advantages')
+                    ->schema([
+                        MultilingualHelper::multilingualTextInput(
+                            'strengths_title',
+                            'Strengths Title',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_placeholder' => 'e.g., Our Strengths',
+                                'ar_placeholder' => 'مثل: نقاط قوتنا',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextInput(
+                            'strengths_subtitle',
+                            'Strengths Subtitle',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_placeholder' => 'e.g., Competitive Advantages',
+                                'ar_placeholder' => 'مثل: المزايا التنافسية',
+                            ]
+                        ),
+
+                        Repeater::make('competitive_advantages')
+                            ->label('Competitive Advantages Items')
+                            ->reorderable()
+                            ->collapsible()
+                            ->itemLabel(fn (array $state): ?string => data_get($state, 'title.en') ?: 'Advantage')
+                            ->schema([
+                                Textarea::make('icon')
+                                    ->label('Icon (SVG/HTML)')
+                                    ->rows(4)
+                                    ->columnSpanFull(),
+
+                                MultilingualHelper::multilingualTextInput(
+                                    'title',
+                                    'Title',
+                                    [
+                                        'required' => true,
+                                        'maxLength' => 120,
+                                        'en_placeholder' => 'e.g., Result-Oriented',
+                                        'ar_placeholder' => 'مثل: موجه للنتائج',
+                                    ]
+                                ),
+
+                                MultilingualHelper::multilingualTextarea(
+                                    'description',
+                                    'Description',
+                                    [
+                                        'rows' => 3,
+                                        'en_placeholder' => 'Short description in English',
+                                        'ar_placeholder' => 'وصف قصير بالعربية',
+                                    ]
+                                ),
+                            ])
+                            ->columnSpanFull(),
                     ]),
 
                 Section::make('Contact Information')
@@ -200,7 +309,13 @@ class SiteSettings extends Page implements HasForms
         Setting::setValue('site.title', $data['site_title'] ?? ['en' => 'COMPACT', 'ar' => 'COMPACT'], 'json', 'general');
         Setting::setValue('site.logo', $data['logo'] ?? '/assets/logo-DSroQpd9.png', 'image', 'general');
         Setting::setValue('site.mission', $data['mission'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
+        Setting::setValue('site.mission_title', $data['mission_title'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.vision', $data['vision'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
+        Setting::setValue('site.vision_title', $data['vision_title'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
+        Setting::setValue('home.strengths_title', $data['strengths_title'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
+        Setting::setValue('home.strengths_subtitle', $data['strengths_subtitle'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
+        Setting::setValue('home.competitive_advantages', $data['competitive_advantages'] ?? [], 'json', 'home');
+        Setting::setValue('home.core_values', $data['core_values'] ?? [], 'json', 'home');
         Setting::setValue('site.address', $data['address'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.phone', $data['phone'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.phone_secondary', $data['phone_secondary'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
