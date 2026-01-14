@@ -8,7 +8,7 @@
             <div class="container-custom relative z-10">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                     <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span class="">Career</span>
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span class="">@trans('career.title')</span>
                         </h1>
                         <div class="flex items-start gap-4 animate-fade-in animation-delay-100">
                             <div class="w-12 h-12 flex items-center justify-center shrink-0 animate-spin"
@@ -16,14 +16,13 @@
                                     <path d="M20 0 L20 40 M0 20 L40 20 M5 5 L35 35 M35 5 L5 35" stroke="currentColor"
                                         stroke-width="1" fill="none"></path>
                                 </svg></div>
-                            <p class="text-muted-foreground max-w-md"><span class="">Join our exceptional team and
-                                    start your career journey with us. We are looking for outstanding talents.</span></p>
+                            <p class="text-muted-foreground max-w-md"><span class="">@trans('career.subtitle')</span></p>
                         </div>
                     </div>
                     <div
                         class="flex items-center gap-2 text-sm bg-secondary/50 px-4 py-2 rounded-full animate-fade-in animation-delay-200">
                         <span class="text-muted-foreground">COMPACT</span><span
-                            class="text-muted-foreground">&gt;</span><span class="text-primary">Career</span></div>
+                            class="text-muted-foreground">&gt;</span><span class="text-primary">@trans('career.title')</span></div>
                 </div>
             </div>
             <div class="absolute top-20 right-10 md:right-20 w-24 h-24 md:w-32 md:h-32 animate-rotate-slow"><svg
@@ -54,11 +53,8 @@
                                     <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                                     <rect width="20" height="14" x="2" y="6" rx="2"></rect>
                                 </svg></div>
-                            <h2 class="text-3xl font-bold text-primary-foreground mb-4"><span class="">Why Join
-                                    Us?</span></h2>
-                            <p class="text-primary-foreground/80 mb-8"><span class="">We believe our employees are our
-                                    greatest asset. We provide a motivating work environment and exceptional growth
-                                    opportunities.</span></p>
+                            <h2 class="text-3xl font-bold text-primary-foreground mb-4"><span class="">@trans('career.why_join_us')</span></h2>
+                            <p class="text-primary-foreground/80 mb-8"><span class="">@trans('career.why_join_us_desc')</span></p>
                             <ul class="space-y-4">
                                 <li class="flex items-center gap-3 text-primary-foreground"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -66,14 +62,14 @@
                                         stroke-linejoin="round" class="lucide lucide-circle-check-big w-5 h-5 shrink-0">
                                         <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                         <path d="m9 11 3 3L22 4"></path>
-                                    </svg><span><span class="">Competitive salary packages</span></span></li>
+                                    </svg><span><span class="">@trans('career.benefit_salary')</span></span></li>
                                 <li class="flex items-center gap-3 text-primary-foreground"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="lucide lucide-circle-check-big w-5 h-5 shrink-0">
                                         <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                         <path d="m9 11 3 3L22 4"></path>
-                                    </svg><span><span class="">Professional development opportunities</span></span>
+                                    </svg><span><span class="">@trans('career.benefit_development')</span></span>
                                 </li>
                                 <li class="flex items-center gap-3 text-primary-foreground"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -81,7 +77,7 @@
                                         stroke-linejoin="round" class="lucide lucide-circle-check-big w-5 h-5 shrink-0">
                                         <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                         <path d="m9 11 3 3L22 4"></path>
-                                    </svg><span><span class="">Flexible working environment</span></span></li>
+                                    </svg><span><span class="">@trans('career.benefit_environment')</span></span></li>
                                 <li class="flex items-center gap-3 text-primary-foreground"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -89,7 +85,7 @@
                                         class="lucide lucide-circle-check-big w-5 h-5 shrink-0">
                                         <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                         <path d="m9 11 3 3L22 4"></path>
-                                    </svg><span><span class="">Health insurance benefits</span></span></li>
+                                    </svg><span><span class="">@trans('career.benefit_insurance')</span></span></li>
                                 <li class="flex items-center gap-3 text-primary-foreground"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -97,7 +93,7 @@
                                         class="lucide lucide-circle-check-big w-5 h-5 shrink-0">
                                         <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                         <path d="m9 11 3 3L22 4"></path>
-                                    </svg><span><span class="">Team building activities</span></span></li>
+                                    </svg><span><span class="">@trans('career.benefit_team_building')</span></span></li>
                                 <li class="flex items-center gap-3 text-primary-foreground"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -105,7 +101,7 @@
                                         class="lucide lucide-circle-check-big w-5 h-5 shrink-0">
                                         <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                         <path d="m9 11 3 3L22 4"></path>
-                                    </svg><span><span class="">Career growth path</span></span></li>
+                                    </svg><span><span class="">@trans('career.benefit_growth')</span></span></li>
                             </ul>
                             <div class="mt-12 pt-8 border-t border-primary-foreground/20">
                                 <div class="flex items-center gap-4">
@@ -122,40 +118,38 @@
                                         </svg></div>
                                     <div>
                                         <p class="text-2xl font-bold text-primary-foreground">100+</p>
-                                        <p class="text-primary-foreground/80 text-sm"><span class="">Happy
-                                                Employees</span></p>
+                                        <p class="text-primary-foreground/80 text-sm"><span class="">@trans('career.happy_employees')</span></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="animate-fade-in animation-delay-200">
-                        <h2 class="text-3xl font-bold mb-2"><span class="">Submit Your CV</span></h2>
-                        <p class="text-muted-foreground mb-8"><span class="">Fill out the form below and attach your
-                                CV to join our team.</span></p>
+                        <h2 class="text-3xl font-bold mb-2"><span class="">@trans('career.submit_cv')</span></h2>
+                        <p class="text-muted-foreground mb-8"><span class="">@trans('career.submit_cv_desc')</span></p>
                         <form class="space-y-6">
-                            <div><label class="block text-sm font-medium mb-2">Name <span
+                            <div><label class="block text-sm font-medium mb-2">@trans('career.label_name') <span
                                         class="text-destructive">*</span></label><input
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
                                     required="" value=""></div>
-                            <div><label class="block text-sm font-medium mb-2">Email <span
+                            <div><label class="block text-sm font-medium mb-2">@trans('career.label_email') <span
                                         class="text-destructive">*</span></label><input type="email"
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
                                     required="" value=""></div>
-                            <div><label class="block text-sm font-medium mb-2">Phone Number <span
+                            <div><label class="block text-sm font-medium mb-2">@trans('career.label_phone') <span
                                         class="text-destructive">*</span></label><input type="tel"
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
                                     required="" value=""></div>
-                            <div><label class="block text-sm font-medium mb-2">Career <span
+                            <div><label class="block text-sm font-medium mb-2">@trans('career.label_career') <span
                                         class="text-destructive">*</span></label><input
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
-                                    placeholder="e.g., Web Developer" required="" value=""></div>
-                            <div><label class="block text-sm font-medium mb-2">Details (optional)</label>
+                                    placeholder="@trans('career.placeholder_career')" required="" value=""></div>
+                            <div><label class="block text-sm font-medium mb-2">@trans('career.label_details')</label>
                                 <textarea
                                     class="flex w-full rounded-md border px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-card border-border min-h-[100px] resize-none"
-                                    placeholder="Tell us more about yourself..."></textarea>
+                                    placeholder="@trans('career.placeholder_details')"></textarea>
                             </div>
-                            <div><label class="block text-sm font-medium mb-2">CV <span
+                            <div><label class="block text-sm font-medium mb-2">@trans('career.label_cv') <span
                                         class="text-destructive">*</span></label>
                                 <div class="relative"><input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
                                         class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
@@ -172,8 +166,8 @@
                                                 </line>
                                             </svg></div>
                                         <div class="flex-1">
-                                            <p class="text-sm font-medium">Choose file or drag here</p>
-                                            <p class="text-xs text-muted-foreground">PDF, DOC, DOCX, PNG, JPG (Max 5MB)</p>
+                                            <p class="text-sm font-medium">@trans('career.cv_choose_file')</p>
+                                            <p class="text-xs text-muted-foreground">@trans('career.cv_file_types')</p>
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +181,7 @@
                                         d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
                                     </path>
                                     <path d="m21.854 2.147-10.94 10.939"></path>
-                                </svg>Submit</button>
+                                </svg>@trans('common.submit')</button>
                         </form>
                     </div>
                 </div>

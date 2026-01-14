@@ -15,7 +15,7 @@ class ServicesController extends Controller
         $services = Service::where('is_active', true)
             ->orderBy('order', 'asc')
             ->get();
-        
+
         return view('services', compact('services'));
     }
 
@@ -27,7 +27,7 @@ class ServicesController extends Controller
         $service = Service::where('slug', $slug)
             ->where('is_active', true)
             ->firstOrFail();
-        
-        return view('services.show', compact('service'));
+
+        return view('service-single', compact('service'));
     }
 }

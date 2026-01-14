@@ -6,7 +6,7 @@ use App\Models\Partner;
 use App\Models\Team;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-
+use App\Models\TargetField;
 class AboutController extends Controller
 {
     /**
@@ -23,7 +23,10 @@ class AboutController extends Controller
         $teams = Team::where('is_active', true)
             ->orderBy('order', 'asc')
             ->get();
-
+        // Fetch target fields
+        $targetFields = TargetField::where('is_active', true)
+            ->orderBy('order', 'asc')
+            ->get();
         // Fetch settings for about page
         $settings = [
             'intro_text' => Setting::getValue('about.intro_text', 'COMPACT delivers integrated business solutions across: Organizational Development, Business Development, CRM Solutions, Digital Transformation & Automation, Dashboards & Reporting, System Integration, Websites & Mobile Apps, and 360° Digital Marketing—plus Governance Solutions, Recruitment & Training, Financial Consulting, and Legal Consulting'),
@@ -42,6 +45,6 @@ class AboutController extends Controller
             'years_experience' => Setting::getValue('stats.years_experience', '10+'),
         ];
 
-        return view('about', compact('partners', 'teams', 'settings'));
+        return view('about', compact('partners', 'teams', 'settings', 'targetFields'));
     }
 }

@@ -9,10 +9,10 @@
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div><span
                             class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in"><span
-                                class="">Blog</span></span>
+                                class="">@trans('blog.badge')</span></span>
                         <h1
                             class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                            <span class="">Insights &amp;</span><br><span class="text-primary">Articles</span></h1>
+                            <span class="">@trans('blog.title_insights')</span><br><span class="text-primary">@trans('blog.title_articles')</span></h1>
                         <p class="mt-6 text-lg text-muted-foreground max-w-xl animate-fade-in animation-delay-200"><span
                                 class="">{{ $settings['page_subtitle'] ?? 'Discover the latest trends and insights in technology and business from our experts' }}</span></p>
                     </div>
@@ -72,12 +72,12 @@
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <polyline points="12 6 12 12 16 14"></polyline>
                                 </svg>
-                                {{ $featuredBlog->read_time }} min read
+                                {{ $featuredBlog->read_time }} @trans('blog.min_read')
                             </span>
                             @endif
                         </div>
                         <a class="btn-primary inline-flex items-center gap-2" href="{{ route('blog.show', $featuredBlog->slug) }}">
-                            <span class="">Read More</span>
+                            <span class="">@trans('blog.read_more')</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
                                 <path d="M5 12h14"></path>
                                 <path d="m12 5 7 7-7 7"></path>
@@ -90,7 +90,7 @@
         @endif
         <section class="section-padding">
             <div class="container-custom">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12"><span class="">All Articles</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-12"><span class="">@trans('blog.all_articles')</span></h2>
                 @if($blogs->count() > 0)
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($blogs as $index => $blog)
@@ -122,7 +122,7 @@
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
-                                    {{ $blog->read_time }} min read
+                                    {{ $blog->read_time }} @trans('blog.min_read')
                                 </span>
                                 @endif
                             </div>
@@ -132,7 +132,7 @@
                 </div>
                 @else
                 <div class="text-center py-12">
-                    <p class="text-muted-foreground">No blog posts available at the moment.</p>
+                    <p class="text-muted-foreground">@trans('blog.no_posts')</p>
                 </div>
                 @endif
             </div>
@@ -143,9 +143,9 @@
                     <h2 class="text-3xl md:text-4xl font-bold mb-4"><span class="">{{ $settings['newsletter_title'] ?? 'Subscribe to Our Newsletter' }}</span></h2>
                     <p class="text-muted-foreground mb-8"><span class="">{{ $settings['newsletter_description'] ?? 'Get the latest articles and insights delivered directly to your inbox' }}</span></p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center"><input type="email"
-                            placeholder="Enter your email"
+                            placeholder="@trans('blog.email_placeholder')"
                             class="px-6 py-3 rounded-full bg-background border border-border focus:border-primary focus:outline-none text-foreground min-w-[300px]"><button
-                            class="btn-primary"><span class="">Subscribe</span></button></div>
+                            class="btn-primary"><span class="">@trans('blog.subscribe')</span></button></div>
                 </div>
             </div>
         </section>

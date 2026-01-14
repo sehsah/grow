@@ -574,6 +574,154 @@ class TranslationSeeder extends Seeder
                 'group' => 'contact',
                 'description' => 'Button text',
             ],
+            // Career Page
+            [
+                'key' => 'career.title',
+                'value' => ['en' => 'Career', 'ar' => 'الوظائف'],
+                'group' => 'career',
+                'description' => 'Page title',
+            ],
+            [
+                'key' => 'career.subtitle',
+                'value' => [
+                    'en' => 'Join our exceptional team and start your career journey with us. We are looking for outstanding talents.',
+                    'ar' => 'انضم إلى فريقنا الاستثنائي وابدأ رحلتك المهنية معنا. نحن نبحث عن مواهب متميزة.'
+                ],
+                'group' => 'career',
+                'description' => 'Page subtitle',
+            ],
+            [
+                'key' => 'career.why_join_us',
+                'value' => ['en' => 'Why Join Us?', 'ar' => 'لماذا تنضم إلينا؟'],
+                'group' => 'career',
+                'description' => 'Section title',
+            ],
+            [
+                'key' => 'career.why_join_us_desc',
+                'value' => [
+                    'en' => 'We believe our employees are our greatest asset. We provide a motivating work environment and exceptional growth opportunities.',
+                    'ar' => 'نؤمن بأن موظفينا هم أعظم أصولنا. نحن نوفر بيئة عمل محفزة وفرص نمو استثنائية.'
+                ],
+                'group' => 'career',
+                'description' => 'Section description',
+            ],
+            [
+                'key' => 'career.benefit_salary',
+                'value' => ['en' => 'Competitive salary packages', 'ar' => 'حزم رواتب تنافسية'],
+                'group' => 'career',
+                'description' => 'Benefit item',
+            ],
+            [
+                'key' => 'career.benefit_development',
+                'value' => ['en' => 'Professional development opportunities', 'ar' => 'فرص التطوير المهني'],
+                'group' => 'career',
+                'description' => 'Benefit item',
+            ],
+            [
+                'key' => 'career.benefit_environment',
+                'value' => ['en' => 'Flexible working environment', 'ar' => 'بيئة عمل مرنة'],
+                'group' => 'career',
+                'description' => 'Benefit item',
+            ],
+            [
+                'key' => 'career.benefit_insurance',
+                'value' => ['en' => 'Health insurance benefits', 'ar' => 'مزايا التأمين الصحي'],
+                'group' => 'career',
+                'description' => 'Benefit item',
+            ],
+            [
+                'key' => 'career.benefit_team_building',
+                'value' => ['en' => 'Team building activities', 'ar' => 'أنشطة بناء الفريق'],
+                'group' => 'career',
+                'description' => 'Benefit item',
+            ],
+            [
+                'key' => 'career.benefit_growth',
+                'value' => ['en' => 'Career growth path', 'ar' => 'مسار النمو الوظيفي'],
+                'group' => 'career',
+                'description' => 'Benefit item',
+            ],
+            [
+                'key' => 'career.happy_employees',
+                'value' => ['en' => 'Happy Employees', 'ar' => 'موظف سعيد'],
+                'group' => 'career',
+                'description' => 'Statistic label',
+            ],
+            [
+                'key' => 'career.submit_cv',
+                'value' => ['en' => 'Submit Your CV', 'ar' => 'أرسل سيرتك الذاتية'],
+                'group' => 'career',
+                'description' => 'Form title',
+            ],
+            [
+                'key' => 'career.submit_cv_desc',
+                'value' => [
+                    'en' => 'Fill out the form below and attach your CV to join our team.',
+                    'ar' => 'املأ النموذج أدناه وأرفق سيرتك الذاتية للانضمام إلى فريقنا.'
+                ],
+                'group' => 'career',
+                'description' => 'Form subtitle',
+            ],
+            [
+                'key' => 'career.label_name',
+                'value' => ['en' => 'Name', 'ar' => 'الاسم'],
+                'group' => 'career',
+                'description' => 'Form label',
+            ],
+            [
+                'key' => 'career.label_email',
+                'value' => ['en' => 'Email', 'ar' => 'البريد الإلكتروني'],
+                'group' => 'career',
+                'description' => 'Form label',
+            ],
+            [
+                'key' => 'career.label_phone',
+                'value' => ['en' => 'Phone Number', 'ar' => 'رقم الهاتف'],
+                'group' => 'career',
+                'description' => 'Form label',
+            ],
+            [
+                'key' => 'career.label_career',
+                'value' => ['en' => 'Career', 'ar' => 'الوظيفة'],
+                'group' => 'career',
+                'description' => 'Form label',
+            ],
+            [
+                'key' => 'career.placeholder_career',
+                'value' => ['en' => 'e.g., Web Developer', 'ar' => 'مثال: مطور ويب'],
+                'group' => 'career',
+                'description' => 'Form placeholder',
+            ],
+            [
+                'key' => 'career.label_details',
+                'value' => ['en' => 'Details (optional)', 'ar' => 'تفاصيل (اختياري)'],
+                'group' => 'career',
+                'description' => 'Form label',
+            ],
+            [
+                'key' => 'career.placeholder_details',
+                'value' => ['en' => 'Tell us more about yourself...', 'ar' => 'أخبرنا المزيد عن نفسك...'],
+                'group' => 'career',
+                'description' => 'Form placeholder',
+            ],
+            [
+                'key' => 'career.label_cv',
+                'value' => ['en' => 'CV', 'ar' => 'السيرة الذاتية'],
+                'group' => 'career',
+                'description' => 'Form label',
+            ],
+            [
+                'key' => 'career.cv_choose_file',
+                'value' => ['en' => 'Choose file or drag here', 'ar' => 'اختر ملفاً أو اسحبه هنا'],
+                'group' => 'career',
+                'description' => 'File input text',
+            ],
+            [
+                'key' => 'career.cv_file_types',
+                'value' => ['en' => 'PDF, DOC, DOCX, PNG, JPG (Max 5MB)', 'ar' => 'PDF, DOC, DOCX, PNG, JPG (الحد الأقصى 5 ميجابايت)'],
+                'group' => 'career',
+                'description' => 'File input helper',
+            ],
             // Common
             [
                 'key' => 'common.home',

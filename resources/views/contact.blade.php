@@ -8,7 +8,7 @@
             <div class="container-custom relative z-10">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                     <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span class="">Contact Us</span>
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span class="">@trans('contact.title')</span>
                         </h1>
                         <div class="flex items-start gap-4 animate-fade-in animation-delay-100">
                             <div class="w-12 h-12 flex items-center justify-center shrink-0 animate-spin"
@@ -16,14 +16,13 @@
                                     <path d="M20 0 L20 40 M0 20 L40 20 M5 5 L35 35 M35 5 L5 35" stroke="currentColor"
                                         stroke-width="1" fill="none"></path>
                                 </svg></div>
-                            <p class="text-muted-foreground max-w-md"><span class="">Get in touch with our team to
-                                    discuss how we can help your business grow.</span></p>
+                            <p class="text-muted-foreground max-w-md"><span class="">@trans('contact.subtitle')</span></p>
                         </div>
                     </div>
                     <div
                         class="flex items-center gap-2 text-sm bg-secondary/50 px-4 py-2 rounded-full animate-fade-in animation-delay-200">
                         <span class="text-muted-foreground">COMPACT</span><span
-                            class="text-muted-foreground">&gt;</span><span class="text-primary">Contact Us</span></div>
+                            class="text-muted-foreground">&gt;</span><span class="text-primary">@trans('contact.title')</span></div>
                 </div>
             </div>
             <div class="absolute top-20 right-10 md:right-20 w-24 h-24 md:w-32 md:h-32 animate-rotate-slow"><svg
@@ -54,7 +53,7 @@
                                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                                 </svg></div>
-                            <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">EMAIL</h3><a
+                            <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">@trans('contact.label_email')</h3><a
                                 href="mailto:info@compactod.com"
                                 class="text-primary-foreground hover:underline text-lg">info@compactod.com</a>
                         </div>
@@ -68,7 +67,7 @@
                                         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                     </path>
                                 </svg></div>
-                            <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">PHONE</h3>
+                            <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">@trans('contact.label_phone')</h3>
                             <div class="space-y-1"><a href="tel:+966 54 055 2004"
                                     class="block text-primary-foreground hover:underline text-lg" dir="ltr">+966 54 055
                                     2004</a><a href="tel:+966 56 442 6319"
@@ -86,7 +85,7 @@
                                     </path>
                                     <circle cx="12" cy="10" r="3"></circle>
                                 </svg></div>
-                            <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">ADDRESS</h3>
+                            <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">@trans('contact.label_address')</h3>
                             <div class="space-y-4">
                                 <p class="text-primary-foreground text-lg leading-relaxed whitespace-pre-line">Saudi Arabia
                                     Office
@@ -99,19 +98,17 @@
                         </div>
                     </div>
                     <div class="animate-fade-in animation-delay-200">
-                        <h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="">Get started and grow your
-                                business now.</span></h2>
-                        <p class="text-muted-foreground mb-8 text-lg"><span class="">Start today to unlock
-                                opportunities and drive your business toward success.</span></p>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="">@trans('contact.form_title')</span></h2>
+                        <p class="text-muted-foreground mb-8 text-lg"><span class="">@trans('contact.form_subtitle')</span></p>
                         <form class="space-y-6"><input
                                 class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
-                                placeholder="Name" required="" value=""><input type="email"
+                                placeholder="@trans('contact.name')" required="" value=""><input type="email"
                                 class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
-                                placeholder="Email Address" required="" value=""><input type="tel"
+                                placeholder="@trans('contact.email')" required="" value=""><input type="tel"
                                 class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
-                                placeholder="Phone Number" value="">
+                                placeholder="@trans('contact.phone')" value="">
                             <div class="space-y-3">
-                                <p class="text-sm text-muted-foreground">Select your required service/s</p>
+                                <p class="text-sm text-muted-foreground">@trans('contact.service_label')</p>
                                 <div class="space-y-2">
                                     <div class="flex items-center gap-3"><button type="button" role="checkbox"
                                             aria-checked="false" data-state="unchecked" value="on"
@@ -120,8 +117,7 @@
                                             aria-hidden="true" tabindex="-1" value="on"
                                             style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
                                             for="organizational-development"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">Organizational
-                                            Development</label></div>
+                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_od')</label></div>
                                     <div class="flex items-center gap-3"><button type="button" role="checkbox"
                                             aria-checked="false" data-state="unchecked" value="on"
                                             class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -129,8 +125,7 @@
                                             tabindex="-1" value="on"
                                             style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
                                             for="crm"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">CRM
-                                            Services</label></div>
+                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_crm')</label></div>
                                     <div class="flex items-center gap-3"><button type="button" role="checkbox"
                                             aria-checked="false" data-state="unchecked" value="on"
                                             class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -138,7 +133,7 @@
                                             tabindex="-1" value="on"
                                             style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
                                             for="outsourcing"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">Outsourcing</label>
+                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_outsourcing')</label>
                                     </div>
                                     <div class="flex items-center gap-3"><button type="button" role="checkbox"
                                             aria-checked="false" data-state="unchecked" value="on"
@@ -147,22 +142,12 @@
                                             tabindex="-1" value="on"
                                             style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
                                             for="it-development"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">IT
-                                            Development</label></div>
-                                    <div class="flex items-center gap-3"><button type="button" role="checkbox"
-                                            aria-checked="false" data-state="unchecked" value="on"
-                                            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="dskghjshfdgjk"></button><input type="checkbox" aria-hidden="true"
-                                            tabindex="-1" value="on"
-                                            style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
-                                            for="dskghjshfdgjk"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">gfdhlkfgl</label>
-                                    </div>
+                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_it')</label></div>
                                 </div>
                             </div>
                             <textarea
                                 class="flex w-full rounded-md border px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-card border-border min-h-[120px] text-foreground placeholder:text-muted-foreground resize-none"
-                                placeholder="Message"></textarea><button
+                                placeholder="@trans('contact.message')"></textarea><button
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 w-full h-14 text-lg font-semibold"
                                 type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -172,10 +157,10 @@
                                         d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
                                     </path>
                                     <path d="m21.854 2.147-10.94 10.939"></path>
-                                </svg>Submit</button>
+                                </svg>@trans('common.submit')</button>
                         </form>
                         <div class="mt-12">
-                            <h3 class="text-xl font-semibold mb-6"><span class="">Follow Us</span></h3>
+                            <h3 class="text-xl font-semibold mb-6"><span class="">@trans('common.follow_us')</span></h3>
                             <div class="flex gap-4"><a href="https://www.facebook.com/Compactodco" target="_blank"
                                     rel="noopener noreferrer"
                                     class="w-12 h-12 rounded-full bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"><svg
