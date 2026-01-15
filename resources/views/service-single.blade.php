@@ -8,45 +8,29 @@
             <div class="container-custom relative z-10">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                     <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span class="">Organizational
-                                Development</span></h1>
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span class="">{{ $service->title }}</span></h1>
                         <div class="flex items-start gap-4 animate-fade-in animation-delay-100">
                             <div class="w-12 h-12 flex items-center justify-center shrink-0 animate-spin"
                                 style="animation-duration: 8s;"><svg viewBox="0 0 40 40" class="w-10 h-10 text-foreground">
                                     <path d="M20 0 L20 40 M0 20 L40 20 M5 5 L35 35 M35 5 L5 35" stroke="currentColor"
                                         stroke-width="1" fill="none"></path>
                                 </svg></div>
-                            <p class="text-muted-foreground max-w-md"><span class="">Transform your organization with
-                                    strategic planning and process optimization.</span></p>
+                            <p class="text-muted-foreground max-w-md"><span class="">{{ $service->short_description }}</span></p>
                         </div>
                     </div>
                     <div
                         class="flex items-center gap-2 text-sm bg-secondary/50 px-4 py-2 rounded-full animate-fade-in animation-delay-200">
                         <a class="text-muted-foreground hover:text-primary transition-colors"
-                            href="/services">Services</a><span class="text-muted-foreground">&gt;</span><span
-                            class="text-primary">Organizational Development</span></div>
+                            href="/services">@trans('common.services')</a><span class="text-muted-foreground">&gt;</span><span
+                            class="text-primary">{{ $service->title }}</span></div>
                 </div>
             </div>
-            <div class="absolute top-20 right-10 md:right-20 w-24 h-24 md:w-32 md:h-32 animate-rotate-slow"><svg
-                    viewBox="0 0 100 100" class="w-full h-full">
-                    <defs>
-                        <path id="circlePath" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"></path>
-                    </defs>
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text class="text-[8px] uppercase tracking-widest fill-muted-foreground">
-                        <textPath href="#circlePath">• JOIN OUR TEAM • GROW WITH US • JOIN OUR TEAM • GROW WITH US
-                        </textPath>
-                    </text>
-                    <circle cx="50" cy="50" r="20" fill="hsl(var(--card))" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text x="50" y="54" text-anchor="middle"
-                        class="text-lg font-bold fill-foreground">C</text>
-                </svg></div>
         </section>
         <section class="section-padding">
             <div class="container-custom">
                 <div class="text-center mb-16 animate-fade-in"><span
-                        class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">Our Services</span>
-                    <h2 class="text-3xl md:text-4xl font-bold">What We Offer</h2>
+                        class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">{{ setting('services.badge') }}</span>
+                    <h2 class="text-3xl md:text-4xl font-bold">@trans('common.what_we_offer')</h2>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
@@ -405,7 +389,7 @@
                 </div>
                 <div class="text-center mt-16 animate-fade-in"><a
                         class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
-                        href="/contact">Let's Talk<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        href="/contact">@trans('common.lets_talk')<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
                             <path d="M5 12h14"></path>
