@@ -54,8 +54,8 @@
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                                 </svg></div>
                             <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">@trans('contact.label_email')</h3><a
-                                href="mailto:info@compactod.com"
-                                class="text-primary-foreground hover:underline text-lg">info@compactod.com</a>
+                                href="mailto:{{ $siteEmail }}"
+                                class="text-primary-foreground hover:underline text-lg">{{ $siteEmail }}</a>
                         </div>
                         <div class="mb-10">
                             <div
@@ -68,11 +68,12 @@
                                     </path>
                                 </svg></div>
                             <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">@trans('contact.label_phone')</h3>
-                            <div class="space-y-1"><a href="tel:+966 54 055 2004"
-                                    class="block text-primary-foreground hover:underline text-lg" dir="ltr">+966 54 055
-                                    2004</a><a href="tel:+966 56 442 6319"
-                                    class="block text-primary-foreground hover:underline text-lg" dir="ltr">+966 56 442
-                                    6319</a></div>
+                            <div class="space-y-1"  dir="ltr">
+                                <a href="tel:{{ $sitePhone }}"
+                                    class="block text-primary-foreground hover:underline text-lg" style="@if(app()->getLocale() == 'ar') text-align: end; @else text-align: start; @endif">{{ $sitePhone }}</a>
+                                    <a href="tel:{{ $sitePhoneSecondary }}"
+                                    class="block text-primary-foreground hover:underline text-lg" style="@if(app()->getLocale() == 'ar') text-align: end; @else text-align: start; @endif">{{ $sitePhoneSecondary }}</a>
+                                    </div>
                         </div>
                         <div>
                             <div
@@ -87,13 +88,7 @@
                                 </svg></div>
                             <h3 class="text-sm uppercase tracking-wider text-primary-foreground/80 mb-2">@trans('contact.label_address')</h3>
                             <div class="space-y-4">
-                                <p class="text-primary-foreground text-lg leading-relaxed whitespace-pre-line">Saudi Arabia
-                                    Office
-                                    Wadi Makkah, King Khalid Road, Riyadh, Kingdom of Saudi Arabia – 12514
-
-                                    Egypt Office
-                                    63 Syria Street, Al Agouza, Giza, Egypt
-                                    +2 010 980 52005</p>
+                                <p class="text-primary-foreground text-lg leading-relaxed whitespace-pre-line">{{ $siteAddress }}</p>
                             </div>
                         </div>
                     </div>

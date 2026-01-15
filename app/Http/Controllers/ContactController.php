@@ -11,7 +11,12 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact');
+        $siteAddress = \App\Helpers\SettingsHelper::site('address', '');
+        $sitePhone = \App\Helpers\SettingsHelper::site('phone');
+        $sitePhoneSecondary = \App\Helpers\SettingsHelper::site('phone_secondary');
+        $siteEmail = \App\Helpers\SettingsHelper::site('email');
+        $siteSocialLinks = \App\Helpers\SettingsHelper::site('social_links');
+        return view('contact', compact('siteAddress', 'sitePhone', 'sitePhoneSecondary', 'siteEmail', 'siteSocialLinks'));
     }
 
     /**
@@ -21,7 +26,7 @@ class ContactController extends Controller
     {
         // TODO: Implement contact form handling
         // Validate and send email/store contact message
-        
+
         return redirect()->route('contact')->with('success', 'Your message has been sent successfully!');
     }
 }

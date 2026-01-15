@@ -58,6 +58,10 @@ class SiteSettings extends Page implements HasForms
             'social_links' => Setting::getValue('site.social_links'),
             'video_url' => Setting::getValue('home.video_url'),
             'image_cover' => Setting::getValue('home.image_cover'),
+            'clients_count' => Setting::getValue('stats.clients_count'),
+            'projects_count' => Setting::getValue('stats.projects_count'),
+            'years_experience' => Setting::getValue('stats.years_experience'),
+            'experts_count' => Setting::getValue('stats.experts_count'),
         ];
 
         // Fill the form to ensure all fields are properly hydrated
@@ -301,6 +305,30 @@ class SiteSettings extends Page implements HasForms
                             ->columnSpanFull(),
                     ]),
 
+                //add COMPACT VALUES section
+                Section::make('COMPACT VALUES')
+                    ->schema([
+                        TextInput::make('clients_count')
+                            ->label('Clients Count')
+                            ->required()
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                        TextInput::make('projects_count')
+                            ->label('Projects Count')
+                            ->required()
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                        TextInput::make('years_experience')
+                            ->label('Years Experience')
+                            ->required()
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                        TextInput::make('experts_count')
+                            ->label('Experts Count')
+                            ->required()
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                    ]),
                 Section::make('Social Media')
                     ->schema([
                         Repeater::make('social_links')
@@ -391,6 +419,10 @@ class SiteSettings extends Page implements HasForms
         Setting::setValue('site.social_links', $data['social_links'] ?? [], 'json', 'general');
         Setting::setValue('home.video_url', $data['video_url'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
         Setting::setValue('home.image_cover', $data['image_cover'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
+        Setting::setValue('stats.clients_count', $data['clients_count'] ?? ['en' => '', 'ar' => ''], 'json', 'stats');
+        Setting::setValue('stats.projects_count', $data['projects_count'] ?? ['en' => '', 'ar' => ''], 'json', 'stats');
+        Setting::setValue('stats.years_experience', $data['years_experience'] ?? ['en' => '', 'ar' => ''], 'json', 'stats');
+        Setting::setValue('stats.experts_count', $data['experts_count'] ?? ['en' => '', 'ar' => ''], 'json', 'stats');
         // Clear settings cache
         SettingsHelper::clearCache();
 

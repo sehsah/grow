@@ -14,7 +14,7 @@
                             class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
                             <span class="">@trans('blog.title_insights')</span><br><span class="text-primary">@trans('blog.title_articles')</span></h1>
                         <p class="mt-6 text-lg text-muted-foreground max-w-xl animate-fade-in animation-delay-200"><span
-                                class="">{{ $settings['page_subtitle'] ?? 'Discover the latest trends and insights in technology and business from our experts' }}</span></p>
+                                class="">@trans('blog.subtitle')</span></p>
                     </div>
                     <div class="hidden lg:flex justify-center items-center">
                         <div class="relative animate-rotate-slow w-40 h-40"><svg viewBox="0 0 100 100" class="w-full h-full"
