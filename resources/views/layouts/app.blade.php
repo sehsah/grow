@@ -27,7 +27,7 @@
                 <nav class="flex items-center justify-between h-20">
                     <a class="flex items-center gap-2"
                         href="/">
-                        <img src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-12 w-auto">
+                        <img src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-20 w-auto">
                     </a>
                     <div class="hidden md:flex items-center gap-8">
                         <a class="relative text-sm font-medium transition-colors animated-underline text-primary" href="/">@trans('common.home')</a>
