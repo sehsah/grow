@@ -101,18 +101,21 @@
                 <div class="relative mt-16 animate-fade-in animation-delay-400">
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/30 -rotate-1"></div>
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/20 rotate-1"></div>
-                    <div class="relative rounded-xl overflow-hidden"><img src="{{ asset('images/hero-image.jpg') }}"
-                            alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
-                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent">
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center"><button
+                    <div class="relative rounded-xl overflow-hidden">
+                        <img src="{{ setting('home.image_cover') }}" alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <a href="{{ setting('home.video_url') }}" target="_blank"
                                 class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50 animate-pulse-glow"
-                                aria-label="Play video"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                aria-label="Play video">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-play w-6 h-6 md:w-8 md:h-8 text-primary-foreground fill-current ml-1">
                                     <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                                </svg></button></div>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

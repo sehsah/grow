@@ -209,8 +209,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     <div class="space-y-4"><a class="inline-block" href="/"><img
                                 src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
-                        <p class="text-muted-foreground text-sm leading-relaxed">{{ $siteTitle }} delivers integrated business
-                            solutions designed to drive measurable growth and sustainable innovation.</p>
+                        <p class="text-muted-foreground text-sm leading-relaxed">@trans('home.footer_description')</p>
                         <div class="flex gap-3 pt-2">
 
                             @if(isset($siteSocialLinks[0]['platform']) && $siteSocialLinks[0]['platform'] == 'facebook')

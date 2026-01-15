@@ -18,6 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Actions\Action;
 use Filament\Schemas\Components\Actions;
+use Filament\Forms\Components\TextInput;
 
 class SiteSettings extends Page implements HasForms
 {
@@ -55,6 +56,8 @@ class SiteSettings extends Page implements HasForms
             'phone_secondary' => Setting::getValue('site.phone_secondary'),
             'email' => Setting::getValue('site.email'),
             'social_links' => Setting::getValue('site.social_links'),
+            'video_url' => Setting::getValue('home.video_url'),
+            'image_cover' => Setting::getValue('home.image_cover'),
         ];
 
         // Fill the form to ensure all fields are properly hydrated
@@ -120,6 +123,24 @@ class SiteSettings extends Page implements HasForms
                         ),
                     ]),
 
+               //add section for video url  and image cover
+               Section::make('Video and Image Cover')
+                    ->schema([
+                        TextInput::make('video_url')
+                            ->label('Video URL')
+                            ->url()
+                            ->required()
+                            ->placeholder('https://...')
+                            ->columnSpanFull(),
+                        FileUpload::make('image_cover')
+                            ->label('Image Cover')
+                            ->image()
+                            ->directory('settings')
+                            ->visibility('public')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
+                            ->maxSize(5120)
+                            ->columnSpanFull(),
+                    ]),
                 Section::make('About Company')
                     ->schema([
                         MultilingualHelper::multilingualTextInput(
@@ -259,50 +280,25 @@ class SiteSettings extends Page implements HasForms
                             ]
                         ),
 
-                        MultilingualHelper::multilingualTextInput(
-                            'phone',
-                            'Primary Phone',
-                            [
-                                'required' => true,
-                                'maxLength' => 50,
-                                'en_placeholder' => 'e.g., +966 54 055 2004',
-                                'ar_placeholder' => 'مثل: +966 54 055 2004',
-                            ]
-                        ),
+                        TextInput::make('phone')
+                            ->label('Primary Phone')
+                            ->required()
+                            ->maxLength(50)
+                            ->placeholder('e.g., +966 54 055 2004')
+                            ->columnSpanFull(),
 
-                        MultilingualHelper::multilingualTextInput(
-                            'phone_secondary',
-                            'Secondary Phone (Optional)',
-                            [
-                                'maxLength' => 50,
-                                'en_placeholder' => 'e.g., +966 56 442 6319',
-                                'ar_placeholder' => 'مثل: +966 56 442 6319',
-                            ]
-                        ),
-
-                        \Filament\Schemas\Components\Tabs::make('email_tabs')
-                            ->tabs([
-                                \Filament\Schemas\Components\Tabs\Tab::make('en')
-                                    ->label('English')
-                                    ->schema([
-                                        \Filament\Forms\Components\TextInput::make('email.en')
-                                            ->label('Email Address (English)')
-                                            ->required()
-                                            ->email()
-                                            ->maxLength(255)
-                                            ->placeholder('e.g., info@compactod.com'),
-                                    ]),
-                                \Filament\Schemas\Components\Tabs\Tab::make('ar')
-                                    ->label('العربية')
-                                    ->schema([
-                                        \Filament\Forms\Components\TextInput::make('email.ar')
-                                            ->label('Email Address (العربية)')
-                                            ->required()
-                                            ->email()
-                                            ->maxLength(255)
-                                            ->placeholder('مثل: info@compactod.com'),
-                                    ]),
-                            ]),
+                        TextInput::make('phone_secondary')
+                            ->label('Secondary Phone (Optional)')
+                            ->maxLength(50)
+                            ->placeholder('e.g., +966 56 442 6319')
+                            ->columnSpanFull(),
+                        TextInput::make('email')
+                            ->label('Email Address')
+                            ->required()
+                            ->email()
+                            ->maxLength(255)
+                            ->placeholder('e.g., info@compactod.com')
+                            ->columnSpanFull(),
                     ]),
 
                 Section::make('Social Media')
@@ -393,7 +389,8 @@ class SiteSettings extends Page implements HasForms
         Setting::setValue('site.phone_secondary', $data['phone_secondary'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.email', $data['email'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         Setting::setValue('site.social_links', $data['social_links'] ?? [], 'json', 'general');
-
+        Setting::setValue('home.video_url', $data['video_url'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
+        Setting::setValue('home.image_cover', $data['image_cover'] ?? ['en' => '', 'ar' => ''], 'json', 'home');
         // Clear settings cache
         SettingsHelper::clearCache();
 
