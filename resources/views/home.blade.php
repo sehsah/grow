@@ -102,7 +102,7 @@
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/30 -rotate-1"></div>
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/20 rotate-1"></div>
                     <div class="relative rounded-xl overflow-hidden">
-                        <img src="{{ setting('home.image_cover') }}" alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
+                        <img src="{{ Storage::disk('public')->url(setting('home.image_cover')) }}" alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
                         <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
                             <a href="{{ setting('home.video_url') }}" target="_blank"

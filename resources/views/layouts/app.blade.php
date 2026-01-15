@@ -27,7 +27,7 @@
                 <nav class="flex items-center justify-between h-20">
                     <a class="flex items-center gap-2"
                         href="/">
-                        <img src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto">
+                        <img src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-12 w-auto">
                     </a>
                     <div class="hidden md:flex items-center gap-8">
                         <a class="relative text-sm font-medium transition-colors animated-underline text-primary" href="/">@trans('common.home')</a>
@@ -208,7 +208,7 @@
             <div class="container-custom py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     <div class="space-y-4"><a class="inline-block" href="/"><img
-                                src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
+                                src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
                         <p class="text-muted-foreground text-sm leading-relaxed">@trans('home.footer_description')</p>
                         <div class="flex gap-3 pt-2">
 
