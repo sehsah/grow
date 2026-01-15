@@ -1,13 +1,13 @@
 <section class="section-padding bg-primary">
     <div class="container-custom text-center">
         <h2 class="text-3xl font-bold text-primary-foreground mb-4 animate-fade-in">
-            {{ __('common.Have a Similar Project?') }} </h2>
+            @trans('contact.have_a_similar_project') </h2>
         <p class="text-primary-foreground/80 mb-8 max-w-2xl mx-auto animate-fade-in animation-delay-100">
-            {{ __('common.Let us help you turn your ideas into reality. Contact us today to discuss your project.') }}
+            @trans('contact.let_us_help_you_turn_your_ideas_into_reality')
         </p>
         <a
             class="inline-flex items-center gap-2 bg-primary-foreground text-primary px-8 py-4 rounded-full font-semibold hover:bg-primary-foreground/90 transition-colors animate-fade-in animation-delay-200"
-            href="/contact">{{ __('common.get_in_touch') }}
+            href="/contact">@trans('contact.get_in_touch')
             <svg xmlns="http://www.w3.org/2000/svg" width="24"
                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link w-5 h-5">

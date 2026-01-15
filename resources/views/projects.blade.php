@@ -44,130 +44,54 @@
         <section class="section-padding">
             <div class="container-custom">
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 0ms;">
-                        <div class="relative aspect-[16/10] overflow-hidden"><img
-                                src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767369371739-yfw62o.jpg"
-                                alt="Visual Identity Design for “Latoga” Fashion Brand"
-                                class="grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none">
-                            </div><span
-                                class="absolute top-4 left-4 px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">Visual
-                                Identity Design </span>
-                        </div>
-                        <div class="p-6"><a href="/projects/955a075e-8684-4ec9-87e3-0931cdf2f5b5">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                                    Visual Identity Design for “Latoga” Fashion Brand</h3>
-                            </a>
-                            <p class="text-muted-foreground text-sm mb-4">COMPACT developed a complete visual identity for
-                                Latoga, a fashion brand, to create a modern, consistent, and recognizable brand presence.
-                                The project covered logo development, color and typography systems, visual elements, and
-                                brand applications across digital and marketing touchpoints.</p><a
-                                class="flex items-center gap-2 text-primary text-sm font-medium"
-                                href="/projects/955a075e-8684-4ec9-87e3-0931cdf2f5b5"><span><span
-                                        class="">@trans('projects.view_project')</span></span><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg></a>
-                        </div>
-                    </div>
-                    <div class="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 100ms;">
-                        <div class="relative aspect-[16/10] overflow-hidden"><img
-                                src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767369194317-uge4kq.png"
-                                alt="Digital Marketing for Matrix (Masfoofat Al-Taqnia)"
-                                class="grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none">
-                            </div><span
-                                class="absolute top-4 left-4 px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">Digital
-                                Marketing</span>
-                        </div>
-                        <div class="p-6"><a href="/projects/6f5ad5ae-b5a8-4559-b941-aae8d4eb50ec">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                                    Digital Marketing for Matrix (Masfoofat Al-Taqnia)</h3>
-                            </a>
-                            <p class="text-muted-foreground text-sm mb-4">COMPACT delivered integrated digital marketing for
-                                Matrix (Masfoofat Al-Taqnia) to increase brand visibility, generate qualified leads, and
-                                improve performance through content strategy, paid campaigns, and analytics-driven
-                                optimization.</p><a class="flex items-center gap-2 text-primary text-sm font-medium"
-                                href="/projects/6f5ad5ae-b5a8-4559-b941-aae8d4eb50ec"><span><span
-                                        class="">@trans('projects.view_project')</span></span><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg></a>
-                        </div>
-                    </div>
-                    <div class="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 200ms;">
-                        <div class="relative aspect-[16/10] overflow-hidden"><img
-                                src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767369631707-8gr9oq.webp"
-                                alt="Website Development for Rento Co for vehicles rental service  "
-                                class="grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none">
-                            </div><span
-                                class="absolute top-4 left-4 px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">Web
-                                Development</span>
-                        </div>
-                        <div class="p-6"><a href="/projects/4f4bbdb8-4328-498e-aa13-77d121ec9aea">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                                    Website Development for Rento Co for vehicles rental service </h3>
-                            </a>
-                            <p class="text-muted-foreground text-sm mb-4">Rento Car Rental Website – UI/UX Design &amp;
-                                Development (Moken)
+                    @forelse ($projects as $project)
+                        @php
+                            $delay = $loop->index * 100;
+                            $imageUrl = $project->image;
+                            $category = $project->category ?? null;
+                        @endphp
 
-                                Rento by Moken: Car Rental Website Development</p><a
-                                class="flex items-center gap-2 text-primary text-sm font-medium"
-                                href="/projects/4f4bbdb8-4328-498e-aa13-77d121ec9aea"><span><span
-                                        class="">@trans('projects.view_project')</span></span><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg></a>
+                        <div class="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                            style="animation-delay: {{ $delay }}ms;">
+                            <div class="relative aspect-16/10 overflow-hidden">
+                                <img src="{{ $imageUrl }}" alt="{{ $project->title }}"
+                                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                                <div
+                                    class="absolute inset-0 bg-linear-to-t from-background/80 to-transparent pointer-events-none">
+                                </div>
+                                @if ($category)
+                                    <span
+                                        class="absolute top-4 left-4 px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
+                                        {{ $category }}
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="p-6">
+                                <a href="{{ route('projects.show', $project->id) }}">
+                                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                                        {{ $project->title }}</h3>
+                                </a>
+                                <p class="text-muted-foreground text-sm mb-4">
+                                    {{ \Illuminate\Support\Str::limit($project->description, 220) }}
+                                </p>
+                                <a class="flex items-center gap-2 text-primary text-sm font-medium"
+                                    href="{{ route('projects.show', $project->id) }}">
+                                    <span>@trans('projects.view_project')</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 300ms;">
-                        <div class="relative aspect-[16/10] overflow-hidden"><img
-                                src="https://lqphghuvyiajrmjclnmx.supabase.co/storage/v1/object/public/project-images/1767368479210-m929sc.png"
-                                alt="Digital Marketing Management for yallagoom website "
-                                class="grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none">
-                            </div><span
-                                class="absolute top-4 left-4 px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">Digital
-                                Marketing </span>
+                    @empty
+                        <div class="col-span-2 text-center text-muted-foreground py-12 border border-dashed border-border rounded-2xl">
+                            {{ __('No projects available yet.') }}
                         </div>
-                        <div class="p-6"><a href="/projects/07348e75-2bbc-4938-afc0-33f7e2dcf0de">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                                    Digital Marketing Management for yallagoom website </h3>
-                            </a>
-                            <p class="text-muted-foreground text-sm mb-4">Digital Marketing Management for yallagoom
-                                website </p><a class="flex items-center gap-2 text-primary text-sm font-medium"
-                                href="/projects/07348e75-2bbc-4938-afc0-33f7e2dcf0de"><span><span
-                                        class="">@trans('projects.view_project')</span></span><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg></a>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>

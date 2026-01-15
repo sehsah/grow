@@ -62,6 +62,10 @@ class SiteSettings extends Page implements HasForms
             'projects_count' => Setting::getValue('stats.projects_count'),
             'years_experience' => Setting::getValue('stats.years_experience'),
             'experts_count' => Setting::getValue('stats.experts_count'),
+            'services_title' => Setting::getValue('services.title'),
+            'services_subtitle' => Setting::getValue('services.subtitle'),
+            'services_image' => Setting::getValue('services.image'),
+            'services_badge' => Setting::getValue('services.badge'),
         ];
 
         // Fill the form to ensure all fields are properly hydrated
@@ -329,6 +333,48 @@ class SiteSettings extends Page implements HasForms
                             ->maxLength(255)
                             ->columnSpanFull(),
                     ]),
+
+                Section::make('Services')
+                    ->schema([
+                        MultilingualHelper::multilingualTextInput(
+                            'services_title',
+                            'Services Title',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The title of the services',
+                                'ar_helper' => 'عنوان الخدمات',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextInput(
+                            'services_subtitle',
+                            'Services Subtitle',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The subtitle of the services',
+                                'ar_helper' => 'العنوان الفرعي للخدمات',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextInput(
+                            'services_badge',
+                            'Services Badge',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The badge of the services',
+                                'ar_helper' => 'الباقة للخدمات',
+                            ]
+                        ),
+                        FileUpload::make('services_image')
+                            ->label('Services Image')
+                            ->image()
+                            ->directory('settings')
+                            ->visibility('public')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
+                            ->maxSize(5120)
+                            ->columnSpanFull(),
+                    ]),
                 Section::make('Social Media')
                     ->schema([
                         Repeater::make('social_links')
@@ -366,13 +412,6 @@ class SiteSettings extends Page implements HasForms
                             ->icon('heroicon-o-check-circle')
                             ->action('saveChanges')
                             ->color('info'),
-                        Action::make(__('Restore defaults'))
-                            ->icon('heroicon-o-arrow-uturn-left')
-                            ->action('restoreDefaults')
-                            ->requiresConfirmation()
-                            ->modalHeading(__('Restore defaults'))
-                            ->modalDescription(__('Are you sure you\'d like to restore defaults? This cannot be undone.'))
-                            ->color('danger')
 
                     ])->alignEnd(),
             ])
@@ -423,6 +462,10 @@ class SiteSettings extends Page implements HasForms
         Setting::setValue('stats.projects_count', $data['projects_count'] ?? ['en' => '', 'ar' => ''], 'json', 'stats');
         Setting::setValue('stats.years_experience', $data['years_experience'] ?? ['en' => '', 'ar' => ''], 'json', 'stats');
         Setting::setValue('stats.experts_count', $data['experts_count'] ?? ['en' => '', 'ar' => ''], 'json', 'stats');
+        Setting::setValue('services.title', $data['services_title'] ?? ['en' => '', 'ar' => ''], 'json', 'services');
+        Setting::setValue('services.subtitle', $data['services_subtitle'] ?? ['en' => '', 'ar' => ''], 'json', 'services');
+        Setting::setValue('services.badge', $data['services_badge'] ?? ['en' => '', 'ar' => ''], 'json', 'services');
+        Setting::setValue('services.image', $data['services_image'] ?? ['en' => '', 'ar' => ''], 'json', 'services');
         // Clear settings cache
         SettingsHelper::clearCache();
 
