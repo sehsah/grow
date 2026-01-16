@@ -16,12 +16,14 @@ class ServiceItem extends Model
         'title',
         'subtitle',
         'description',
+        'items',
     ];
 
     protected $casts = [
         'title' => 'array',
         'subtitle' => 'array',
         'description' => 'array',
+        'items' => 'array',
     ];
 
     protected array $translatable = [

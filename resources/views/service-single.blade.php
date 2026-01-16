@@ -43,6 +43,7 @@
                         <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{{ $item->title }}</h3>
                         <p class="text-muted-foreground text-sm mb-4">{{ $item->description }}</p>
                         <ul class="space-y-2">
+                            @foreach ($item->items as $item)
                             <li class="flex items-start gap-2 text-muted-foreground text-xs">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -52,7 +53,8 @@
                                     <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                     <path d="m9 11 3 3L22 4"></path>
                                 </svg>
-                            <span>Expert advice, analysis and solutions</span></li>
+                            <span>{{ $item }}</span></li>
+                            @endforeach
                         </ul>
                     </div>
                     @endforeach
