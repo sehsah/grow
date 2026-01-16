@@ -54,8 +54,6 @@
                         <p class="text-muted-foreground leading-relaxed mb-4"><span
                                 class="">{{ setting('about.description') }}</span>
                         </p>
-                        <p class="text-muted-foreground leading-relaxed"><span class="">{{ setting('about.team_expertise') }}</span>
-                        </p>
                     </div>
                     <div class="relative animate-fade-in animation-delay-200">
                         <div class="aspect-[4/3] rounded-2xl overflow-hidden"><img
