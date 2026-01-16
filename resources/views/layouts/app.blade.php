@@ -14,8 +14,9 @@
     <link rel="stylesheet" crossorigin href="{{ asset('assets/index-I91yRjam.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap">
     <style>
-        html[dir="rtl"] body, html[dir="rtl"] html{
-           font-family: 'Cairo', sans-serif;
+        html[dir="rtl"] body,
+        html[dir="rtl"] html {
+            font-family: 'Cairo', sans-serif;
         }
     </style>
 </head>
@@ -25,59 +26,70 @@
         <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
             <div class="container-custom">
                 <nav class="flex items-center justify-between h-20">
-                    <a class="flex items-center gap-2"
-                        href="/">
-                        <img src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-20 w-auto">
+                    <a class="flex items-center gap-2" href="/">
+                        <img src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}"
+                            class="h-20 w-auto">
                     </a>
                     <div class="hidden md:flex items-center gap-8">
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-primary" href="/">@trans('common.home')</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/about">@trans('common.about')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-primary"
+                            href="/">@trans('common.home')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
+                            href="/about">@trans('common.about')</a>
                         <div class="relative pt-2 pb-2 -mt-2 -mb-2">
-                            <button type="button" class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground ">@trans('common.services')
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
+                            <button type="button"
+                                class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground ">@trans('common.services')
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-chevron-down w-4 h-4 transition-transform duration-200">
                                     <path d="m6 9 6 6 6-6"></path>
                                 </svg>
                             </button>
-                            <div class="absolute top-full left-0 mt-2 pt-2 w-64 bg-card border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-50 opacity-0 invisible -translate-y-2">
+                            <div
+                                class="absolute top-full left-0 mt-2 pt-2 w-64 bg-card border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-50 opacity-0 invisible -translate-y-2">
                                 <div class="p-2">
-                                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors" href="/services">
-                                    <span class="text-sm font-medium hover:text-primary transition-colors">@trans('common.all_services')</span></a>
+                                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors"
+                                        href="/services">
+                                        <span
+                                            class="text-sm font-medium hover:text-primary transition-colors">@trans('common.all_services')</span></a>
                                     <div class="border-t border-border my-2"></div>
-                                    @if(isset($services) && is_iterable($services))
+                                    @if (isset($services) && is_iterable($services))
                                         @foreach ($services as $service)
-                                        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors" href="/services/{{ $service->slug ?? '#' }}">
-                                            <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                                                {!! $service->icon ?? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>' !!}
-                                            </div>
-                                            <span class="text-sm font-medium hover:text-primary transition-colors">{{ $service->title ?? 'Service' }}</span>
-                                        </a>
+                                            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary/50 transition-colors"
+                                                href="/services/{{ $service->slug ?? '#' }}">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                                    {!! $service->icon ??
+                                                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>' !!}
+                                                </div>
+                                                <span
+                                                    class="text-sm font-medium hover:text-primary transition-colors">{{ $service->title ?? 'Service' }}</span>
+                                            </a>
                                         @endforeach
                                     @endif
                                 </div>
                             </div>
                         </div>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/projects">@trans('common.projects')</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/blog">@trans('common.blog')</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/career">@trans('common.career')</a>
-                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground" href="/contact">@trans('common.contact')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
+                            href="/projects">@trans('common.projects')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
+                            href="/blog">@trans('common.blog')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
+                            href="/career">@trans('common.career')</a>
+                        <a class="relative text-sm font-medium transition-colors animated-underline text-foreground/80 hover:text-foreground"
+                            href="/contact">@trans('common.contact')</a>
                     </div>
                     <div class="hidden md:flex items-center gap-4">
                         <a href="{{ route('lang.switch', ['locale' => app()->getLocale() === 'ar' ? 'en' : 'ar']) }}"
-                           class="px-3 py-1.5 text-sm font-medium border border-border rounded-full hover:border-primary hover:text-primary transition-colors">
+                            class="px-3 py-1.5 text-sm font-medium border border-border rounded-full hover:border-primary hover:text-primary transition-colors">
                             {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
                         </a>
                         <a class="btn-primary" href="/contact">@trans('common.lets_talk')</a>
                     </div>
-                    <button
-                        class="md:hidden p-2 text-foreground">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-menu">
+                    <button class="md:hidden p-2 text-foreground">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-menu">
                             <line x1="4" x2="20" y1="12" y2="12"></line>
                             <line x1="4" x2="20" y1="6" y2="6"></line>
                             <line x1="4" x2="20" y1="18" y2="18"></line>
@@ -89,8 +101,8 @@
                 <div class="flex items-center justify-between h-20 px-4 border-b border-border"><a href="/"><img
                             src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-10 w-auto"></a><button
                         class="p-2 text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
                             <path d="M18 6 6 18"></path>
                             <path d="m6 6 12 12"></path>
                         </svg></button></div>
@@ -112,15 +124,16 @@
                                 <div class="pl-4 py-2 space-y-1 border-l-2 border-primary/30 ml-2 mb-2">
                                     <a class="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                                         href="/services">@trans('common.all_services')</a>
-                                    @if(isset($services) && is_iterable($services))
+                                    @if (isset($services) && is_iterable($services))
                                         @foreach ($services as $service)
-                                        <a class="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                                            href="/services/{{ $service->slug ?? '#' }}">
-                                            <div class="w-4 h-4 flex items-center justify-center">
-                                                {!! $service->icon ?? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>' !!}
-                                            </div>
-                                            {{ $service->title ?? 'Service' }}
-                                        </a>
+                                            <a class="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                                href="/services/{{ $service->slug ?? '#' }}">
+                                                <div class="w-4 h-4 flex items-center justify-center">
+                                                    {!! $service->icon ??
+                                                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>' !!}
+                                                </div>
+                                                {{ $service->title ?? 'Service' }}
+                                            </a>
                                         @endforeach
                                     @endif
                                 </div>
@@ -137,8 +150,9 @@
                     </div>
                     <div class="px-6 py-6 border-t border-border space-y-6 bg-background">
                         <a href="{{ route('lang.switch', ['locale' => app()->getLocale() === 'ar' ? 'en' : 'ar']) }}"
-                           class="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                            <span class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-xs">{{ app()->getLocale() === 'ar' ? 'EN' : 'ع' }}</span>
+                            class="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                            <span
+                                class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-xs">{{ app()->getLocale() === 'ar' ? 'EN' : 'ع' }}</span>
                             {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
                         </a>
                         <a class="btn-primary w-full justify-center" href="/contact">@trans('common.lets_talk')</a>
@@ -208,62 +222,61 @@
             <div class="container-custom py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     <div class="space-y-4"><a class="inline-block" href="/"><img
-                                src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
+                                src="{{ Storage::disk('public')->url(setting('site.logo')) }}"
+                                alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
                         <p class="text-muted-foreground text-sm leading-relaxed">@trans('home.footer_description')</p>
                         <div class="flex gap-3 pt-2">
 
-                            @if(isset($siteSocialLinks[0]['platform']) && $siteSocialLinks[0]['platform'] == 'facebook')
-                            <a href="{{ $siteSocialLinks[0]['url'] }}" target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-facebook">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                </svg></a>
+                            @if (isset($siteSocialLinks[0]['platform']) && $siteSocialLinks[0]['platform'] == 'facebook')
+                                <a href="{{ $siteSocialLinks[0]['url'] }}" target="_blank" rel="noopener noreferrer"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-facebook">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
+                                        </path>
+                                    </svg></a>
                             @endif
-                            @if(isset($siteSocialLinks[1]['platform']) && $siteSocialLinks[1]['platform'] == 'twitter')
-                            <a href="{{ $siteSocialLinks[1]['url'] }}" target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-twitter">
-                                    <path
-                                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                    </path>
-                                </svg></a>
+                            @if (isset($siteSocialLinks[1]['platform']) && $siteSocialLinks[1]['platform'] == 'twitter')
+                                <a href="{{ $siteSocialLinks[1]['url'] }}" target="_blank" rel="noopener noreferrer"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-twitter">
+                                        <path
+                                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                        </path>
+                                    </svg></a>
                             @endif
-                            @if(isset($siteSocialLinks[2]['platform']) && $siteSocialLinks[2]['platform'] == 'linkedin')
-                            <a href="{{ $siteSocialLinks[2]['url'] }}" target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-linkedin">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                    </path>
-                                    <rect width="4" height="12" x="2" y="9"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg></a>
+                            @if (isset($siteSocialLinks[2]['platform']) && $siteSocialLinks[2]['platform'] == 'linkedin')
+                                <a href="{{ $siteSocialLinks[2]['url'] }}" target="_blank" rel="noopener noreferrer"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-linkedin">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                        </path>
+                                        <rect width="4" height="12" x="2" y="9"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg></a>
                             @endif
-                            @if(isset($siteSocialLinks[3]['platform']) && $siteSocialLinks[3]['platform'] == 'instagram')
-                            <a href="{{ $siteSocialLinks[3]['url'] }}" target="_blank"
-                                rel="noopener noreferrer"
-                                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                                aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-instagram">
-                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5">
-                                    </rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                                </svg></a>
+                            @if (isset($siteSocialLinks[3]['platform']) && $siteSocialLinks[3]['platform'] == 'instagram')
+                                <a href="{{ $siteSocialLinks[3]['url'] }}" target="_blank" rel="noopener noreferrer"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-instagram">
+                                        <rect width="20" height="20" x="2" y="2" rx="5"
+                                            ry="5">
+                                        </rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                    </svg></a>
                             @endif
                         </div>
                     </div>
@@ -286,16 +299,18 @@
                                     href="/contact">@trans('common.contact')</a></li>
                             <li><a href="https://drive.google.com/file/d/10z7YDshKngYTcqCIyvqZewuFFbijFrdY/view?usp=sharing"
                                     target="_blank" rel="noopener noreferrer"
-                                    class="text-muted-foreground hover:text-primary transition-colors text-sm">@trans('common.company_profile')</a></li>
+                                    class="text-muted-foreground hover:text-primary transition-colors text-sm">@trans('common.company_profile')</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="space-y-4">
                         <h4 class="text-lg font-semibold">@trans('common.services')</h4>
                         <ul class="space-y-2">
-                            @if(isset($services) && is_iterable($services))
+                            @if (isset($services) && is_iterable($services))
                                 @foreach ($services->take(4) as $service)
-                                <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                        href="/services/{{ $service->slug ?? '#' }}">{{ $service->title ?? 'Service' }}</a></li>
+                                    <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
+                                            href="/services/{{ $service->slug ?? '#' }}">{{ $service->title ?? 'Service' }}</a>
+                                    </li>
                                 @endforeach
                             @endif
                         </ul>
@@ -321,19 +336,21 @@
                                     <path
                                         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                     </path>
-                                </svg><a href="tel:{{ str_replace(' ', '', $sitePhone) }}" class="hover:text-primary transition-colors"
+                                </svg><a href="tel:{{ str_replace(' ', '', $sitePhone) }}"
+                                    class="hover:text-primary transition-colors"
                                     dir="ltr">{{ $sitePhone }}</a></li>
-                            @if($sitePhoneSecondary)
-                            <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-phone text-primary flex-shrink-0">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                    </path>
-                                </svg><a href="tel:{{ str_replace(' ', '', $sitePhoneSecondary) }}" class="hover:text-primary transition-colors"
-                                    dir="ltr">{{ $sitePhoneSecondary }}</a></li>
+                            @if ($sitePhoneSecondary)
+                                <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-phone text-primary flex-shrink-0">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg><a href="tel:{{ str_replace(' ', '', $sitePhoneSecondary) }}"
+                                        class="hover:text-primary transition-colors"
+                                        dir="ltr">{{ $sitePhoneSecondary }}</a></li>
                             @endif
                             <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -348,13 +365,52 @@
                     </div>
                 </div>
                 <div class="mt-12 pt-8 border-t border-border text-center">
-                    <p class="text-sm text-muted-foreground">© {{ date('Y') }} {{ $siteTitle }}. @trans('common.rights_reserved').<a
+                    <p class="text-sm text-muted-foreground">© {{ date('Y') }} {{ $siteTitle }}.
+                        @trans('common.rights_reserved').<a
                             class="mx-2 text-muted-foreground/30 hover:text-primary transition-colors"
                             href="/admin">•</a></p>
                 </div>
             </div>
         </footer>
+        <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+            <div id="contact-quick-actions"
+                class="flex flex-col gap-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+                <a
+                    href="https://wa.me/{{ $sitePhone }}" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-message-circle">
+                        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                    </svg><span class="font-medium">WhatsApp</span>
+                </a>
 
+                <a href="tel:{{ $sitePhone }}"
+                    class="flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-phone">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg><span class="font-medium">Call Us</span>
+                </a>
+            </div>
+            <button id="contact-modal-toggle"
+                class="w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 bg-primary text-primary-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-message-circle contact-icon-chat">
+                    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-x contact-icon-close hidden">
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+            </button>
+        </div>
     </div>
 
     <script>
@@ -366,7 +422,8 @@
                     header.classList.add('bg-background/90', 'backdrop-blur-lg', 'border-b', 'border-border');
                     header.classList.remove('bg-transparent');
                 } else {
-                    header.classList.remove('bg-background/90', 'backdrop-blur-lg', 'border-b', 'border-border');
+                    header.classList.remove('bg-background/90', 'backdrop-blur-lg', 'border-b',
+                    'border-border');
                     header.classList.add('bg-transparent');
                 }
             };
@@ -390,7 +447,9 @@
             }
 
             // Mobile Services Dropdown
-            const mobileServicesBtn = Array.from(document.querySelectorAll('.md\\:hidden button')).find(btn => btn.textContent.trim().includes('@trans('common.services')') || btn.textContent.trim().includes('Services'));
+            const mobileServicesBtn = Array.from(document.querySelectorAll('.md\\:hidden button')).find(btn => btn
+                .textContent.trim().includes('@trans('common.services')') || btn.textContent.trim().includes(
+                    'Services'));
             if (mobileServicesBtn) {
                 const dropdown = mobileServicesBtn.nextElementSibling;
                 const icon = mobileServicesBtn.querySelector('svg');
@@ -413,7 +472,8 @@
             if (desktopNav) {
                 const buttons = desktopNav.querySelectorAll('button');
                 for (const b of buttons) {
-                    if (b.textContent.trim().includes('@trans('common.services')') || b.textContent.trim().includes('Services')) {
+                    if (b.textContent.trim().includes('@trans('common.services')') || b.textContent.trim().includes(
+                            'Services')) {
                         btn = b;
                         serviceWrapper = btn.parentElement;
                         dropdown = serviceWrapper.querySelector('.absolute');
@@ -451,9 +511,9 @@
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     if (dropdown.classList.contains('opacity-100')) {
-                         hideMenu();
+                        hideMenu();
                     } else {
-                         showMenu();
+                        showMenu();
                     }
                 });
 
@@ -464,6 +524,26 @@
                     }
                 });
             }
+
+            // Contact quick actions toggle
+            const contactBtn = document.getElementById('contact-modal-toggle');
+            const contactQuickActions = document.getElementById('contact-quick-actions');
+            const contactIconChat = document.querySelector('.contact-icon-chat');
+            const contactIconClose = document.querySelector('.contact-icon-close');
+
+            const toggleContactActions = () => {
+                if (!contactQuickActions) return;
+                contactQuickActions.classList.toggle('opacity-0');
+                contactQuickActions.classList.toggle('translate-y-4');
+                contactQuickActions.classList.toggle('pointer-events-none');
+                contactIconChat?.classList.toggle('hidden');
+                contactIconClose?.classList.toggle('hidden');
+            };
+
+            contactBtn?.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleContactActions();
+            });
         });
     </script>
 </body>
