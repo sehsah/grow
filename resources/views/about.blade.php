@@ -44,25 +44,22 @@
                         class="text-lg font-bold fill-foreground">C</text>
                 </svg></div>
         </section>
+
         <section class="section-padding">
             <div class="container-custom">
                 <div class="grid md:grid-cols-2 gap-12 items-start">
                     <div class="animate-fade-in"><span
-                            class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">@trans('about.title')</span>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6"><span class="">@trans('about.partner_title')</span></h2>
+                            class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">{{ setting('about.badge') }}</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6"><span class="">{{ setting('about.title') }}</span></h2>
                         <p class="text-muted-foreground leading-relaxed mb-4"><span
-                                class="">{{ $settings['intro_text'] ?? 'COMPACT delivers integrated business solutions across: Organizational Development, Business Development, CRM Solutions, Digital Transformation & Automation, Dashboards & Reporting, System Integration, Websites & Mobile Apps, and 360° Digital Marketing—plus Governance Solutions, Recruitment & Training, Financial Consulting, and Legal Consulting' }}</span>
+                                class="">{{ setting('about.description') }}</span>
                         </p>
-                        <p class="text-muted-foreground leading-relaxed mb-4"><span
-                                class="">{{ $settings['description_text'] ?? 'Backed by over a decade of experience, we help organizations achieve measurable goals and transform operations for sustainable growth.' }}</span>
-                        </p>
-                        <p class="text-muted-foreground leading-relaxed"><span
-                                class="">{{ $settings['team_expertise'] ?? 'Our team blends deep industry expertise with innovative, results-driven approaches on every project.' }}</span>
+                        <p class="text-muted-foreground leading-relaxed"><span class="">{{ setting('about.team_expertise') }}</span>
                         </p>
                     </div>
                     <div class="relative animate-fade-in animation-delay-200">
                         <div class="aspect-[4/3] rounded-2xl overflow-hidden"><img
-                                src="{{ asset($settings['team_image'] ?? '/assets/team-marketer-DnNglUX8.jpg') }}"
+                                src="{{ Storage::disk('public')->url(setting('about.image')) }}"
                                 alt="Our Team"
                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
                         </div>
@@ -74,6 +71,7 @@
                 </div>
             </div>
         </section>
+
         <section class="section-padding bg-card border-y border-border">
             <div class="container-custom">
                 <div class="text-center mb-16 animate-fade-in">

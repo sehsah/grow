@@ -66,6 +66,10 @@ class SiteSettings extends Page implements HasForms
             'services_subtitle' => Setting::getValue('services.subtitle'),
             'services_image' => Setting::getValue('services.image'),
             'services_badge' => Setting::getValue('services.badge'),
+            'about_title' => Setting::getValue('about.title'),
+            'about_description' => Setting::getValue('about.description'),
+            'about_badge' => Setting::getValue('about.badge'),
+            'about_image' => Setting::getValue('about.image'),
         ];
 
         // Fill the form to ensure all fields are properly hydrated
@@ -375,6 +379,49 @@ class SiteSettings extends Page implements HasForms
                             ->maxSize(5120)
                             ->columnSpanFull(),
                     ]),
+
+                    Section::make('About Company')
+                    ->schema([
+                        MultilingualHelper::multilingualTextInput(
+                            'about_title',
+                            'About Title',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The title of the about',
+                                'ar_helper' => 'عنوان الشركة',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextarea(
+                            'about_description',
+                            'About Description',
+                            [
+                                'required' => true,
+                                'en_helper' => 'The subtitle of the about',
+                                'ar_helper' => 'العنوان الفرعي للشركة',
+                            ]
+                        ),
+                        MultilingualHelper::multilingualTextInput(
+                            'about_badge',
+                            'About Badge',
+                            [
+                                'required' => true,
+                                'maxLength' => 255,
+                                'en_helper' => 'The badge of the about',
+                                'ar_helper' => 'الباقة للشركة',
+                            ]
+                        ),
+                        FileUpload::make('about_image')
+                            ->label('About Image')
+                            ->image()
+                            ->directory('settings')
+                            ->visibility('public')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
+                            ->maxSize(5120)
+                            ->columnSpanFull(),
+                    ]),
+
+
                 Section::make('Social Media')
                     ->schema([
                         Repeater::make('social_links')
@@ -466,6 +513,10 @@ class SiteSettings extends Page implements HasForms
         Setting::setValue('services.subtitle', $data['services_subtitle'] ?? ['en' => '', 'ar' => ''], 'json', 'services');
         Setting::setValue('services.badge', $data['services_badge'] ?? ['en' => '', 'ar' => ''], 'json', 'services');
         Setting::setValue('services.image', $data['services_image'] ?? ['en' => '', 'ar' => ''], 'json', 'services');
+        Setting::setValue('about.title', $data['about_title'] ?? ['en' => '', 'ar' => ''], 'json', 'about');
+        Setting::setValue('about.description', $data['about_description'] ?? ['en' => '', 'ar' => ''], 'json', 'about');
+        Setting::setValue('about.badge', $data['about_badge'] ?? ['en' => '', 'ar' => ''], 'json', 'about');
+        Setting::setValue('about.image', $data['about_image'] ?? ['en' => '', 'ar' => ''], 'json', 'about');
         // Clear settings cache
         SettingsHelper::clearCache();
 
