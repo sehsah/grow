@@ -9,6 +9,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs;
@@ -116,6 +117,51 @@ class ServiceForm
                                             ->helperText('Show this service on the website'),
                                     ])
                                     ->columns(3),
+                            ]),
+
+                        Tabs\Tab::make('Service Items')
+                            ->schema([
+                                Section::make('Items')
+                                    ->schema([
+                                        Repeater::make('serviceItems')
+                                            ->relationship('serviceItems')
+                                            ->label('Service Items')
+                                            ->addActionLabel('Add Service Item')
+                                            ->schema([
+                                                TextInput::make('icon')
+                                                    ->label('Icon (class or SVG)')
+                                                    ->maxLength(255)
+                                                    ->helperText('SVG class/name or icon identifier'),
+
+                                                MultilingualHelper::multilingualTextInput(
+                                                    'title',
+                                                    'Title',
+                                                    [
+                                                        'required' => true,
+                                                        'maxLength' => 255,
+                                                    ]
+                                                ),
+
+                                                MultilingualHelper::multilingualTextInput(
+                                                    'subtitle',
+                                                    'Subtitle',
+                                                    [
+                                                        'maxLength' => 255,
+                                                    ]
+                                                ),
+
+                                                MultilingualHelper::multilingualTextarea(
+                                                    'description',
+                                                    'Description',
+                                                    [
+                                                        'rows' => 3,
+                                                        'maxLength' => 500,
+                                                    ]
+                                                ),
+                                            ])
+                                            ->collapsed()
+                                            ->grid(1),
+                                    ]),
                             ]),
 
                         Tabs\Tab::make('SEO')

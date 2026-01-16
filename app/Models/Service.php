@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Service extends Model
 {
@@ -47,6 +48,11 @@ class Service extends Model
         'meta_title',
         'meta_description',
     ];
+
+    public function serviceItems(): HasMany
+    {
+        return $this->hasMany(ServiceItem::class);
+    }
 
     protected static function boot()
     {

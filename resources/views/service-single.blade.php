@@ -33,368 +33,42 @@
                     <h2 class="text-3xl md:text-4xl font-bold">@trans('common.what_we_offer')</h2>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach ($service->serviceItems as $item)
                     <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                         style="animation-delay: 0ms;">
                         <div
                             class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-book-open w-7 h-7 text-primary">
-                                <path d="M12 7v14"></path>
-                                <path
-                                    d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z">
-                                </path>
-                            </svg></div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">Business
-                            Consultancy</h3>
-                        <p class="text-muted-foreground text-sm mb-4">Help organizations solve issues, create value,
-                            maximize growth and improve business performance.</p>
+                            {!! $item->icon !!}
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{{ $item->title }}</h3>
+                        <p class="text-muted-foreground text-sm mb-4">{{ $item->description }}</p>
                         <ul class="space-y-2">
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
+                            <li class="flex items-start gap-2 text-muted-foreground text-xs">
+                                <svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round"
                                     class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
                                     <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                     <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Expert advice, analysis and solutions</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Business Plan development</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Business process optimization</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Work instructions creation</span></li>
+                                </svg>
+                            <span>Expert advice, analysis and solutions</span></li>
                         </ul>
                     </div>
-                    <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 100ms;">
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-users w-7 h-7 text-primary">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg></div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                            Corporate Training</h3>
-                        <p class="text-muted-foreground text-sm mb-4">Providing professional development and training to
-                            employees in a corporate setting.</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Increasing company productivity</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Teaching new skills and knowledge</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Leadership development programs</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Team building workshops</span></li>
-                        </ul>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 200ms;">
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-briefcase w-7 h-7 text-primary">
-                                <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                                <rect width="20" height="14" x="2" y="6" rx="2"></rect>
-                            </svg></div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">Career
-                            Development</h3>
-                        <p class="text-muted-foreground text-sm mb-4">Comprehensive career development solutions for
-                            organizational growth.</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Employee career paths planning</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Employees KPIs development</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Job description creation</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Performance appraisals system</span></li>
-                        </ul>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 300ms;">
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-refresh-cw w-7 h-7 text-primary">
-                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-                                <path d="M21 3v5h-5"></path>
-                                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-                                <path d="M8 16H3v5"></path>
-                            </svg></div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">Change
-                            Management</h3>
-                        <p class="text-muted-foreground text-sm mb-4">Expert change management to navigate organizational
-                            transitions.</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Planning and strategy development</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Crafting change initiatives</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Implementation support</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Review &amp; analysis of outcomes</span></li>
-                        </ul>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 400ms;">
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-clipboard-check w-7 h-7 text-primary">
-                                <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
-                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                                <path d="m9 14 2 2 4-4"></path>
-                            </svg></div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                            Assessments and Surveys</h3>
-                        <p class="text-muted-foreground text-sm mb-4">In-depth assessments and surveys for data-driven
-                            decisions.</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Question management</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Survey design and development</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Distribution strategies</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Evaluation &amp; Reporting</span></li>
-                        </ul>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 500ms;">
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-laptop w-7 h-7 text-primary">
-                                <path
-                                    d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16">
-                                </path>
-                            </svg></div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">Digital
-                            Transformation Consultancy</h3>
-                        <p class="text-muted-foreground text-sm mb-4">Assist businesses in their digital transition
-                            efforts.</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Increase efficiency and competitiveness</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Transitioning businesses to digital technology</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Digital strategy development</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Technology implementation support</span></li>
-                        </ul>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                        style="animation-delay: 600ms;">
-                        <div
-                            class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-award w-7 h-7 text-primary">
-                                <path
-                                    d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
-                                </path>
-                                <circle cx="12" cy="8" r="6"></circle>
-                            </svg></div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">ISO
-                            Consulting &amp; Certification</h3>
-                        <p class="text-muted-foreground text-sm mb-4">We help your businesses achieve ISO 9001
-                            certification.</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>ISO 9001 certification support</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Tools and training for certification</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Maintaining certification compliance</span></li>
-                            <li class="flex items-start gap-2 text-muted-foreground text-xs"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-circle-check-big w-4 h-4 text-primary shrink-0 mt-0.5">
-                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                                    <path d="m9 11 3 3L22 4"></path>
-                                </svg><span>Quality management system implementation</span></li>
-                        </ul>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="text-center mt-16 animate-fade-in"><a
-                        class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
-                        href="/contact">@trans('common.lets_talk')<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                <div class="text-center mt-16 animate-fade-in">
+                    <a class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
+                        href="/contact">
+                        @trans('common.lets_talk')
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>
-                        </svg></a></div>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     </main>

@@ -16,4 +16,35 @@ class EditService extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $translatableFields = ['title', 'short_description', 'description', 'category', 'meta_title', 'meta_description'];
+
+        foreach ($translatableFields as $field) {
+            if (isset($data[$field . '.en']) || isset($data[$field . '.ar'])) {
+                $data[$field] = [
+                    'en' => $data[$field . '.en'] ?? '',
+                    'ar' => $data[$field . '.ar'] ?? '',
+                ];
+                unset($data[$field . '.en'], $data[$field . '.ar']);
+            }
+        }
+
+        if (isset($data['serviceItems']) && is_array($data['serviceItems'])) {
+            foreach ($data['serviceItems'] as $index => $item) {
+                foreach (['title', 'subtitle', 'description'] as $field) {
+                    if (isset($item[$field . '.en']) || isset($item[$field . '.ar'])) {
+                        $data['serviceItems'][$index][$field] = [
+                            'en' => $item[$field . '.en'] ?? '',
+                            'ar' => $item[$field . '.ar'] ?? '',
+                        ];
+                        unset($data['serviceItems'][$index][$field . '.en'], $data['serviceItems'][$index][$field . '.ar']);
+                    }
+                }
+            }
+        }
+
+        return $data;
+    }
 }
