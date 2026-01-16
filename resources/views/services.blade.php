@@ -38,7 +38,7 @@
                         </h2>
                     </div>
                     <div class="relative animate-fade-in animation-delay-200">
-                        <div class="aspect-[4/3] rounded-2xl overflow-hidden"><img src="{{ setting('services.image') }}"
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden"><img src="{{ Storage::disk('public')->url(setting('services.image')) }}"
                                 alt="{{ setting('services.title') }}"
                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
                         </div>
