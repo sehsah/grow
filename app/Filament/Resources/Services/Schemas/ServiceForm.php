@@ -78,46 +78,20 @@ class ServiceForm
                                                 'ar_placeholder' => 'مثل: استشارات الأعمال',
                                             ]
                                         ),
-                                    ]),
-                            ]),
 
-                        Tabs\Tab::make('Media & Settings')
-                            ->schema([
-                                Section::make('Media')
-                                    ->schema([
-                                        FileUpload::make('image')
+                                        FileUpload::make('icon')
                                             ->image()
                                             ->directory('services')
                                             ->visibility('public')
                                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                                             ->maxSize(5120),
-
-                                        TextInput::make('icon')
-                                            ->label('Icon Class/Name')
-                                            ->helperText('SVG icon class or name (e.g., lucide-building2)')
-                                            ->placeholder('lucide-building2'),
-                                    ])
-                                    ->columns(2),
-
-                                Section::make('Settings')
-                                    ->schema([
-                                        TextInput::make('order')
-                                            ->numeric()
-                                            ->default(0)
-                                            ->helperText('Order for display (lower numbers appear first)'),
-
-                                        Toggle::make('is_featured')
-                                            ->label('Featured Service')
-                                            ->default(false)
-                                            ->helperText('Show as featured service'),
-
-                                        Toggle::make('is_active')
+                                            Toggle::make('is_active')
                                             ->label('Active')
                                             ->default(true)
                                             ->helperText('Show this service on the website'),
-                                    ])
-                                    ->columns(3),
+                                    ]),
                             ]),
+
 
                         Tabs\Tab::make('Service Items')
                             ->schema([
@@ -128,9 +102,12 @@ class ServiceForm
                                             ->label('Service Items')
                                             ->addActionLabel('Add Service Item')
                                             ->schema([
-                                                TextInput::make('icon')
-                                                    ->label('Icon (class or SVG)')
-                                                    ->helperText('SVG class/name or icon identifier'),
+                                                FileUpload::make('icon')
+                                                    ->label('Icon (SVG)')
+                                                    ->directory('services/items')
+                                                    ->visibility('public')
+                                                    ->acceptedFileTypes(['image/svg+xml'])
+                                                    ->maxSize(5120),
 
                                                 MultilingualHelper::multilingualTextInput(
                                                     'title',
@@ -150,8 +127,8 @@ class ServiceForm
                                                 ),
 
                                                 MultilingualHelper::multilingualTextarea(
-                                                    'description',
-                                                    'Description',
+                                                    'items',
+                                                    'items',
                                                     [
                                                         'rows' => 3,
                                                         'maxLength' => 500,
@@ -189,7 +166,8 @@ class ServiceForm
                                         ),
                                     ]),
                             ]),
-                    ]),
+                    ])
+                    ->columnSpanFull(),
             ]);
     }
 }

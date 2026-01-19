@@ -38,12 +38,15 @@
                         style="animation-delay: 0ms;">
                         <div
                             class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                            {!! $item->icon !!}
+                            <img src="{{ Storage::disk('public')->url($item->icon) }}" alt="{{ $item->title }}" class="w-8 h-8">
                         </div>
                         <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{{ $item->title }}</h3>
                         <p class="text-muted-foreground text-sm mb-4">{{ $item->description }}</p>
                         <ul class="space-y-2">
-                            @foreach ($item->items ?? [] as $item)
+                            @php
+                            $items = explode(',', $item->items['en']);
+                            @endphp
+                            @foreach ($items as $item2)
                             <li class="flex items-start gap-2 text-muted-foreground text-xs">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -53,7 +56,7 @@
                                     <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
                                     <path d="m9 11 3 3L22 4"></path>
                                 </svg>
-                            <span>{{ $item }}</span></li>
+                            <span>{{ $item2 }}</span></li>
                             @endforeach
                         </ul>
                     </div>
