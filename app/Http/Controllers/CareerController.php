@@ -34,7 +34,7 @@ class CareerController extends Controller
 
         $cvFile = $request->file('cv');
 
-        Mail::to($this->careerRecipient())->send(
+        Mail::to('jobs@compactod.com')->send(
             new CareerApplicationSubmitted(
                 [
                     'name' => $validated['name'],
