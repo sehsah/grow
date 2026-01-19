@@ -30,6 +30,7 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Career pages
 Route::get('/career', [CareerController::class, 'index'])->name('career');
+Route::post('/career', [CareerController::class, 'store'])->name('career.apply');
 Route::get('/career/{id}', [CareerController::class, 'show'])->name('career.show');
 
 // Contact page

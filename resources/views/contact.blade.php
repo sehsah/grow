@@ -25,21 +25,13 @@
                             class="text-muted-foreground">&gt;</span><span class="text-primary">@trans('contact.title')</span></div>
                 </div>
             </div>
-            <div class="absolute top-20 right-10 md:right-20 w-24 h-24 md:w-32 md:h-32 animate-rotate-slow"><svg
-                    viewBox="0 0 100 100" class="w-full h-full">
-                    <defs>
-                        <path id="circlePath" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"></path>
-                    </defs>
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text class="text-[8px] uppercase tracking-widest fill-muted-foreground">
-                        <textPath href="#circlePath">• JOIN OUR TEAM • GROW WITH US • JOIN OUR TEAM • GROW WITH US
-                        </textPath>
-                    </text>
-                    <circle cx="50" cy="50" r="20" fill="hsl(var(--card))" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text x="50" y="54" text-anchor="middle"
-                        class="text-lg font-bold fill-foreground">C</text>
-                </svg></div>
         </section>
+
+      @if (session('success'))
+        <div class="mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-700" style="background: green;margin: 20px;text-align: center;">
+            {{ session('success') }}
+        </div>
+      @endif
         <section class="section-padding">
             <div class="container-custom">
                 <div class="grid lg:grid-cols-2 gap-12">
@@ -95,54 +87,70 @@
                     <div class="animate-fade-in animation-delay-200">
                         <h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="">@trans('contact.form_title')</span></h2>
                         <p class="text-muted-foreground mb-8 text-lg"><span class="">@trans('contact.form_subtitle')</span></p>
-                        <form class="space-y-6"><input
-                                class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
-                                placeholder="@trans('contact.name')" required="" value=""><input type="email"
-                                class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
-                                placeholder="@trans('contact.email')" required="" value=""><input type="tel"
-                                class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
-                                placeholder="@trans('contact.phone')" value="">
+                        @php
+                            $serviceOptions = $serviceOptions ?? [
+                                'organizational-development' => 'contact.service_od',
+                                'crm' => 'contact.service_crm',
+                                'outsourcing' => 'contact.service_outsourcing',
+                                'it-development' => 'contact.service_it',
+                            ];
+                            $selectedServices = old('services', []);
+                            $selectedServices = is_array($selectedServices) ? $selectedServices : [];
+                        @endphp
+
+                        <form class="space-y-6" method="POST" action="{{ route('contact.store') }}">
+                            @csrf
+                            <div class="space-y-2">
+                                <input
+                                    class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
+                                    name="name" placeholder="@trans('contact.name')" required value="{{ old('name') }}">
+                                @error('name')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <input type="email"
+                                    class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
+                                    name="email" placeholder="@trans('contact.email')" required value="{{ old('email') }}">
+                                @error('email')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <input type="tel"
+                                    class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-14 text-foreground placeholder:text-muted-foreground"
+                                    name="phone" placeholder="@trans('contact.phone')" value="{{ old('phone') }}">
+                                @error('phone')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
                             <div class="space-y-3">
                                 <p class="text-sm text-muted-foreground">@trans('contact.service_label')</p>
                                 <div class="space-y-2">
-                                    <div class="flex items-center gap-3"><button type="button" role="checkbox"
-                                            aria-checked="false" data-state="unchecked" value="on"
-                                            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="organizational-development"></button><input type="checkbox"
-                                            aria-hidden="true" tabindex="-1" value="on"
-                                            style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
-                                            for="organizational-development"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_od')</label></div>
-                                    <div class="flex items-center gap-3"><button type="button" role="checkbox"
-                                            aria-checked="false" data-state="unchecked" value="on"
-                                            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="crm"></button><input type="checkbox" aria-hidden="true"
-                                            tabindex="-1" value="on"
-                                            style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
-                                            for="crm"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_crm')</label></div>
-                                    <div class="flex items-center gap-3"><button type="button" role="checkbox"
-                                            aria-checked="false" data-state="unchecked" value="on"
-                                            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="outsourcing"></button><input type="checkbox" aria-hidden="true"
-                                            tabindex="-1" value="on"
-                                            style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
-                                            for="outsourcing"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_outsourcing')</label>
-                                    </div>
-                                    <div class="flex items-center gap-3"><button type="button" role="checkbox"
-                                            aria-checked="false" data-state="unchecked" value="on"
-                                            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            id="it-development"></button><input type="checkbox" aria-hidden="true"
-                                            tabindex="-1" value="on"
-                                            style="position: absolute; pointer-events: none; opacity: 0; margin: 0px; transform: translateX(-100%); width: 16px; height: 16px;"><label
-                                            for="it-development"
-                                            class="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">@trans('contact.service_it')</label></div>
+                                    @foreach ($serviceOptions as $serviceKey => $serviceLabelKey)
+                                        <label class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox" name="services[]" value="{{ $serviceKey }}"
+                                                class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background checked:bg-primary checked:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                                id="{{ $serviceKey }}"
+                                                {{ in_array($serviceKey, $selectedServices, true) ? 'checked' : '' }}>
+                                            <span
+                                                class="text-sm text-muted-foreground peer-checked:text-foreground transition-colors">@trans($serviceLabelKey)</span>
+                                        </label>
+                                    @endforeach
+                                    @error('services')
+                                        <p class="text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
-                            <textarea
-                                class="flex w-full rounded-md border px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-card border-border min-h-[120px] text-foreground placeholder:text-muted-foreground resize-none"
-                                placeholder="@trans('contact.message')"></textarea><button
+                            <div class="space-y-2">
+                                <textarea
+                                    class="flex w-full rounded-md border px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-card border-border min-h-[120px] text-foreground placeholder:text-muted-foreground resize-none"
+                                    name="message" placeholder="@trans('contact.message')" required>{{ old('message') }}</textarea>
+                                @error('message')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <button
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 w-full h-14 text-lg font-semibold"
                                 type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

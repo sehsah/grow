@@ -25,21 +25,14 @@
                             class="text-muted-foreground">&gt;</span><span class="text-primary">@trans('career.title')</span></div>
                 </div>
             </div>
-            <div class="absolute top-20 right-10 md:right-20 w-24 h-24 md:w-32 md:h-32 animate-rotate-slow"><svg
-                    viewBox="0 0 100 100" class="w-full h-full">
-                    <defs>
-                        <path id="circlePath" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"></path>
-                    </defs>
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text class="text-[8px] uppercase tracking-widest fill-muted-foreground">
-                        <textPath href="#circlePath">• JOIN OUR TEAM • GROW WITH US • JOIN OUR TEAM • GROW WITH US
-                        </textPath>
-                    </text>
-                    <circle cx="50" cy="50" r="20" fill="hsl(var(--card))" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text x="50" y="54" text-anchor="middle"
-                        class="text-lg font-bold fill-foreground">C</text>
-                </svg></div>
         </section>
+
+        @if (session('success'))
+            <div class="mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-700" style="background: green;margin: 20px;text-align: center;">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <section class="section-padding">
             <div class="container-custom">
                 <div class="grid lg:grid-cols-2 gap-12">
@@ -127,32 +120,63 @@
                     <div class="animate-fade-in animation-delay-200">
                         <h2 class="text-3xl font-bold mb-2"><span class="">@trans('career.submit_cv')</span></h2>
                         <p class="text-muted-foreground mb-8"><span class="">@trans('career.submit_cv_desc')</span></p>
-                        <form class="space-y-6">
-                            <div><label class="block text-sm font-medium mb-2">@trans('career.label_name') <span
+
+                        @if ($errors->any())
+                            <div class="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700">
+                                {{ __('Please fix the errors below and try again.') }}
+                                @if ($errors->first())
+                                    <div class="mt-1">{{ $errors->first() }}</div>
+                                @endif
+                            </div>
+                        @endif
+
+                        <form class="space-y-6" method="POST" action="{{ route('career.apply') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div>
+                                <label class="block text-sm font-medium mb-2">@trans('career.label_name') <span
                                         class="text-destructive">*</span></label><input
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
-                                    required="" value=""></div>
+                                    name="name" required value="{{ old('name') }}">
+                                @error('name')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                             <div><label class="block text-sm font-medium mb-2">@trans('career.label_email') <span
                                         class="text-destructive">*</span></label><input type="email"
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
-                                    required="" value=""></div>
+                                    name="email" required value="{{ old('email') }}">
+                                @error('email')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                             <div><label class="block text-sm font-medium mb-2">@trans('career.label_phone') <span
                                         class="text-destructive">*</span></label><input type="tel"
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
-                                    required="" value=""></div>
+                                    name="phone" required value="{{ old('phone') }}">
+                                @error('phone')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                             <div><label class="block text-sm font-medium mb-2">@trans('career.label_career') <span
                                         class="text-destructive">*</span></label><input
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
-                                    placeholder="@trans('career.placeholder_career')" required="" value=""></div>
+                                    name="career" placeholder="@trans('career.placeholder_career')" required value="{{ old('career') }}">
+                                @error('career')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                             <div><label class="block text-sm font-medium mb-2">@trans('career.label_details')</label>
                                 <textarea
                                     class="flex w-full rounded-md border px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-card border-border min-h-[100px] resize-none"
-                                    placeholder="@trans('career.placeholder_details')"></textarea>
+                                    name="details" placeholder="@trans('career.placeholder_details')">{{ old('details') }}</textarea>
+                                @error('details')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div><label class="block text-sm font-medium mb-2">@trans('career.label_cv') <span
                                         class="text-destructive">*</span></label>
-                                <div class="relative"><input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                                <div class="relative"><input type="file" name="cv" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" required>
                                     <div
                                         class="flex items-center gap-4 p-4 border border-dashed border-border rounded-xl bg-card hover:border-primary transition-colors">
                                         <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -171,6 +195,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                @error('cv')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
                             </div><button
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 w-full h-14 text-lg font-semibold"
                                 type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
