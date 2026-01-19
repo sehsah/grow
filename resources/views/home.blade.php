@@ -132,7 +132,8 @@
                         <div class="service-card group animate-fade-in"
                             style="animation-delay: {{ ($index + 1) * 100 }}ms; margin-top: {{ $index % 2 === 1 ? '2rem' : '0px' }};">
                             <div class="w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
-                                {!! $service->icon !!}</div>
+                                <img src="{{ Storage::disk('public')->url($service->icon) }}" alt="{{ $service->title }}" class="w-10 h-10 filter-primary">
+                            </div>
                             <h3 class="text-2xl font-bold mb-3"><span class="">{{ $service->title }}</span></h3>
                             <p class="text-muted-foreground mb-6"><span
                                     class="">{{ $service->short_description ?? ($service->description ?? 'Service description') }}</span>

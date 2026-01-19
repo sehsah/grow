@@ -33,7 +33,14 @@ class ProjectForm
                                                 'maxLength' => 255,
                                             ]
                                         ),
-
+                                        
+                                        FileUpload::make('image')
+                                            ->image()
+                                            ->directory('projects')
+                                            ->visibility('public')
+                                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                                            ->maxSize(5120)
+                                            ->required(),
                                         MultilingualHelper::multilingualTextarea(
                                             'description',
                                             'Description',
@@ -75,43 +82,7 @@ class ProjectForm
                                     ]),
                             ]),
 
-                        Tabs\Tab::make('Media & Project Info')
-                            ->schema([
-                                Section::make('Media')
-                                    ->schema([
-                                        FileUpload::make('image')
-                                            ->image()
-                                            ->directory('projects')
-                                            ->visibility('public')
-                                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-                                            ->maxSize(5120)
-                                            ->required(),
 
-                                        Textarea::make('gallery')
-                                            ->rows(3)
-                                            ->helperText('JSON array of image URLs')
-                                            ->columnSpanFull(),
-                                    ])
-                                    ->columns(2),
-
-                                Section::make('Project Information')
-                                    ->schema([
-                                        DatePicker::make('project_date')
-                                            ->displayFormat('d/m/Y')
-                                            ->native(false),
-
-                                        TextInput::make('project_url')
-                                            ->url()
-                                            ->maxLength(255)
-                                            ->helperText('Live project URL'),
-
-                                        TextInput::make('order')
-                                            ->numeric()
-                                            ->default(0)
-                                            ->helperText('Display order (lower numbers appear first)'),
-                                    ])
-                                    ->columns(3),
-                            ]),
 
                         Tabs\Tab::make('Settings & SEO')
                             ->schema([

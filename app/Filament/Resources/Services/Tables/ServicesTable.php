@@ -18,50 +18,43 @@ class ServicesTable
     {
         return $table
             ->columns([
-                ImageColumn::make('image')
-                    ->circular()
-                    ->defaultImageUrl(url('/images/placeholder.png'))
-                    ->size(50),
-                
+
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable()
                     ->weight('bold')
                     ->limit(50),
-                
+
                 TextColumn::make('slug')
                     ->searchable()
                     ->copyable()
                     ->copyMessage('Slug copied!')
                     ->color('gray')
                     ->toggleable(isToggledHiddenByDefault: true),
-                
+
                 TextColumn::make('category')
                     ->badge()
                     ->color('primary')
                     ->searchable(),
-                
+
                 TextColumn::make('short_description')
                     ->limit(50)
                     ->toggleable(isToggledHiddenByDefault: true),
-                
-                ToggleColumn::make('is_featured')
-                    ->label('Featured')
-                    ->sortable(),
-                
+
+
                 ToggleColumn::make('is_active')
                     ->label('Active')
                     ->sortable(),
-                
+
                 TextColumn::make('order')
                     ->sortable()
                     ->alignCenter(),
-                
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                
+
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
@@ -75,13 +68,13 @@ class ServicesTable
                         'Talent Acquisition' => 'Talent Acquisition',
                         'Web Development' => 'Web Development',
                     ]),
-                
+
                 SelectFilter::make('is_featured')
                     ->options([
                         '1' => 'Featured',
                         '0' => 'Not Featured',
                     ]),
-                
+
                 SelectFilter::make('is_active')
                     ->options([
                         '1' => 'Active',

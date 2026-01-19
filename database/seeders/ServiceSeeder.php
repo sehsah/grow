@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Service;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ServiceSeeder extends Seeder
 {
@@ -142,7 +144,25 @@ class ServiceSeeder extends Seeder
         // Clear existing services
         Service::query()->delete();
 
+        $disk = Storage::disk('public');
+        $directory = 'services';
+
         foreach ($services as $serviceData) {
+            $icon = $serviceData['icon'];
+            
+            // Check if icon is raw SVG
+            if ($icon && str_contains($icon, '<svg')) {
+                // Get English title for filename
+                $titleEn = is_array($serviceData['title']) ? $serviceData['title']['en'] : $serviceData['title'];
+                $slug = Str::slug($titleEn);
+                $filename = "{$directory}/{$slug}.svg";
+                
+                // Save the file
+                $disk->put($filename, $icon);
+                
+                $serviceData['icon'] = $filename;
+            }
+
             Service::create($serviceData);
         }
     }

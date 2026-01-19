@@ -80,11 +80,12 @@ class ServiceForm
                                         ),
 
                                         FileUpload::make('icon')
-                                            ->image()
+                                            ->label('Icon (SVG)')
                                             ->directory('services')
                                             ->visibility('public')
-                                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                                            ->acceptedFileTypes(['image/svg+xml'])
                                             ->maxSize(5120),
+
                                             Toggle::make('is_active')
                                             ->label('Active')
                                             ->default(true)
