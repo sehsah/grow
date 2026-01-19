@@ -613,6 +613,8 @@
             let itemsPerSlide = getItemsPerSlide();
             let totalSlides = Math.ceil(slides.length / itemsPerSlide);
             let currentSlide = 0;
+            let autoPlayTimer = null;
+            const autoPlayDelay = 4000;
 
             function getItemsPerSlide() {
                 if (window.innerWidth < 768) return 1; // mobile
@@ -682,8 +684,10 @@
             function nextSlide() {
                 if (currentSlide < totalSlides - 1) {
                     currentSlide++;
-                    updateCarousel();
+                } else {
+                    currentSlide = 0;
                 }
+                updateCarousel();
             }
 
             function prevSlide() {
@@ -696,6 +700,10 @@
             // Event listeners
             nextBtn.addEventListener('click', nextSlide);
             prevBtn.addEventListener('click', prevSlide);
+            carousel.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+            carousel.addEventListener('mouseleave', startAutoPlay);
+            carousel.addEventListener('touchstart', () => clearInterval(autoPlayTimer), { passive: true });
+            carousel.addEventListener('touchend', startAutoPlay, { passive: true });
 
             window.addEventListener('resize', () => {
                 const newItems = getItemsPerSlide();
@@ -710,6 +718,11 @@
 
             // Initialize
             initCarousel();
+            function startAutoPlay() {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = setInterval(nextSlide, autoPlayDelay);
+            }
+            startAutoPlay();
         });
 
         // Target Fields Carousel

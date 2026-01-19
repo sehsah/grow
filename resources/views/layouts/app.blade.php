@@ -223,6 +223,7 @@
                 $sitePhoneSecondary = \App\Helpers\SettingsHelper::site('phone_secondary');
                 $siteEmail = \App\Helpers\SettingsHelper::site('email');
                 $siteSocialLinks = App\Models\Setting::getValue('site.social_links');
+                $siteWhatsapp = App\Models\Setting::getValue('site.whatsapp');
             @endphp
             <div class="container-custom py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -381,7 +382,7 @@
             <div id="contact-quick-actions"
                 class="flex flex-col gap-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
                 <a
-                    href="https://wa.me/{{ $sitePhone }}" target="_blank" rel="noopener noreferrer"
+                    href="https://wa.me/{{ $siteWhatsapp }}" target="_blank" rel="noopener noreferrer"
                     class="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"><svg
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

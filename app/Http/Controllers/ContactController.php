@@ -21,8 +21,7 @@ class ContactController extends Controller
         $sitePhoneSecondary = \App\Helpers\SettingsHelper::site('phone_secondary');
         $siteEmail = \App\Helpers\SettingsHelper::site('email');
         $siteSocialLinks = \App\Helpers\SettingsHelper::site('social_links');
-        $serviceOptions = $this->serviceOptions();
-
+        $serviceOptions = \App\Models\Service::all();
         return view('contact', compact(
             'siteAddress',
             'sitePhone',
@@ -38,19 +37,18 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $serviceOptions = $this->serviceOptions();
+        $serviceOptions = \App\Models\Service::all();
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:150'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:50'],
             'services' => ['nullable', 'array', 'max:10'],
-            'services.*' => [Rule::in(array_keys($serviceOptions))],
             'message' => ['required', 'string', 'max:2000'],
         ]);
-
+        
         $serviceLabels = collect($validated['services'] ?? [])
-            ->map(fn ($key) => TranslationHelper::get($serviceOptions[$key], $serviceOptions[$key]))
+            ->map(fn ($key) => $serviceOptions->firstWhere('slug', $key)?->name)
             ->values()
             ->all();
 
@@ -72,19 +70,6 @@ class ContactController extends Controller
                 'contact.success',
                 'Thank you! Your request has been received. We will contact you shortly.'
             ));
-    }
-
-    /**
-     * Available service options keyed by slug to translation key.
-     */
-    private function serviceOptions(): array
-    {
-        return [
-            'organizational-development' => 'contact.service_od',
-            'crm' => 'contact.service_crm',
-            'outsourcing' => 'contact.service_outsourcing',
-            'it-development' => 'contact.service_it',
-        ];
     }
 
     /**

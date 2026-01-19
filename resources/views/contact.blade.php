@@ -88,12 +88,6 @@
                         <h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="">@trans('contact.form_title')</span></h2>
                         <p class="text-muted-foreground mb-8 text-lg"><span class="">@trans('contact.form_subtitle')</span></p>
                         @php
-                            $serviceOptions = $serviceOptions ?? [
-                                'organizational-development' => 'contact.service_od',
-                                'crm' => 'contact.service_crm',
-                                'outsourcing' => 'contact.service_outsourcing',
-                                'it-development' => 'contact.service_it',
-                            ];
                             $selectedServices = old('services', []);
                             $selectedServices = is_array($selectedServices) ? $selectedServices : [];
                         @endphp
@@ -128,14 +122,14 @@
                             <div class="space-y-3">
                                 <p class="text-sm text-muted-foreground">@trans('contact.service_label')</p>
                                 <div class="space-y-2">
-                                    @foreach ($serviceOptions as $serviceKey => $serviceLabelKey)
+                                    @foreach ($serviceOptions as $service)
                                         <label class="flex items-center gap-3 cursor-pointer">
-                                            <input type="checkbox" name="services[]" value="{{ $serviceKey }}"
+                                            <input type="checkbox" name="services[]" value="{{ $service->title }}"
                                                 class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background checked:bg-primary checked:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                                id="{{ $serviceKey }}"
-                                                {{ in_array($serviceKey, $selectedServices, true) ? 'checked' : '' }}>
+                                                id="{{ $service->title }}"
+                                                {{ in_array($service->title, $selectedServices, true) ? 'checked' : '' }}>
                                             <span
-                                                class="text-sm text-muted-foreground peer-checked:text-foreground transition-colors">@trans($serviceLabelKey)</span>
+                                                class="text-sm text-muted-foreground peer-checked:text-foreground transition-colors">{{ $service->title }}</span>
                                         </label>
                                     @endforeach
                                     @error('services')

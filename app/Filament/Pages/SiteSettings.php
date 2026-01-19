@@ -70,6 +70,7 @@ class SiteSettings extends Page implements HasForms
             'about_description' => Setting::getValue('about.description'),
             'about_badge' => Setting::getValue('about.badge'),
             'about_image' => Setting::getValue('about.image'),
+            'whatsapp' => Setting::getValue('site.whatsapp'),
         ];
 
         // Fill the form to ensure all fields are properly hydrated
@@ -304,6 +305,13 @@ class SiteSettings extends Page implements HasForms
                             ->maxLength(50)
                             ->placeholder('e.g., +966 56 442 6319')
                             ->columnSpanFull(),
+
+                        TextInput::make('whatsapp')
+                            ->label('WhatsApp')
+                            ->maxLength(50)
+                            ->placeholder('e.g., +966 56 442 6319')
+                            ->columnSpanFull(),
+
                         TextInput::make('email')
                             ->label('Email Address')
                             ->required()
@@ -517,6 +525,7 @@ class SiteSettings extends Page implements HasForms
         Setting::setValue('about.description', $data['about_description'] ?? ['en' => '', 'ar' => ''], 'json', 'about');
         Setting::setValue('about.badge', $data['about_badge'] ?? ['en' => '', 'ar' => ''], 'json', 'about');
         Setting::setValue('about.image', $data['about_image'] ?? ['en' => '', 'ar' => ''], 'json', 'about');
+        Setting::setValue('site.whatsapp', $data['whatsapp'] ?? ['en' => '', 'ar' => ''], 'json', 'general');
         // Clear settings cache
         SettingsHelper::clearCache();
 

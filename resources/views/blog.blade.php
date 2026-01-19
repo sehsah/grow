@@ -66,15 +66,6 @@
                                 {{ $featuredBlog->published_at->format('F j, Y') }}
                             </span>
                             @endif
-                            @if($featuredBlog->read_time)
-                            <span class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                                {{ $featuredBlog->read_time }} @trans('blog.min_read')
-                            </span>
-                            @endif
                         </div>
                         <a class="btn-primary inline-flex items-center gap-2" href="{{ route('blog.show', $featuredBlog->slug) }}">
                             <span class="">@trans('blog.read_more')</span>

@@ -130,7 +130,6 @@ class ServiceForm
                                             ->schema([
                                                 TextInput::make('icon')
                                                     ->label('Icon (class or SVG)')
-                                                    ->maxLength(255)
                                                     ->helperText('SVG class/name or icon identifier'),
 
                                                 MultilingualHelper::multilingualTextInput(
