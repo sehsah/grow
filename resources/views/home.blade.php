@@ -480,7 +480,7 @@
                     <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100">
                         @trans('home.trusted_by')<br><span class="text-primary">@trans('home.leading_companies')</span></h2>
                 </div>
-                <div class="relative" id="partners-carousel">
+                <div class="relative" id="partners-carousel" dir="ltr">
                     <button id="partners-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -530,7 +530,7 @@
                     <h2 class="text-2xl md:text-3xl font-bold text-primary-foreground mb-2">@trans('home.target_fields')</h2>
                     <p class="text-primary-foreground/80 text-sm md:text-base">@trans('home.target_fields_description')</p>
                 </div>
-                <div class="relative" id="target-fields-carousel">
+                <div class="relative" id="target-fields-carousel" dir="ltr">
                     <button id="target-fields-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
