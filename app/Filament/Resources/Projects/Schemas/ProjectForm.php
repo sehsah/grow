@@ -33,7 +33,7 @@ class ProjectForm
                                                 'maxLength' => 255,
                                             ]
                                         ),
-                                        
+
                                         FileUpload::make('image')
                                             ->image()
                                             ->directory('projects')
@@ -122,7 +122,7 @@ class ProjectForm
                                         ),
                                     ]),
                             ]),
-                    ]),
+                    ])->columnSpanFull(),
             ]);
     }
 }
