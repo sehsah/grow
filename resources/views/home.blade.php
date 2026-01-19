@@ -500,7 +500,7 @@
                     <div class="overflow-hidden mx-12">
                         <div id="partners-track" class="flex transition-transform duration-500 ease-in-out">
                             @foreach ($partners as $partner)
-                                <div class="flex-shrink-0 px-2 partners-slide" style="width: 16.6667%;">
+                                <div class="flex-shrink-0 px-2 partners-slide">
                                     @if ($partner->website_url)
                                         <a href="{{ $partner->website_url }}" target="_blank" rel="noopener noreferrer"
                                             class="block bg-white rounded-xl p-6 h-28 flex items-center justify-center hover:shadow-lg transition-shadow border border-border/10">
@@ -610,12 +610,29 @@
 
             if (!track || !prevBtn || !nextBtn || !dotsContainer || slides.length === 0) return;
 
-            const itemsPerSlide = 6;
-            const totalSlides = Math.ceil(slides.length / itemsPerSlide);
+            let itemsPerSlide = getItemsPerSlide();
+            let totalSlides = Math.ceil(slides.length / itemsPerSlide);
             let currentSlide = 0;
+
+            function getItemsPerSlide() {
+                if (window.innerWidth < 768) return 1; // mobile
+                return 6; // desktop/tablet default
+            }
+
+            function applySlideWidths() {
+                const width = 100 / itemsPerSlide;
+                slides.forEach((slide) => {
+                    slide.style.width = `${width}%`;
+                });
+            }
 
             // Initialize carousel
             function initCarousel() {
+                applySlideWidths();
+                totalSlides = Math.ceil(slides.length / itemsPerSlide);
+                if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+                if (currentSlide < 0) currentSlide = 0;
+
                 // Generate pagination dots
                 dotsContainer.innerHTML = '';
                 for (let i = 0; i < totalSlides; i++) {
@@ -680,6 +697,17 @@
             nextBtn.addEventListener('click', nextSlide);
             prevBtn.addEventListener('click', prevSlide);
 
+            window.addEventListener('resize', () => {
+                const newItems = getItemsPerSlide();
+                if (newItems !== itemsPerSlide) {
+                    itemsPerSlide = newItems;
+                    initCarousel();
+                    updateCarousel();
+                } else {
+                    applySlideWidths();
+                }
+            });
+
             // Initialize
             initCarousel();
         });
@@ -697,12 +725,29 @@
 
             if (!track || !prevBtn || !nextBtn || !dotsContainer || slides.length === 0) return;
 
-            const itemsPerSlide = 4;
-            const totalSlides = Math.ceil(slides.length / itemsPerSlide);
+            let itemsPerSlide = getItemsPerSlide();
+            let totalSlides = Math.ceil(slides.length / itemsPerSlide);
             let currentSlide = 0;
+
+            function getItemsPerSlide() {
+                if (window.innerWidth < 768) return 1; // mobile
+                return 4; // desktop/tablet default
+            }
+
+            function applySlideWidths() {
+                const width = 100 / itemsPerSlide;
+                slides.forEach((slide) => {
+                    slide.style.width = `${width}%`;
+                });
+            }
 
             // Initialize carousel
             function initCarousel() {
+                applySlideWidths();
+                totalSlides = Math.ceil(slides.length / itemsPerSlide);
+                if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+                if (currentSlide < 0) currentSlide = 0;
+
                 // Generate pagination dots
                 dotsContainer.innerHTML = '';
                 for (let i = 0; i < totalSlides; i++) {
