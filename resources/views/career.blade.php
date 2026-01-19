@@ -152,7 +152,8 @@
                             <div><label class="block text-sm font-medium mb-2">@trans('career.label_phone') <span
                                         class="text-destructive">*</span></label><input type="tel"
                                     class="flex w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-card border-border h-12"
-                                    name="phone" required value="{{ old('phone') }}">
+                                    id="career-phone" name="phone" id="phone" required
+                                    value="{{ old('phone') }}">
                                 @error('phone')
                                     <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                                 @enderror

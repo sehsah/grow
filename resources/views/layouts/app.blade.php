@@ -12,11 +12,16 @@
     <meta name="description" content="{{ config('app.description', 'Grow Application') }}" />
     <meta name="author" content="{{ $siteTitle }}" />
     <link rel="stylesheet" crossorigin href="{{ asset('assets/index-I91yRjam.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.0/build/css/intlTelInput.css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap">
     <style>
         html[dir="rtl"] body,
         html[dir="rtl"] html {
             font-family: 'Cairo', sans-serif;
+        }
+        .iti--allow-dropdown {
+            width: 100%;
         }
     </style>
 </head>
@@ -413,6 +418,13 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.0/build/js/intlTelInput.min.js"></script>
+    <script>
+        var input = document.querySelector("[name='phone']");
+        window.intlTelInput(input, {
+            loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.14.0/build/js/utils.js"),
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Header Scroll Effect
