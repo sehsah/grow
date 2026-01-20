@@ -54,7 +54,7 @@
                         <div class="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                             style="animation-delay: {{ $delay }}ms;">
                             <div class="relative aspect-16/10 overflow-hidden">
-                                <img src="{{ $imageUrl }}" alt="{{ $project->title }}"
+                                <img src="{{ Storage::disk('public')->url($imageUrl) }}" alt="{{ $project->title }}"
                                     class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
                                 <div
                                     class="absolute inset-0 bg-linear-to-t from-background/80 to-transparent pointer-events-none">

@@ -350,7 +350,7 @@
                                 <div
                                     class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
                                     <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
-                                        <img src="{{ $project->image }}" alt="{{ $project->title }}"
+                                        <img src="{{ Storage::disk('public')->url($project->image) }}" alt="{{ $project->title }}"
                                             class="transition-transform duration-500 group-hover:scale-110">
                                     </div>
                                     <div class="absolute bottom-8 left-8 flex gap-2">
