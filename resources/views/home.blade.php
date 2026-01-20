@@ -374,7 +374,7 @@
                                 <div
                                     class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-500/30 to-gray-600/30 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
                                     <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
-                                        <img src="{{ $project->image }}" alt="{{ $project->title }}"
+                                        <img src="{{ Storage::disk('public')->url($project->image) }}" alt="{{ $project->title }}"
                                             class="transition-transform duration-500 group-hover:scale-110">
                                     </div>
                                     @if ($project->category)
@@ -459,7 +459,7 @@
                     @foreach ($teams as $index => $team)
                         <div class="group animate-fade-in" style="animation-delay: {{ ($index + 1) * 100 }}ms;">
                             <div class="relative overflow-hidden rounded-lg">
-                                <img src="{{ $team->image }}" alt="{{ $team->name }}"
+                                <img src="{{ Storage::disk('public')->url($team->image) }}" alt="{{ $team->name }}"
                                     class="grayscale group-hover:grayscale-0 transition-all duration-500">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
