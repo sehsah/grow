@@ -30,7 +30,7 @@ class TeamForm
                                                 'maxLength' => 255,
                                             ]
                                         ),
-                                        
+
                                         MultilingualHelper::multilingualTextInput(
                                             'position',
                                             'Position/Title',
@@ -41,7 +41,7 @@ class TeamForm
                                                 'ar_placeholder' => 'مثل: الرئيس التنفيذي والمؤسس',
                                             ]
                                         ),
-                                        
+
                                         FileUpload::make('image')
                                             ->image()
                                             ->directory('teams')
@@ -51,7 +51,7 @@ class TeamForm
                                             ->required()
                                             ->label('Profile Photo')
                                             ->columnSpanFull(),
-                                        
+
                                         MultilingualHelper::multilingualRichEditor(
                                             'bio',
                                             'Bio/Biography',
@@ -64,31 +64,9 @@ class TeamForm
                                         ),
                                     ]),
                             ]),
-                        
-                        Tabs\Tab::make('Contact & Social')
-                            ->schema([
-                                Section::make('Contact Information')
-                                    ->schema([
-                                        TextInput::make('email')
-                                            ->email()
-                                            ->maxLength(255)
-                                            ->label('Email Address'),
-                                        
-                                        TextInput::make('linkedin_url')
-                                            ->url()
-                                            ->maxLength(255)
-                                            ->label('LinkedIn URL')
-                                            ->prefixIcon('heroicon-m-link'),
-                                        
-                                        TextInput::make('twitter_url')
-                                            ->url()
-                                            ->maxLength(255)
-                                            ->label('Twitter/X URL')
-                                            ->prefixIcon('heroicon-m-link'),
-                                    ])
-                                    ->columns(3),
-                            ]),
-                        
+
+
+
                         Tabs\Tab::make('Settings')
                             ->schema([
                                 Section::make('Display Settings')
@@ -97,7 +75,7 @@ class TeamForm
                                             ->numeric()
                                             ->default(0)
                                             ->helperText('Display order (lower numbers appear first)'),
-                                        
+
                                         Toggle::make('is_active')
                                             ->label('Active')
                                             ->default(true)

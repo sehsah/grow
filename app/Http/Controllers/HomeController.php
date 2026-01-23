@@ -38,7 +38,6 @@ class HomeController extends Controller
         // Fetch team members
         $teams = Team::where('is_active', true)
             ->orderBy('order', 'asc')
-            ->limit(4)
             ->get();
 
         // Fetch working processes
