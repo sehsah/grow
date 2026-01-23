@@ -281,63 +281,383 @@
                 </div>
             </div>
         </section>
+
+
         <section class="section-padding relative overflow-hidden">
             <div class="absolute left-0 top-1/4 w-64 h-64 border border-border/20 rounded-full"></div>
             <div class="absolute right-0 bottom-1/4 w-48 h-48 border border-border/20 rounded-full"></div>
             <div class="container-custom relative z-10">
-                @foreach ($testimonials as $testimonial)
-                <div class="max-w-3xl mx-auto text-center animate-fade-in">
-                    <div class="flex justify-center gap-1 mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-star w-5 h-5 fill-primary text-primary">
-                            <path
-                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
-                            </path>
-                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-star w-5 h-5 fill-primary text-primary">
-                            <path
-                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
-                            </path>
-                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-star w-5 h-5 fill-primary text-primary">
-                            <path
-                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
-                            </path>
-                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-star w-5 h-5 fill-primary text-primary">
-                            <path
-                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
-                            </path>
-                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-star w-5 h-5 fill-primary text-primary">
-                            <path
-                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
-                            </path>
+                <div class="relative" id="testimonials-carousel" dir="ltr">
+                    <button id="testimonials-prev"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-border/60 flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+                        aria-label="Previous testimonial">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-left">
+                            <path d="m15 18-6-6 6-6"></path>
                         </svg>
+                    </button>
+                    <button id="testimonials-next"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-border/60 flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+                        aria-label="Next testimonial">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-right">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="overflow-hidden mx-12" data-viewport>
+                        <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
+                            @foreach ($testimonials as $testimonial)
+                            <div class="flex-shrink-0 px-4 testimonials-slide w-full">
+                                <div class="max-w-3xl mx-auto text-center animate-fade-in">
+                                    <div class="flex justify-center gap-1 mb-8">
+                                        @for ($i = 0; $i < 5; $i++)
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" class="lucide lucide-star w-5 h-5 fill-primary text-primary">
+                                                <path
+                                                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                                                </path>
+                                            </svg>
+                                        @endfor
+                                    </div>
+                                    <blockquote class="text-xl md:text-2xl italic text-muted-foreground mb-8 leading-relaxed">
+                                        "{{ $testimonial->content }}"
+                                    </blockquote>
+                                    <div class="flex items-center justify-center gap-4" @if(app()->getLocale() == 'ar') style="direction: rtl;" @endif>
+                                        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
+                                            @php
+                                                $name = $testimonial->author;
+                                                $initials = collect(explode(' ', $name))
+                                                    ->filter(fn ($part) => trim($part) !== '')
+                                                    ->take(2)
+                                                    ->map(fn ($part) => mb_substr($part, 0, 1))
+                                                    ->implode('');
+                                            @endphp
+                                            <span class="text-lg font-bold text-primary">{{ strtoupper($initials) }}</span>
+                                        </div>
+                                        <div style="text-align: start;">
+                                            <p class="font-bold">{{ $testimonial->author }}</p>
+                                            <p class="text-sm text-muted-foreground">
+                                                {{ $testimonial->position }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
-                    <blockquote class="text-xl md:text-2xl italic text-muted-foreground mb-8 leading-relaxed">
-                        "{{ $testimonial->content }}"
-                    </blockquote>
-                    <div class="flex items-center justify-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center"><span
-                                class="text-lg font-bold text-primary">{{ substr($testimonial->author, 0, 1) }}</span>
-                        </div>
-                        <div class="text-left">
-                            <p class="font-bold">{{ $testimonial->author }}</p>
-                            <p class="text-sm text-muted-foreground">
-                                {{ $testimonial->position }}</p>
-                        </div>
+                    <div id="testimonials-dots" class="flex justify-center gap-2 mt-6">
+                        {{-- Dots generated by JS --}}
                     </div>
                 </div>
-                @endforeach
             </div>
         </section>
+
+        <script>
+        (() => {
+            const init = () => {
+                const carousel = document.getElementById('testimonials-carousel');
+                if (!carousel) return;
+
+                const track = carousel.querySelector('#testimonials-track');
+                const slides = Array.from(track?.children || []);
+                const prev = carousel.querySelector('#testimonials-prev');
+                const next = carousel.querySelector('#testimonials-next');
+                const dotsContainer = carousel.querySelector('#testimonials-dots');
+                const viewport = carousel.querySelector('[data-viewport]');
+
+                if (!track || slides.length === 0 || !viewport || !dotsContainer) return;
+
+                let index = 0;
+                let width = viewport.getBoundingClientRect().width || viewport.clientWidth;
+                let timer;
+
+                const setWidths = () => {
+                    width = viewport.getBoundingClientRect().width || viewport.clientWidth;
+                    slides.forEach(slide => {
+                        slide.style.width = `${width}px`;
+                        slide.style.flex = '0 0 auto';
+                    });
+                    track.style.width = `${width * slides.length}px`;
+                    goTo(index, false);
+                };
+
+                const setActiveDot = (i) => {
+                    dotsContainer.querySelectorAll('button').forEach((dot, dotIdx) => {
+                        dot.classList.toggle('bg-primary', dotIdx === i);
+                        dot.classList.toggle('bg-border', dotIdx !== i);
+                    });
+                };
+
+                const goTo = (i, animate = true) => {
+                    index = (i + slides.length) % slides.length;
+                    if (!animate) track.style.transitionDuration = '0ms';
+                    track.style.transform = `translateX(-${index * width}px)`;
+                    requestAnimationFrame(() => track.style.transitionDuration = '');
+                    setActiveDot(index);
+                };
+
+                const nextSlide = () => goTo(index + 1);
+                const prevSlide = () => goTo(index - 1);
+
+                dotsContainer.innerHTML = '';
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'w-2.5 h-2.5 rounded-full bg-border transition-colors';
+                    dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+                    dot.addEventListener('click', () => {
+                        stopAuto();
+                        goTo(i);
+                        startAuto();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+
+                const startAuto = () => {
+                    timer = setInterval(nextSlide, 6000);
+                };
+                const stopAuto = () => {
+                    clearInterval(timer);
+                };
+
+                next?.addEventListener('click', () => { stopAuto(); nextSlide(); startAuto(); });
+                prev?.addEventListener('click', () => { stopAuto(); prevSlide(); startAuto(); });
+                window.addEventListener('resize', setWidths);
+                carousel.addEventListener('pointerenter', stopAuto);
+                carousel.addEventListener('pointerleave', startAuto);
+
+                setWidths();
+                setActiveDot(0);
+                startAuto();
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+        </script>
+
+        <script>
+        // Partners carousel (same logic as home, ensured for Arabic too)
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('partners-carousel');
+            if (!carousel) return;
+
+            const track = document.getElementById('partners-track');
+            const prevBtn = document.getElementById('partners-prev');
+            const nextBtn = document.getElementById('partners-next');
+            const dotsContainer = document.getElementById('partners-dots');
+            const slides = track ? track.querySelectorAll('.partners-slide') : [];
+
+            if (!track || !prevBtn || !nextBtn || !dotsContainer || slides.length === 0) return;
+
+            let itemsPerSlide = getItemsPerSlide();
+            let totalSlides = Math.ceil(slides.length / itemsPerSlide);
+            let currentSlide = 0;
+            let autoPlayTimer = null;
+            const autoPlayDelay = 4000;
+
+            function getItemsPerSlide() {
+                if (window.innerWidth < 768) return 1; // mobile
+                return 6; // desktop/tablet default
+            }
+
+            function applySlideWidths() {
+                const width = 100 / itemsPerSlide;
+                slides.forEach((slide) => {
+                    slide.style.width = `${width}%`;
+                });
+            }
+
+            function initCarousel() {
+                applySlideWidths();
+                totalSlides = Math.ceil(slides.length / itemsPerSlide);
+                currentSlide = Math.min(currentSlide, totalSlides - 1);
+
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.className =
+                        `w-2 h-2 rounded-full transition-all ${i === currentSlide ? 'w-6 bg-primary' : 'bg-muted-foreground/30'}`;
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+
+                updateCarousel();
+            }
+
+            function updateCarousel() {
+                const translateX = -(currentSlide * 100);
+                track.style.transform = `translateX(${translateX}%)`;
+
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.remove('bg-muted-foreground/30');
+                        dot.classList.add('w-6', 'bg-primary');
+                    } else {
+                        dot.classList.remove('w-6', 'bg-primary');
+                        dot.classList.add('bg-muted-foreground/30');
+                    }
+                });
+
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+                prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+                nextBtn.classList.toggle('opacity-50', currentSlide === totalSlides - 1);
+                nextBtn.classList.toggle('cursor-not-allowed', currentSlide === totalSlides - 1);
+            }
+
+            function goToSlide(slide) {
+                if (slide < 0 || slide >= totalSlides) return;
+                currentSlide = slide;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                } else {
+                    currentSlide = 0;
+                }
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            carousel.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+            carousel.addEventListener('mouseleave', startAutoPlay);
+            carousel.addEventListener('touchstart', () => clearInterval(autoPlayTimer), { passive: true });
+            carousel.addEventListener('touchend', startAutoPlay, { passive: true });
+
+            window.addEventListener('resize', () => {
+                const newItems = getItemsPerSlide();
+                if (newItems !== itemsPerSlide) {
+                    itemsPerSlide = newItems;
+                    initCarousel();
+                    updateCarousel();
+                } else {
+                    applySlideWidths();
+                }
+            });
+
+            initCarousel();
+            function startAutoPlay() {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = setInterval(nextSlide, autoPlayDelay);
+            }
+            startAutoPlay();
+        });
+
+        // Target fields carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('target-fields-carousel');
+            if (!carousel) return;
+
+            const track = document.getElementById('target-fields-track');
+            const prevBtn = document.getElementById('target-fields-prev');
+            const nextBtn = document.getElementById('target-fields-next');
+            const dotsContainer = document.getElementById('target-fields-dots');
+            const slides = track ? track.querySelectorAll('.target-field-slide') : [];
+
+            if (!track || !prevBtn || !nextBtn || !dotsContainer || slides.length === 0) return;
+
+            let itemsPerSlide = getItemsPerSlide();
+            let totalSlides = Math.ceil(slides.length / itemsPerSlide);
+            let currentSlide = 0;
+
+            function getItemsPerSlide() {
+                if (window.innerWidth < 768) return 1;
+                return 4;
+            }
+
+            function applySlideWidths() {
+                const width = 100 / itemsPerSlide;
+                slides.forEach((slide) => {
+                    slide.style.width = `${width}%`;
+                });
+            }
+
+            function initCarousel() {
+                applySlideWidths();
+                totalSlides = Math.ceil(slides.length / itemsPerSlide);
+                currentSlide = Math.min(currentSlide, totalSlides - 1);
+
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.className =
+                        `w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-primary-foreground' : 'bg-primary-foreground/30 hover:bg-primary-foreground/50'}`;
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+
+                updateCarousel();
+            }
+
+            function updateCarousel() {
+                const translateX = -(currentSlide * 100);
+                track.style.transform = `translateX(${translateX}%)`;
+
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.remove('bg-primary-foreground/30');
+                        dot.classList.add('bg-primary-foreground');
+                    } else {
+                        dot.classList.remove('bg-primary-foreground');
+                        dot.classList.add('bg-primary-foreground/30');
+                    }
+                });
+
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+                prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
+                nextBtn.classList.toggle('opacity-50', currentSlide === totalSlides - 1);
+                nextBtn.classList.toggle('cursor-not-allowed', currentSlide === totalSlides - 1);
+            }
+
+            function goToSlide(slide) {
+                if (slide < 0 || slide >= totalSlides) return;
+                currentSlide = slide;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateCarousel();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            initCarousel();
+        });
+        </script>
 
 
         <section class="py-12 md:py-16 bg-primary ">
@@ -346,7 +666,7 @@
                     <h2 class="text-2xl md:text-3xl font-bold text-primary-foreground mb-2">@trans('home.target_fields')</h2>
                     <p class="text-primary-foreground/80 text-sm md:text-base">@trans('home.target_fields_description')</p>
                 </div>
-                <div class="relative" id="target-fields-carousel">
+                <div class="relative" id="target-fields-carousel" dir="ltr">
                     <button id="target-fields-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -393,7 +713,7 @@
                     <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100">
                         @trans('home.trusted_by')<br><span class="text-primary">@trans('home.leading_companies')</span></h2>
                 </div>
-                <div class="relative" id="partners-carousel">
+                <div class="relative" id="partners-carousel" dir="ltr">
                     <button id="partners-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
