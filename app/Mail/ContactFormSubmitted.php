@@ -11,12 +11,10 @@ class ContactFormSubmitted extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * @param array{name:string,email:string,phone:?string,message:string} $payload
-     * @param string[] $services
+     * @param array{name:string,email:string,phone:?string,message:string,services:array} $payload
      */
     public function __construct(
         public array $payload,
-        public array $services = [],
     ) {
     }
 
@@ -26,7 +24,6 @@ class ContactFormSubmitted extends Mailable
     public function build(): static
     {
         $subject = 'New contact request from ' . $this->payload['name'];
-
         return $this
             ->subject($subject)
             ->replyTo($this->payload['email'], $this->payload['name'])
@@ -36,7 +33,7 @@ class ContactFormSubmitted extends Mailable
                 'email' => $this->payload['email'],
                 'phone' => $this->payload['phone'] ?? null,
                 'messageContent' => $this->payload['message'],
-                'services' => $this->payload['services'] ?? [],
+                'services_selected' => $this->payload['services'],
             ]);
     }
 }

@@ -46,12 +46,11 @@ class ContactController extends Controller
             'services' => ['nullable', 'array', 'max:10'],
             'message' => ['required', 'string', 'max:2000'],
         ]);
-        
-        $serviceLabels = collect($validated['services'] ?? [])
-            ->map(fn ($key) => $serviceOptions->firstWhere('slug', $key)?->name)
-            ->values()
-            ->all();
-
+//
+//         $serviceLabels = collect($validated['services'] ?? [])
+//             ->map(fn ($key) => $serviceOptions->firstWhere('slug', $key)?->name)
+//             ->values()
+//             ->all();
         Mail::to($this->contactRecipient())->send(
             new ContactFormSubmitted(
                 [
@@ -59,8 +58,8 @@ class ContactController extends Controller
                     'email' => $validated['email'],
                     'phone' => $validated['phone'] ?? null,
                     'message' => $validated['message'],
+                    'services' => $validated['services'],
                 ],
-                $serviceLabels
             )
         );
 

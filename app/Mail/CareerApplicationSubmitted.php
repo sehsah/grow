@@ -25,7 +25,7 @@ class CareerApplicationSubmitted extends Mailable
      */
     public function build(): static
     {
-        $subject = 'New career application: ' . $this->payload['career'];
+        $subject = 'New career application From '.$this->payload['name'].' for '.$this->payload['career'];
 
         return $this
             ->subject($subject)
