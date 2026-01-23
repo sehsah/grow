@@ -60,14 +60,14 @@ class ServiceForm
                                             ]
                                         ),
 
-                                        MultilingualHelper::multilingualRichEditor(
-                                            'description',
-                                            'Description',
-                                            [
-                                                'en_helper' => 'Full description of the service (English)',
-                                                'ar_helper' => 'وصف كامل للخدمة (العربية)',
-                                            ]
-                                        ),
+                                        // MultilingualHelper::multilingualRichEditor(
+                                        //     'description',
+                                        //     'Description',
+                                        //     [
+                                        //         'en_helper' => 'Full description of the service (English)',
+                                        //         'ar_helper' => 'وصف كامل للخدمة (العربية)',
+                                        //     ]
+                                        // ),
 
                                         MultilingualHelper::multilingualTextInput(
                                             'category',
