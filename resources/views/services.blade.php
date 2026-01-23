@@ -67,7 +67,7 @@
                             <div class="hidden md:flex items-center justify-center">
                                 <div
                                     class="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center overflow-hidden group-hover:bg-primary/20 transition-colors duration-300">
-                                    {!! $service->icon !!}
+                                    <img src="{{ Storage::disk('public')->url($service->icon) }}" alt="{{ $service->title }}" class="">
                                 </div>
                             </div>
 
