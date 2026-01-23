@@ -44,7 +44,7 @@
                         <p class="text-muted-foreground text-sm mb-4">{{ $item->description }}</p>
                         <ul class="space-y-2">
                             @php
-                            $items = explode(',', $item->items['en']);
+                            $items = preg_split('/[,،]/u', $item->items[app()->getLocale()]);
                             @endphp
                             @foreach ($items as $item2)
                             <li class="flex items-start gap-2 text-muted-foreground text-xs">
