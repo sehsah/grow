@@ -204,9 +204,13 @@ class SiteSettings extends Page implements HasForms
                             ->collapsible()
                             ->itemLabel(fn (array $state): ?string => data_get($state, 'title.en') ?: 'Core Value')
                             ->schema([
-                                Textarea::make('icon')
+                                FileUpload::make('icon')
                                     ->label('Icon')
-                                    ->rows(3)
+                                    ->image()
+                                    ->directory('settings')
+                                    ->visibility('public')
+                                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
+                                    ->maxSize(5120)
                                     ->columnSpanFull(),
 
                                 MultilingualHelper::multilingualTextInput(
@@ -252,9 +256,13 @@ class SiteSettings extends Page implements HasForms
                             ->collapsible()
                             ->itemLabel(fn (array $state): ?string => data_get($state, 'title.en') ?: 'Advantage')
                             ->schema([
-                                Textarea::make('icon')
-                                    ->label('Icon (SVG/HTML)')
-                                    ->rows(4)
+                                FileUpload::make('icon')
+                                    ->label('Icon')
+                                    ->image()
+                                    ->directory('settings')
+                                    ->visibility('public')
+                                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
+                                    ->maxSize(5120)
                                     ->columnSpanFull(),
 
                                 MultilingualHelper::multilingualTextInput(

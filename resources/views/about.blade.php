@@ -690,7 +690,9 @@
                                     <div class="text-center py-4">
                                         <div
                                             class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
-                                            {!! $field->icon !!}
+                                            @if($field->icon)
+                                                <img src="{{ Storage::disk('public')->url($field->icon) }}" alt="{{ $field->name }}" class="w-7 h-7 filter-white">
+                                            @endif
                                         </div>
                                         <span
                                             class="text-primary-foreground font-medium text-sm md:text-base hover:text-primary-foreground/80 transition-colors cursor-default">{{ $field->name }}</span>

@@ -23,6 +23,12 @@
         .iti--allow-dropdown {
             width: 100%;
         }
+        .filter-primary {
+            filter: invert(48%) sepia(87%) saturate(350%) hue-rotate(125deg) brightness(90%) contrast(90%);
+        }
+        .filter-white {
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+        }
     </style>
 </head>
 

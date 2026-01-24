@@ -169,7 +169,9 @@
                                 style="animation-delay: {{ $index * 100 }}ms;">
                                 <div
                                     class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
-                                    {!! $advantage['icon'] ?? '' !!}
+                                    @if(isset($advantage['icon']) && !empty($advantage['icon']))
+                                        <img src="{{ Storage::disk('public')->url($advantage['icon']) }}" alt="" class="w-6 h-6 md:w-8 md:h-8 filter-primary">
+                                    @endif
                                 </div>
                                 <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2">
                                     <span class="">{{ $advantage['title'][app()->getLocale()] ?? '' }}</span>
@@ -315,7 +317,9 @@
                         @foreach ($coreValues as $index => $coreValue)
                             <div class="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors animate-fade-in"
                                 style="animation-delay: {{ $index * 50 }}ms;">
-                                {!! $coreValue['icon'] !!}
+                                @if(isset($coreValue['icon']) && !empty($coreValue['icon']))
+                                    <img src="{{ Storage::disk('public')->url($coreValue['icon']) }}" alt="" class="w-4 h-4 md:w-5 md:h-5 filter-primary">
+                                @endif
                                 <span class="text-xs md:text-sm font-medium">
                                     <span class="">{{ $coreValue['title'][app()->getLocale()] ?? '' }}</span>
                                 </span>
@@ -429,8 +433,11 @@
                                 </div>
                                 <div
                                     class="w-16 h-16 rounded-full bg-secondary/50 border border-border flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:border-primary hover:bg-primary/10">
-                                    {!! $process->icon ??
-                                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-7 h-7 text-foreground"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>' !!}
+                                    @if($process->icon)
+                                        <img src="{{ Storage::disk('public')->url($process->icon) }}" alt="{{ $process->title }}" class="w-7 h-7 filter-primary">
+                                    @else
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-7 h-7 text-foreground"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                                    @endif
                                 </div>
                                 <h3 class="text-lg font-bold mb-3"><span class="">{{ $process->title }}</span></h3>
                                 <p class="text-muted-foreground text-sm leading-relaxed max-w-[200px] mx-auto"><span
@@ -581,7 +588,9 @@
                                     <div class="text-center py-4">
                                         <div
                                             class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
-                                            {!! $field->icon !!}
+                                            @if($field->icon)
+                                                <img src="{{ Storage::disk('public')->url($field->icon) }}" alt="{{ $field->name }}" class="w-7 h-7 filter-white">
+                                            @endif
                                         </div>
                                         <span
                                             class="text-primary-foreground font-medium text-sm md:text-base hover:text-primary-foreground/80 transition-colors cursor-default">{{ $field->name }}</span>

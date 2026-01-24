@@ -32,11 +32,12 @@ class TargetFieldForm
                                             ]
                                         ),
 
-                                        Textarea::make('icon')
+                                        \Filament\Forms\Components\FileUpload::make('icon')
                                             ->label('Icon (SVG)')
-                                            ->rows(8)
-                                            ->helperText('Paste SVG icon code here')
-                                            ->placeholder('<svg xmlns="...">...</svg>'),
+                                            ->directory('target_fields')
+                                            ->visibility('public')
+                                            ->acceptedFileTypes(['image/svg+xml'])
+                                            ->maxSize(5120),
                                     ]),
                             ]),
 
