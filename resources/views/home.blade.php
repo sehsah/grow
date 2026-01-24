@@ -49,11 +49,10 @@
             <div class="container-custom relative z-10 flex-1 flex items-center">
                 <div class="grid lg:grid-cols-2 gap-12 items-center w-full mx-0 my-[160px]">
                     <div>
-                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight animate-fade-in">
-                            <span class="">{{ setting('home.hero_title') }}</span><br>
-                            <span class="text-primary"><span
-                                    class="">{{ setting('home.hero_subtitle') }}</span></span>
-                        </h1>
+                        <div class="font-bold leading-tight animate-fade-in">
+                            <div class="text-5xl md:text-7xl lg:text-8xl ">{{ setting('home.hero_title') }}</div><br><br><br>
+                            <div class="text-primary text-5xl md:text-7xl lg:text-8xl ">{{ setting('home.hero_subtitle') }}</div>
+                        </div>
                         <p
                             class="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-in animation-delay-200">
                             <span class="">{{ setting('home.hero_description') }}</span>
