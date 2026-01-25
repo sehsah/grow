@@ -86,10 +86,16 @@ class ServiceForm
                                             ->acceptedFileTypes(['image/svg+xml'])
                                             ->maxSize(5120),
 
-                                            Toggle::make('is_active')
-                                            ->label('Active')
-                                            ->default(true)
-                                            ->helperText('Show this service on the website'),
+                                        Toggle::make('is_active')
+                                        ->label('Active')
+                                        ->default(true)
+                                        ->helperText('Show this service on the website'),
+
+                                        TextInput::make('order')
+                                            ->label('Order')
+                                            ->default(0)
+                                            ->required()
+                                            ->helperText('Sort order of the service'),
                                     ]),
                             ]),
 
