@@ -109,7 +109,7 @@
             <div
                 class="md:hidden fixed inset-0 top-0 z-50 bg-background transition-all duration-300 opacity-0 invisible pointer-events-none">
                 <div class="flex items-center justify-between h-20 px-4 border-b border-border"><a href="/"><img
-                            src="{{ asset($siteLogo) }}" alt="{{ $siteTitle }}" class="h-10 w-auto"></a><button
+                            src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-10 w-auto"></a><button
                         class="p-2 text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
