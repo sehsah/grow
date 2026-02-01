@@ -34,6 +34,7 @@ class ContactFormSubmitted extends Mailable
                 'phone' => $this->payload['phone'] ?? null,
                 'messageContent' => $this->payload['message'],
                 'services_selected' => $this->payload['services'],
+                'country_code' => $this->payload['country_code'],
             ]);
     }
 }

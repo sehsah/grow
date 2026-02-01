@@ -37,8 +37,6 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $serviceOptions = \App\Models\Service::all();
-
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:150'],
             'email' => ['required', 'email', 'max:255'],
@@ -46,11 +44,7 @@ class ContactController extends Controller
             'services' => ['nullable', 'array', 'max:10'],
             'message' => ['required', 'string', 'max:2000'],
         ]);
-//
-//         $serviceLabels = collect($validated['services'] ?? [])
-//             ->map(fn ($key) => $serviceOptions->firstWhere('slug', $key)?->name)
-//             ->values()
-//             ->all();
+
         Mail::to($this->contactRecipient())->send(
             new ContactFormSubmitted(
                 [
@@ -58,6 +52,7 @@ class ContactController extends Controller
                     'email' => $validated['email'],
                     'phone' => $validated['phone'] ?? null,
                     'message' => $validated['message'],
+                    'country_code' => $request->country_code,
                     'services' => $validated['services'],
                 ],
             )

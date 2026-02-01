@@ -429,8 +429,25 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.0/build/js/intlTelInput.min.js"></script>
     <script>
         var input = document.querySelector("[name='phone']");
-        window.intlTelInput(input, {
+        var iti = window.intlTelInput(input, {
             loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.14.0/build/js/utils.js"),
+        });
+
+        // Example: Get the selected country code
+        function getSelectedCountryCode() {
+            if (iti) {
+                return iti.getSelectedCountryData().dialCode;
+            }
+            return null;
+        }
+
+        // Example: Log the country code when changed
+        input.addEventListener('countrychange', function() {
+            var countryCode = getSelectedCountryCode();
+            //add to hidden input
+            var hiddenInput = document.querySelector("[name='country_code']");
+            hiddenInput.value = countryCode;
+            console.log("Selected country code:", countryCode);
         });
     </script>
     <script>

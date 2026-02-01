@@ -6,11 +6,10 @@
 </head>
 <body style="font-family: Arial, sans-serif; color: #111; line-height: 1.6;">
     <h2 style="margin-bottom: 12px;">New contact request from {{ $name }}</h2>
-
     <p style="margin: 0 0 8px;"><strong>Name:</strong> {{ $name }}</p>
     <p style="margin: 0 0 8px;"><strong>Email:</strong> {{ $email }}</p>
     @if (!empty($phone))
-        <p style="margin: 0 0 8px;"><strong>Phone:</strong> {{ $phone }}</p>
+        <p style="margin: 0 0 8px;"><strong>Phone:</strong> {{ $country_code }} {{ $phone }}</p>
     @endif
 
     @if (!empty($services_selected))
