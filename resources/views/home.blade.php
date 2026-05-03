@@ -266,7 +266,7 @@
 
                 <div class="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
                     <div
-                        class="group p-5 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300 animate-fade-in">
+                        class="group p-5 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-secondary/50 to-secondary/30 border border-border hover:border-primary/40 transition-all duration-300 animate-fade-in animation-delay-200">
                         <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                             <div
                                 class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center">

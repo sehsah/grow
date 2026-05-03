@@ -14,20 +14,42 @@
     <link rel="stylesheet" crossorigin href="{{ asset('assets/index-I91yRjam.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.0/build/css/intlTelInput.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap">
     <style>
         html[dir="rtl"] body,
         html[dir="rtl"] html {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Alexandria', sans-serif;
         }
         .iti--allow-dropdown {
             width: 100%;
         }
         .filter-primary {
-            filter: invert(48%) sepia(87%) saturate(350%) hue-rotate(125deg) brightness(90%) contrast(90%);
+            filter: invert(59%) sepia(83%) saturate(1161%) hue-rotate(347deg) brightness(96%) contrast(92%);
         }
         .filter-white {
             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+        }
+        svg.lucide {
+            color: hsl(var(--brand-orange));
+        }
+        .site-footer .text-muted-foreground {
+            color: hsl(var(--primary-foreground) / 0.78);
+        }
+        .site-footer .text-primary,
+        .site-footer .hover\:text-primary:hover {
+            color: hsl(var(--brand-orange));
+        }
+        .site-footer .border-border {
+            border-color: hsl(var(--primary-foreground) / 0.18);
+        }
+        .site-footer .bg-secondary {
+            background-color: hsl(var(--primary-foreground) / 0.12);
+        }
+        .site-footer .hover\:bg-primary:hover {
+            background-color: hsl(var(--brand-orange));
+        }
+        .site-footer .hover\:text-primary-foreground:hover {
+            color: hsl(var(--primary-foreground));
         }
     </style>
 </head>
@@ -220,10 +242,7 @@
 
         @yield('content')
 
-        <footer class="bg-card border-t border-border relative">
-            <div class="absolute top-8 right-8 hidden lg:block"><img
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABRCAYAAABv/dCnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVHhe7dvNTQJBGMbxWQ0mYAHc5UoPeqUFGsBE6MEe8CAFUANX7IErBivBPGRHje4Tlpl34rvJ8082zC4Jk/zYD7JA1e/fHoP601X9qH4lGJJgSIIhCYYkGJJgSIIhCYYkGFJnYRaL+WkplfYYkmBIgiG5gJnPn8LDw329Vi7Mgbna5AJmt9uF1eq1KA5eG3Ngrja5gNlu38Js9lgMJ6JgDszVJjfnmFI4KSjI1cnXGicVBbmCQVY4OSjIHQzKxclFQS5hUCqOBQpyC4MuxbFCQa5hUFscSxTkHgadw7FGQde93s1zPXbd4fDx9QkZj8Ph8LR9MOibo6DOfUUb947NZnNan0wm5ijoX2BybzCNRndhOp2GqqrCer0O+/17/Uxay+VLPfquE+eYpoByPJZ7T3UokTq1x/y8+uDwwYIxtjVdrXLqDAy7JGNcAqcTMAwlVgLHPcw5lJg1jmuYtigxSxy3MJeixKxwXMKkosQscNzB5KLEcnFcwVihxHJw3MBYo8RScVzAlEKJpeC4gBmPx8VQYhEHc7Wpsz+Zj7cumm4ZWOTuquQlwZAEQ9LfckjaY0iCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYEiCIQmGJBiSYBoL4RMWTkEpzvUU8AAAAABJRU5ErkJggg=="
-                    alt="" class="w-8 h-8 animate-spin" style="animation-duration: 8s;"></div>
+        <footer class="site-footer bg-primary text-primary-foreground border-t border-primary relative">
             @php
                 $siteAddress = \App\Helpers\SettingsHelper::site('address', '');
                 $sitePhone = \App\Helpers\SettingsHelper::site('phone');
