@@ -38,7 +38,9 @@
         .site-footer .border-border {
             border-color: hsl(var(--primary-foreground) / 0.18);
         }
-
+        .text-second{
+            color: #4fc6cd;
+        }
     </style>
 </head>
 
@@ -60,7 +62,7 @@
                             <button type="button"
                                 class="flex items-center gap-1 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground ">@trans('common.services')
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-chevron-down w-4 h-4 transition-transform duration-200">
                                     <path d="m6 9 6 6 6-6"></path>
@@ -108,7 +110,7 @@
                     </div>
                     <button class="md:hidden p-2 text-foreground">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="lucide lucide-menu">
                             <line x1="4" x2="20" y1="12" y2="12"></line>
                             <line x1="4" x2="20" y1="6" y2="6"></line>
@@ -121,7 +123,7 @@
                 <div class="flex items-center justify-between h-20 px-4 border-b border-border"><a href="/"><img
                             src="{{ Storage::disk('public')->url(setting('site.logo')) }}" alt="{{ $siteTitle }}" class="h-10 w-auto"></a><button
                         class="p-2 text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
                             <path d="M18 6 6 18"></path>
                             <path d="m6 6 12 12"></path>
@@ -135,7 +137,7 @@
                         <div class="border-b border-border"><button
                                 class="flex items-center justify-between w-full py-4 text-base font-medium transition-colors text-foreground">@trans('common.services')<svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-chevron-down w-5 h-5 transition-transform">
                                     <path d="m6 9 6 6 6-6"></path>
@@ -184,7 +186,7 @@
                                     rel="noopener noreferrer"
                                     class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-facebook">
                                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
@@ -192,7 +194,7 @@
                                     </svg></a><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
                                     class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter">
                                         <path
                                             d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
@@ -201,7 +203,7 @@
                                     rel="noopener noreferrer"
                                     class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-linkedin">
                                         <path
@@ -213,7 +215,7 @@
                                     rel="noopener noreferrer"
                                     class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-instagram">
                                         <rect width="20" height="20" x="2" y="2" rx="5"
@@ -340,7 +342,7 @@
                         <ul class="space-y-3">
                             <li class="flex items-start gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-map-pin text-primary mt-0.5 flex-shrink-0">
                                     <path
@@ -350,7 +352,7 @@
                                 </svg><span class="whitespace-pre-line">{{ $siteAddress }}</span></li>
                             <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-phone text-primary flex-shrink-0">
                                     <path
@@ -362,7 +364,7 @@
                             @if ($sitePhoneSecondary)
                                 <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-phone text-primary flex-shrink-0">
                                         <path
@@ -374,7 +376,7 @@
                             @endif
                             <li class="flex items-center gap-3 text-sm text-muted-foreground"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-mail text-primary flex-shrink-0">
                                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
@@ -399,7 +401,7 @@
                     href="https://wa.me/{{ $siteWhatsapp }}" target="_blank" rel="noopener noreferrer"
                     class="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"><svg
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="lucide lucide-message-circle">
                         <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                     </svg><span class="font-medium">WhatsApp</span>
@@ -408,7 +410,7 @@
                 <a href="tel:{{ $sitePhone }}"
                     class="flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"><svg
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="lucide lucide-phone">
                         <path
                             d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">

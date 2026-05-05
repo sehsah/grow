@@ -140,7 +140,7 @@
                     <h2 class="text-2xl text-primary md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100"><span
                             class="">{{ setting('home.strengths_title', __('Our Strengths')) }}</span><br>
                         <span
-                            class="text-primary">{{ setting('home.strengths_subtitle', __('Competitive Advantages')) }}</span>
+                            class="text-second">{{ setting('home.strengths_subtitle', __('Competitive Advantages')) }}</span>
                     </h2>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-16">
@@ -322,9 +322,9 @@
                 <div class="text-center mb-16"><span
                         class="btn-primary inline-block px-4 py-2 rounded-full border border-border text-sm font-medium mb-6 animate-fade-in">
                         <span class="">@trans('home.complete_work')</span></span>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in animation-delay-100"><span
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in animation-delay-100 text-primary"><span
                             class="">@trans('home.projects_title')</span><br><span
-                            class="text-primary">@trans('home.projects_subtitle')</span>
+                            class="text-second">@trans('home.projects_subtitle')</span>
                     </h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -435,8 +435,8 @@
                     <div><span
                             class="btn-primary inline-block px-4 py-2 rounded-full text-white text-sm font-medium mb-6 animate-fade-in"><span
                                 class="">@trans('home.our_team')</span></span>
-                        <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100"><span
-                                class="">@trans('home.meet_experts') </span><br><span class="text-primary">COMPACT</span>
+                        <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100 text-primary"><span
+                                class="">@trans('home.meet_experts') </span><br><span class="text-second">COMPACT</span>
                         </h2>
                     </div>
                     <div class="animate-fade-in animation-delay-200"><a class="btn-outline inline-flex items-center gap-2"
@@ -492,8 +492,8 @@
             <div class="container-custom">
                 <div class="text-center mb-12"><span
                         class="btn-primary inline-block px-4 py-2 rounded-full text-white text-sm font-medium mb-6 animate-fade-in">@trans('home.our_partners')</span>
-                    <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100">
-                        @trans('home.trusted_by')<br><span class="text-primary">@trans('home.leading_companies')</span></h2>
+                    <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100 text-primary">
+                        @trans('home.trusted_by')<br><span class="text-second">@trans('home.leading_companies')</span></h2>
                 </div>
                 <div class="relative" id="partners-carousel" dir="ltr">
                     <button id="partners-prev"
