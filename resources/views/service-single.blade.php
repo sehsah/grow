@@ -29,7 +29,7 @@
         <section class="section-padding">
             <div class="container-custom">
                 <div class="text-center mb-16 animate-fade-in"><span
-                        class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">{{ setting('services.badge') }}</span>
+                        class="btn-primary inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">{{ setting('services.badge') }}</span>
                     <h2 class="text-3xl md:text-4xl font-bold">@trans('common.what_we_offer')</h2>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

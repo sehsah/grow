@@ -32,7 +32,7 @@
             <div class="container-custom">
                 <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
                     <div class="animate-fade-in">
-                        <span class="inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">{{ setting('services.badge') }}</span>
+                        <span class="btn-primary inline-block px-4 py-1.5 text-sm border border-border rounded-full mb-6">{{ setting('services.badge') }}</span>
                         <h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="">{{ setting('services.title') }}</span><br>
                             <span class="text-primary">{{ setting('services.subtitle') }}</span>
                         </h2>

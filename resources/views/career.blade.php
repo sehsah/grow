@@ -41,7 +41,7 @@
                             <div
                                 class="w-16 h-16 rounded-full bg-primary-foreground/20 flex items-center justify-center mb-8">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-briefcase w-8 h-8 text-primary-foreground">
                                     <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                                     <rect width="20" height="14" x="2" y="6" rx="2"></rect>
@@ -101,7 +101,7 @@
                                     <div
                                         class="w-12 h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="lucide lucide-users w-6 h-6 text-primary-foreground">
                                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>

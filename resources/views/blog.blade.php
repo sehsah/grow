@@ -8,11 +8,11 @@
             <div class="container-custom relative z-10">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div><span
-                            class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in"><span
+                            class="btn-primary inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in"><span
                                 class="">@trans('blog.badge')</span></span>
                         <h1
-                            class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                            <span class="">@trans('blog.title_insights')</span><br><span class="text-primary">@trans('blog.title_articles')</span></h1>
+                            class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100 text-primary">
+                            <span class="">@trans('blog.title_insights')</span><br><span class="text-second">@trans('blog.title_articles')</span></h1>
                         <p class="mt-6 text-lg text-muted-foreground max-w-xl animate-fade-in animation-delay-200"><span
                                 class="">@trans('blog.subtitle')</span></p>
                     </div>
@@ -69,7 +69,7 @@
                         </div>
                         <a class="btn-primary inline-flex items-center gap-2" href="{{ route('blog.show', $featuredBlog->slug) }}">
                             <span class="">@trans('blog.read_more')</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
                                 <path d="M5 12h14"></path>
                                 <path d="m12 5 7 7-7 7"></path>
                             </svg>
@@ -81,7 +81,7 @@
         @endif
         <section class="section-padding">
             <div class="container-custom">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12"><span class="">@trans('blog.all_articles')</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary"><span class="">@trans('blog.all_articles')</span></h2>
                 @if($blogs->count() > 0)
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($blogs as $index => $blog)
@@ -92,7 +92,7 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
                             </div>
                             <a href="{{ route('blog.show', $blog->slug) }}">
-                                <h3 class="text-xl font-bold mb-2 transition-colors group-hover:text-primary">{{ $blog->title }}</h3>
+                                <h3 class="text-xl font-bold mb-2 transition-colors text-primary">{{ $blog->title }}</h3>
                             </a>
                             <p class="text-muted-foreground text-sm mb-4 line-clamp-2">{{ $blog->excerpt ?? $blog->title }}</p>
                             <div class="flex items-center gap-4 text-xs text-muted-foreground">
