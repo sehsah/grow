@@ -51,7 +51,7 @@
                     <div>
                         <div class="font-bold leading-tight animate-fade-in">
                             <div class="text-5xl md:text-7xl lg:text-8xl ">{{ setting('home.hero_title') }}</div><br><br><br>
-                            <div class="text-primary text-5xl md:text-7xl lg:text-8xl ">{{ setting('home.hero_subtitle') }}</div>
+                            <div class="text-primary text-5xl md:text-7xl lg:text-6xl ">{{ setting('home.hero_subtitle') }}</div>
                         </div>
                         <p
                             class="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-in animation-delay-200">
@@ -60,7 +60,7 @@
                         <div class="mt-10 flex flex-wrap gap-4 animate-fade-in animation-delay-300">
                             <a class="btn-primary" href="/about"><span class="">@trans('home.explore_services')</span><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-arrow-right">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
@@ -108,7 +108,7 @@
                                 class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50 animate-pulse-glow"
                                 aria-label="Play video">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="lucide lucide-play w-6 h-6 md:w-8 md:h-8 text-primary-foreground fill-current ml-1">
                                     <polygon points="6 3 20 12 6 21 6 3"></polygon>
@@ -128,20 +128,21 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     @foreach ($services as $index => $service)
-                        <div class="service-card group animate-fade-in"
+                        <div class="service-card group animate-fade-in bg-primary"
                             style="animation-delay: {{ ($index + 1) * 100 }}ms; margin-top: {{ $index % 2 === 1 ? '2rem' : '0px' }};">
-                            <div class="w-12 h-12 text-primary mb-6 group-hover:scale-110 transition-transform">
-                                <img src="{{ Storage::disk('public')->url($service->icon) }}" alt="{{ $service->title }}" class="w-10 h-10 filter-primary">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                                style="border: 1px solid #36a198;">
+                                <img src="{{ Storage::disk('public')->url($service->icon) }}" alt="{{ $service->title }}" class="w-7 h-7">
                             </div>
-                            <h3 class="text-2xl font-bold mb-3"><span class="">{{ $service->title }}</span></h3>
-                            <p class="text-muted-foreground mb-6"><span
+                            <h3 class="text-2xl font-bold mb-3 text-white"><span class="">{{ $service->title }}</span></h3>
+                            <p class="text-muted-foreground mb-6"><span style="color: #36a198;"
                                     class="">{{ $service->short_description ?? ($service->description ?? 'Service description') }}</span>
                             </p>
-                            <a class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
+                            <a class="btn-primary inline-flex items-center gap-2"
                                 href="{{ route('services.show', $service->slug) }}"><span
                                     class="">@trans('home.learn_more')</span><svg xmlns="http://www.w3.org/2000/svg"
                                     width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke="white" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-arrow-right">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
@@ -154,9 +155,9 @@
         <section class="section-padding ">
             <div class="container-custom">
                 <div class="text-center mb-8 md:mb-16"><span
-                        class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-4 md:mb-6 animate-fade-in"><span
+                        class="btn-primary inline-block px-4 py-2 rounded-full text-white text-sm font-medium mb-4 md:mb-6 animate-fade-in"><span
                             class="">@trans('home.why_choose_us')</span></span>
-                    <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100"><span
+                    <h2 class="text-2xl text-primary md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100"><span
                             class="">{{ setting('home.strengths_title', __('Our Strengths')) }}</span><br>
                         <span
                             class="text-primary">{{ setting('home.strengths_subtitle', __('Competitive Advantages')) }}</span>
@@ -168,9 +169,9 @@
                             <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                                 style="animation-delay: {{ $index * 100 }}ms;">
                                 <div
-                                    class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                                    class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary flex items-center justify-center mb-3 md:mb-4 transition-colors">
                                     @if(isset($advantage['icon']) && !empty($advantage['icon']))
-                                        <img src="{{ Storage::disk('public')->url($advantage['icon']) }}" alt="" class="w-6 h-6 md:w-8 md:h-8 filter-primary">
+                                        <img src="{{ Storage::disk('public')->url($advantage['icon']) }}" alt="" class="w-6 h-6 md:w-8 md:h-8 filter-white">
                                     @endif
                                 </div>
                                 <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2">
@@ -185,11 +186,11 @@
                         <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                             style="animation-delay: 0ms;">
                             <div
-                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary flex items-center justify-center mb-3 md:mb-4 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-award w-5 h-5 md:w-7 md:h-7 text-primary">
+                                    class="lucide lucide-award w-5 h-5 md:w-7 md:h-7 text-primary-foreground">
                                     <path
                                         d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
                                     </path>
@@ -206,11 +207,11 @@
                         <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                             style="animation-delay: 100ms;">
                             <div
-                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary flex items-center justify-center mb-3 md:mb-4 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-users w-5 h-5 md:w-7 md:h-7 text-primary">
+                                    class="lucide lucide-users w-5 h-5 md:w-7 md:h-7 text-primary-foreground">
                                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="9" cy="7" r="4"></circle>
                                     <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -226,11 +227,11 @@
                         <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                             style="animation-delay: 200ms;">
                             <div
-                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary flex items-center justify-center mb-3 md:mb-4 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-target w-5 h-5 md:w-7 md:h-7 text-primary">
+                                    class="lucide lucide-target w-5 h-5 md:w-7 md:h-7 text-primary-foreground">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <circle cx="12" cy="12" r="6"></circle>
                                     <circle cx="12" cy="12" r="2"></circle>
@@ -246,11 +247,11 @@
                         <div class="group p-4 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
                             style="animation-delay: 300ms;">
                             <div
-                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                                class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary flex items-center justify-center mb-3 md:mb-4 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-shield w-5 h-5 md:w-7 md:h-7 text-primary">
+                                    class="lucide lucide-shield w-5 h-5 md:w-7 md:h-7 text-primary-foreground">
                                     <path
                                         d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
                                     </path>
@@ -269,11 +270,11 @@
                         class="group p-5 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-secondary/50 to-secondary/30 border border-border hover:border-primary/40 transition-all duration-300 animate-fade-in animation-delay-200">
                         <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                             <div
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                                class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-target w-5 h-5 md:w-6 md:h-6 text-primary">
+                                    class="lucide lucide-target w-5 h-5 md:w-6 md:h-6 text-primary-foreground">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <circle cx="12" cy="12" r="6"></circle>
                                     <circle cx="12" cy="12" r="2"></circle>
@@ -291,11 +292,11 @@
                         class="group p-5 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-secondary/50 to-secondary/30 border border-border hover:border-primary/40 transition-all duration-300 animate-fade-in animation-delay-200">
                         <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                             <div
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                                class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
-                                    class="lucide lucide-eye w-5 h-5 md:w-6 md:h-6 text-primary">
+                                    class="lucide lucide-eye w-5 h-5 md:w-6 md:h-6 text-primary-foreground">
                                     <path
                                         d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0">
                                     </path>
@@ -327,7 +328,7 @@
                         @endforeach
                     </div><a class="btn-outline inline-flex items-center gap-2 text-sm md:text-base" href="/about"><span
                             class="">@trans('home.learn_more_about_us')</span><svg xmlns="http://www.w3.org/2000/svg"
-                            width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-arrow-right">
                             <path d="M5 12h14"></path>
@@ -339,7 +340,7 @@
         <section class="section-padding bg-dark-card">
             <div class="container-custom">
                 <div class="text-center mb-16"><span
-                        class="inline-block px-4 py-2 rounded-full border border-border text-sm font-medium mb-6 animate-fade-in">
+                        class="btn-primary inline-block px-4 py-2 rounded-full border border-border text-sm font-medium mb-6 animate-fade-in">
                         <span class="">@trans('home.complete_work')</span></span>
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in animation-delay-100"><span
                             class="">@trans('home.projects_title')</span><br><span
@@ -400,7 +401,7 @@
                             <a class="btn-outline inline-flex items-center gap-2" href="{{ route('projects') }}">
                                 <span class="">@trans('home.view_all')</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
@@ -432,11 +433,11 @@
                                         class="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">{{ $process->step_number }}</span>
                                 </div>
                                 <div
-                                    class="w-16 h-16 rounded-full bg-secondary/50 border border-border flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:border-primary hover:bg-primary/10">
+                                    class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 transition-all duration-300">
                                     @if($process->icon)
-                                        <img src="{{ Storage::disk('public')->url($process->icon) }}" alt="{{ $process->title }}" class="w-7 h-7 filter-primary">
+                                        <img src="{{ Storage::disk('public')->url($process->icon) }}" alt="{{ $process->title }}" class="w-7 h-7 filter-white">
                                     @else
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-7 h-7 text-foreground"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-7 h-7 text-primary-foreground"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                                     @endif
                                 </div>
                                 <h3 class="text-lg font-bold mb-3"><span class="">{{ $process->title }}</span></h3>
@@ -452,7 +453,7 @@
             <div class="container-custom">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12">
                     <div><span
-                            class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in"><span
+                            class="btn-primary inline-block px-4 py-2 rounded-full text-white text-sm font-medium mb-6 animate-fade-in"><span
                                 class="">@trans('home.our_team')</span></span>
                         <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100"><span
                                 class="">@trans('home.meet_experts') </span><br><span class="text-primary">COMPACT</span>
@@ -466,7 +467,7 @@
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Previous">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-chevron-left">
                             <path d="m15 18-6-6 6-6"></path>
                         </svg>
@@ -475,7 +476,7 @@
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Next">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-chevron-right">
                             <path d="m9 18 6-6-6-6"></path>
                         </svg>
@@ -510,7 +511,7 @@
         <section class="section-padding bg-dark-card">
             <div class="container-custom">
                 <div class="text-center mb-12"><span
-                        class="inline-block px-4 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium mb-6 animate-fade-in">@trans('home.our_partners')</span>
+                        class="btn-primary inline-block px-4 py-2 rounded-full text-white text-sm font-medium mb-6 animate-fade-in">@trans('home.our_partners')</span>
                     <h2 class="text-4xl md:text-5xl font-bold animate-fade-in animation-delay-100">
                         @trans('home.trusted_by')<br><span class="text-primary">@trans('home.leading_companies')</span></h2>
                 </div>
@@ -518,7 +519,7 @@
                     <button id="partners-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left w-5 h-5">
                             <path d="m15 18-6-6 6-6"></path>
                         </svg>
@@ -526,7 +527,7 @@
                     <button id="partners-next"
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-5 h-5">
                             <path d="m9 18 6-6-6-6"></path>
                         </svg>
@@ -568,7 +569,7 @@
                     <button id="target-fields-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
                             <path d="m15 18-6-6 6-6"></path>
                         </svg>
@@ -576,7 +577,7 @@
                     <button id="target-fields-next"
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
                             <path d="m9 18 6-6-6-6"></path>
                         </svg>
@@ -620,7 +621,7 @@
                         <p class="text-muted-foreground max-w-xl mx-auto mb-8"><span
                                 class="">@trans('home.get_in_touch')</span></p><a class="btn-primary" href="/contact"><span
                                 class="">@trans('home.lets_talk')</span><svg xmlns="http://www.w3.org/2000/svg"
-                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="lucide lucide-arrow-right">
                                 <path d="M5 12h14"></path>

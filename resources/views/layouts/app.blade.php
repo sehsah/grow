@@ -30,27 +30,15 @@
             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
         }
         svg.lucide {
-            color: hsl(var(--brand-orange));
+            color: hsl(var(--primary));
         }
         .site-footer .text-muted-foreground {
             color: hsl(var(--primary-foreground) / 0.78);
         }
-        .site-footer .text-primary,
-        .site-footer .hover\:text-primary:hover {
-            color: hsl(var(--brand-orange));
-        }
         .site-footer .border-border {
             border-color: hsl(var(--primary-foreground) / 0.18);
         }
-        .site-footer .bg-secondary {
-            background-color: hsl(var(--primary-foreground) / 0.12);
-        }
-        .site-footer .hover\:bg-primary:hover {
-            background-color: hsl(var(--brand-orange));
-        }
-        .site-footer .hover\:text-primary-foreground:hover {
-            color: hsl(var(--primary-foreground));
-        }
+
     </style>
 </head>
 
@@ -194,7 +182,7 @@
                             <p class="text-sm text-muted-foreground mb-3">@trans('common.follow_us')</p>
                             <div class="flex gap-4"><a href="https://facebook.com" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"><svg
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -202,7 +190,7 @@
                                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
                                         </path>
                                     </svg></a><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"><svg
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter">
@@ -211,7 +199,7 @@
                                         </path>
                                     </svg></a><a href="https://linkedin.com" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"><svg
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -223,7 +211,7 @@
                                         <circle cx="4" cy="4" r="2"></circle>
                                     </svg></a><a href="https://instagram.com" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"><svg
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -261,7 +249,7 @@
 
                             @if (isset($siteSocialLinks[0]['platform']) && $siteSocialLinks[0]['platform'] == 'facebook')
                                 <a href="{{ $siteSocialLinks[0]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
                                     aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -272,7 +260,7 @@
                             @endif
                             @if (isset($siteSocialLinks[1]['platform']) && $siteSocialLinks[1]['platform'] == 'twitter')
                                 <a href="{{ $siteSocialLinks[1]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
                                     aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -284,7 +272,7 @@
                             @endif
                             @if (isset($siteSocialLinks[2]['platform']) && $siteSocialLinks[2]['platform'] == 'linkedin')
                                 <a href="{{ $siteSocialLinks[2]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
                                     aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -298,7 +286,7 @@
                             @endif
                             @if (isset($siteSocialLinks[3]['platform']) && $siteSocialLinks[3]['platform'] == 'instagram')
                                 <a href="{{ $siteSocialLinks[3]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
                                     aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -431,12 +419,12 @@
             <button id="contact-modal-toggle"
                 class="w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 bg-primary text-primary-foreground">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" class="lucide lucide-message-circle contact-icon-chat">
                     <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" class="lucide lucide-x contact-icon-close hidden">
                     <path d="M18 6 6 18"></path>
                     <path d="m6 6 12 12"></path>
