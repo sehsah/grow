@@ -8,7 +8,7 @@
             <div class="container-custom relative z-10">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                     <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in text-primary"><span
                                 class="">@trans('about.title')</span>
                         </h1>
                         <div class="flex items-start gap-4 animate-fade-in animation-delay-100">
@@ -80,8 +80,8 @@
                         style="animation-delay: 0ms;">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span
+                                class="w-14 h-14 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <span class="text-2xl font-bold text-white"><span
                                         class="">{{ setting('stats.clients_count') }}</span></span>
                             </div>
                             <h3 class="text-lg font-bold"><span class="">@trans('about.clients')</span></h3>
@@ -93,8 +93,8 @@
                         style="animation-delay: 100ms;">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span
+                                class="w-14 h-14 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <span class="text-2xl font-bold text-white"><span
                                         class="">{{ setting('stats.projects_count') }}</span></span>
                             </div>
                             <h3 class="text-lg font-bold"><span class="">@trans('about.projects')</span></h3>
@@ -106,8 +106,8 @@
                         style="animation-delay: 200ms;">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span
+                                class="w-14 h-14 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <span class="text-2xl font-bold text-white"><span
                                         class="">{{ setting('stats.experts_count') }}</span></span>
                             </div>
                             <h3 class="text-lg font-bold"><span class="">@trans('about.experts')</span></h3>
@@ -119,8 +119,8 @@
                         style="animation-delay: 300ms;">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                                <span class="text-2xl font-bold text-primary"><span
+                                class="w-14 h-14 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <span class="text-2xl font-bold text-white"><span
                                         class="">{{ setting('stats.years_experience') }}</span></span>
                             </div>
                             <h3 class="text-lg font-bold"><span class="">@trans('about.years')</span></h3>
@@ -687,7 +687,7 @@
                     <button id="target-fields-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
                             <path d="m15 18-6-6 6-6"></path>
                         </svg>
@@ -695,7 +695,7 @@
                     <button id="target-fields-next"
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
                             <path d="m9 18 6-6-6-6"></path>
                         </svg>

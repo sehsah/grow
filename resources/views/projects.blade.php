@@ -8,7 +8,7 @@
             <div class="container-custom relative z-10">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                     <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in text-primary"><span
                                 class="">@trans('projects.title')</span></h1>
                         <div class="flex items-start gap-4 animate-fade-in animation-delay-100">
                             <div class="w-12 h-12 flex items-center justify-center shrink-0 animate-spin"
