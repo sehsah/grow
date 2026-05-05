@@ -50,8 +50,10 @@
                 <div class="grid lg:grid-cols-2 gap-12 items-center w-full mx-0 my-[160px]">
                     <div>
                         <div class="font-bold leading-tight animate-fade-in">
-                            <div class="text-5xl md:text-7xl lg:text-8xl ">{{ setting('home.hero_title') }}</div><br><br><br>
-                            <div class="text-primary text-5xl md:text-7xl lg:text-6xl ">{{ setting('home.hero_subtitle') }}</div>
+                            <div class="text-5xl md:text-7xl lg:text-8xl ">{{ setting('home.hero_title') }}</div>
+                            <br><br><br>
+                            <div class="text-primary text-5xl md:text-7xl lg:text-6xl ">{{ setting('home.hero_subtitle') }}
+                            </div>
                         </div>
                         <p
                             class="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-in animation-delay-200">
@@ -81,15 +83,17 @@
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/30 -rotate-1"></div>
                     <div class="absolute -inset-4 rounded-2xl border-2 border-primary/20 rotate-1"></div>
                     <div class="relative rounded-xl overflow-hidden">
-                        <img src="{{ Storage::disk('public')->url(setting('home.image_cover')) }}" alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
-                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+                        <img src="{{ Storage::disk('public')->url(setting('home.image_cover')) }}"
+                            alt="COMPACT team collaboration" class="w-full h-[400px] md:h-[500px] object-cover grayscale">
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent">
+                        </div>
                         <div class="absolute inset-0 flex items-center justify-center">
                             <a href="{{ setting('home.video_url') }}" target="_blank"
                                 class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50 animate-pulse-glow"
                                 aria-label="Play video">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
                                     class="lucide lucide-play w-6 h-6 md:w-8 md:h-8 text-primary-foreground fill-current ml-1">
                                     <polygon points="6 3 20 12 6 21 6 3"></polygon>
                                 </svg>
@@ -102,8 +106,8 @@
         <section class="section-padding bg-dark-card">
             <div class="container-custom">
                 <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="">@trans('services.title')</span> <span
-                            class="text-primary">@trans('services.title2')</span></h2>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-primary"><span
+                            class="">@trans('services.title')</span> <span class="text-second">@trans('services.title2')</span></h2>
                     <p class="text-muted-foreground"><span class="">@trans('services.subtitle')</span></p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
@@ -112,18 +116,20 @@
                             style="animation-delay: {{ ($index + 1) * 100 }}ms; margin-top: {{ $index % 2 === 1 ? '2rem' : '0px' }};">
                             <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                                 style="border: 1px solid #36a198;">
-                                <img src="{{ Storage::disk('public')->url($service->icon) }}" alt="{{ $service->title }}" class="w-7 h-7">
+                                <img src="{{ Storage::disk('public')->url($service->icon) }}" alt="{{ $service->title }}"
+                                    class="w-7 h-7">
                             </div>
-                            <h3 class="text-2xl font-bold mb-3 text-white"><span class="">{{ $service->title }}</span></h3>
+                            <h3 class="text-2xl font-bold mb-3 text-white"><span
+                                    class="">{{ $service->title }}</span></h3>
                             <p class="text-muted-foreground mb-6"><span style="color: #36a198;"
                                     class="">{{ $service->short_description ?? ($service->description ?? 'Service description') }}</span>
                             </p>
                             <a class="btn-primary inline-flex items-center gap-2"
                                 href="{{ route('services.show', $service->slug) }}"><span
                                     class="">@trans('home.learn_more')</span><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="white" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-arrow-right">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
                                 </svg></a>
@@ -137,8 +143,9 @@
                 <div class="text-center mb-8 md:mb-16"><span
                         class="btn-primary inline-block px-4 py-2 rounded-full text-white text-sm font-medium mb-4 md:mb-6 animate-fade-in"><span
                             class="">@trans('home.why_choose_us')</span></span>
-                    <h2 class="text-2xl text-primary md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100"><span
-                            class="">{{ setting('home.strengths_title', __('Our Strengths')) }}</span><br>
+                    <h2
+                        class="text-2xl text-primary md:text-4xl lg:text-5xl font-bold animate-fade-in animation-delay-100">
+                        <span class="">{{ setting('home.strengths_title', __('Our Strengths')) }}</span><br>
                         <span
                             class="text-second">{{ setting('home.strengths_subtitle', __('Competitive Advantages')) }}</span>
                     </h2>
@@ -150,8 +157,9 @@
                                 style="animation-delay: {{ $index * 100 }}ms;">
                                 <div
                                     class="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary flex items-center justify-center mb-3 md:mb-4 transition-colors">
-                                    @if(isset($advantage['icon']) && !empty($advantage['icon']))
-                                        <img src="{{ Storage::disk('public')->url($advantage['icon']) }}" alt="" class="w-6 h-6 md:w-8 md:h-8 filter-white">
+                                    @if (isset($advantage['icon']) && !empty($advantage['icon']))
+                                        <img src="{{ Storage::disk('public')->url($advantage['icon']) }}" alt=""
+                                            class="w-6 h-6 md:w-8 md:h-8 filter-white">
                                     @endif
                                 </div>
                                 <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2">
@@ -298,8 +306,9 @@
                         @foreach ($coreValues as $index => $coreValue)
                             <div class="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors animate-fade-in"
                                 style="animation-delay: {{ $index * 50 }}ms;">
-                                @if(isset($coreValue['icon']) && !empty($coreValue['icon']))
-                                    <img src="{{ Storage::disk('public')->url($coreValue['icon']) }}" alt="" class="w-4 h-4 md:w-5 md:h-5 filter-primary">
+                                @if (isset($coreValue['icon']) && !empty($coreValue['icon']))
+                                    <img src="{{ Storage::disk('public')->url($coreValue['icon']) }}" alt=""
+                                        class="w-4 h-4 md:w-5 md:h-5 filter-primary">
                                 @endif
                                 <span class="text-xs md:text-sm font-medium">
                                     <span class="">{{ $coreValue['title'][app()->getLocale()] ?? '' }}</span>
@@ -334,7 +343,8 @@
                                 <div
                                     class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
                                     <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
-                                        <img src="{{ Storage::disk('public')->url($project->image) }}" alt="{{ $project->title }}"
+                                        <img src="{{ Storage::disk('public')->url($project->image) }}"
+                                            alt="{{ $project->title }}"
                                             class="transition-transform duration-500 group-hover:scale-110">
                                     </div>
                                     <div class="absolute bottom-8 left-8 flex gap-2">
@@ -348,7 +358,8 @@
                                         {{ $project->title }}</h3>
                                 </a>
                                 <p class="text-muted-foreground text-sm mt-2 line-clamp-2">
-                                    {{ $project->description ?? ($project->short_description ?? 'Project description') }}</p>
+                                    {{ $project->description ?? ($project->short_description ?? 'Project description') }}
+                                </p>
                             </div>
                         @endforeach
                     </div>
@@ -358,7 +369,8 @@
                                 <div
                                     class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-500/30 to-gray-600/30 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
                                     <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
-                                        <img src="{{ Storage::disk('public')->url($project->image) }}" alt="{{ $project->title }}"
+                                        <img src="{{ Storage::disk('public')->url($project->image) }}"
+                                            alt="{{ $project->title }}"
                                             class="transition-transform duration-500 group-hover:scale-110">
                                     </div>
                                     @if ($project->category)
@@ -374,7 +386,8 @@
                                         {{ $project->title }}</h3>
                                 </a>
                                 <p class="text-muted-foreground text-sm mt-2 line-clamp-2">
-                                    {{ $project->description ?? ($project->short_description ?? 'Project description') }}</p>
+                                    {{ $project->description ?? ($project->short_description ?? 'Project description') }}
+                                </p>
                             </div>
                         @endforeach
                         <div class="pt-4">
@@ -414,10 +427,18 @@
                                 </div>
                                 <div
                                     class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 transition-all duration-300">
-                                    @if($process->icon)
-                                        <img src="{{ Storage::disk('public')->url($process->icon) }}" alt="{{ $process->title }}" class="w-7 h-7 filter-white">
+                                    @if ($process->icon)
+                                        <img src="{{ Storage::disk('public')->url($process->icon) }}"
+                                            alt="{{ $process->title }}" class="w-7 h-7 filter-white">
                                     @else
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-7 h-7 text-primary-foreground"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-target w-7 h-7 text-primary-foreground">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <circle cx="12" cy="12" r="6"></circle>
+                                            <circle cx="12" cy="12" r="2"></circle>
+                                        </svg>
                                     @endif
                                 </div>
                                 <h3 class="text-lg font-bold mb-3"><span class="">{{ $process->title }}</span></h3>
@@ -446,18 +467,18 @@
                     <button id="team-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Previous">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-chevron-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-left">
                             <path d="m15 18-6-6 6-6"></path>
                         </svg>
                     </button>
                     <button id="team-next"
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Next">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-chevron-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-right">
                             <path d="m9 18 6-6-6-6"></path>
                         </svg>
                     </button>
@@ -465,9 +486,11 @@
                         <div id="team-track" class="flex transition-transform duration-500 ease-in-out">
                             @foreach ($teams as $index => $team)
                                 <div class="flex-shrink-0 px-3 team-slide">
-                                    <div class="group animate-fade-in" style="animation-delay: {{ ($index + 1) * 100 }}ms;">
+                                    <div class="group animate-fade-in"
+                                        style="animation-delay: {{ ($index + 1) * 100 }}ms;">
                                         <div class="relative overflow-hidden rounded-lg">
-                                            <img src="{{ Storage::disk('public')->url($team->image) }}" alt="{{ $team->name }}"
+                                            <img src="{{ Storage::disk('public')->url($team->image) }}"
+                                                alt="{{ $team->name }}"
                                                 class="grayscale group-hover:grayscale-0 transition-all duration-500">
                                             <div
                                                 class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -499,16 +522,16 @@
                     <button id="partners-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left w-5 h-5">
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-left w-5 h-5">
                             <path d="m15 18-6-6 6-6"></path>
                         </svg>
                     </button>
                     <button id="partners-next"
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-muted transition-colors"
                         aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right w-5 h-5">
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-right w-5 h-5">
                             <path d="m9 18 6-6-6-6"></path>
                         </svg>
                     </button>
@@ -549,16 +572,16 @@
                     <button id="target-fields-prev"
                         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Previous"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-left">
                             <path d="m15 18-6-6 6-6"></path>
                         </svg>
                     </button>
                     <button id="target-fields-next"
                         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border-2 border-primary-foreground/50 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                         aria-label="Next"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-right">
                             <path d="m9 18 6-6-6-6"></path>
                         </svg>
                     </button>
@@ -569,8 +592,9 @@
                                     <div class="text-center py-4">
                                         <div
                                             class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center mx-auto mb-3 hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all duration-300">
-                                            @if($field->icon)
-                                                <img src="{{ Storage::disk('public')->url($field->icon) }}" alt="{{ $field->name }}" class="w-7 h-7 filter-white">
+                                            @if ($field->icon)
+                                                <img src="{{ Storage::disk('public')->url($field->icon) }}"
+                                                    alt="{{ $field->name }}" class="w-7 h-7 filter-white">
                                             @endif
                                         </div>
                                         <span
@@ -714,8 +738,12 @@
                 prevBtn.addEventListener('click', prevSlide);
                 carousel.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
                 carousel.addEventListener('mouseleave', startAutoPlay);
-                carousel.addEventListener('touchstart', () => clearInterval(autoPlayTimer), { passive: true });
-                carousel.addEventListener('touchend', startAutoPlay, { passive: true });
+                carousel.addEventListener('touchstart', () => clearInterval(autoPlayTimer), {
+                    passive: true
+                });
+                carousel.addEventListener('touchend', startAutoPlay, {
+                    passive: true
+                });
 
                 window.addEventListener('resize', () => {
                     const newItems = getItemsPerSlide();
@@ -729,6 +757,7 @@
                 });
 
                 initCarousel();
+
                 function startAutoPlay() {
                     clearInterval(autoPlayTimer);
                     autoPlayTimer = setInterval(nextSlide, autoPlayDelay);
@@ -839,8 +868,12 @@
             prevBtn.addEventListener('click', prevSlide);
             carousel.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
             carousel.addEventListener('mouseleave', startAutoPlay);
-            carousel.addEventListener('touchstart', () => clearInterval(autoPlayTimer), { passive: true });
-            carousel.addEventListener('touchend', startAutoPlay, { passive: true });
+            carousel.addEventListener('touchstart', () => clearInterval(autoPlayTimer), {
+                passive: true
+            });
+            carousel.addEventListener('touchend', startAutoPlay, {
+                passive: true
+            });
 
             window.addEventListener('resize', () => {
                 const newItems = getItemsPerSlide();
@@ -855,6 +888,7 @@
 
             // Initialize
             initCarousel();
+
             function startAutoPlay() {
                 clearInterval(autoPlayTimer);
                 autoPlayTimer = setInterval(nextSlide, autoPlayDelay);

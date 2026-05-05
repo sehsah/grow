@@ -251,7 +251,7 @@
 
                             @if (isset($siteSocialLinks[0]['platform']) && $siteSocialLinks[0]['platform'] == 'facebook')
                                 <a href="{{ $siteSocialLinks[0]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
+                                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center "
                                     aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -262,7 +262,7 @@
                             @endif
                             @if (isset($siteSocialLinks[1]['platform']) && $siteSocialLinks[1]['platform'] == 'twitter')
                                 <a href="{{ $siteSocialLinks[1]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
+                                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center "
                                     aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -274,7 +274,7 @@
                             @endif
                             @if (isset($siteSocialLinks[2]['platform']) && $siteSocialLinks[2]['platform'] == 'linkedin')
                                 <a href="{{ $siteSocialLinks[2]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
+                                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center "
                                     aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -288,7 +288,7 @@
                             @endif
                             @if (isset($siteSocialLinks[3]['platform']) && $siteSocialLinks[3]['platform'] == 'instagram')
                                 <a href="{{ $siteSocialLinks[3]['url'] }}" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "
+                                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center "
                                     aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                         height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
