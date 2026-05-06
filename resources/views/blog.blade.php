@@ -17,28 +17,9 @@
                                 class="">@trans('blog.subtitle')</span></p>
                     </div>
                     <div class="hidden lg:flex justify-center items-center">
-                        <div class="relative animate-rotate-slow w-40 h-40"><svg viewBox="0 0 100 100" class="w-full h-full"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                                        <feGaussianBlur stdDeviation="2" result="coloredBlur"></feGaussianBlur>
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur"></feMergeNode>
-                                            <feMergeNode in="SourceGraphic"></feMergeNode>
-                                        </feMerge>
-                                    </filter>
-                                </defs>
-                                <path d="M50 5
-        C75 5, 95 25, 95 50
-        C95 75, 75 95, 50 95
-        C25 95, 5 75, 5 50
-        C5 30, 20 15, 40 12" stroke="hsl(175, 50%, 42%)" stroke-width="4" stroke-linecap="round" fill="none"
-                                    filter="url(#glow)" class="drop-shadow-[0_0_10px_hsl(175,50%,42%)]"></path>
-                                <path d="M45 15
-        C60 15, 80 30, 80 50
-        C80 70, 60 85, 45 80" stroke="hsl(175, 50%, 50%)" stroke-width="2" stroke-linecap="round" fill="none"
-                                    opacity="0.6"></path>
-                            </svg></div>
+                        <div class="relative animate-rotate-slow w-40 h-40">
+                            <img src="{{ asset('images/slider1.png') }}" alt="Company Logo">
+                        </div>
                     </div>
                 </div>
             </div>
