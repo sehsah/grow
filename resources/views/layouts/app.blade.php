@@ -244,7 +244,7 @@
             <div class="container-custom py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     <div class="space-y-4"><a class="inline-block" href="/"><img
-                                src="{{ Storage::disk('public')->url(setting('site.logo')) }}"
+                                src="{{ asset('images/logo-footer.png') }}"
                                 alt="{{ $siteTitle }}" class="h-12 w-auto"></a>
                         <p class="text-muted-foreground text-sm leading-relaxed">@trans('home.footer_description')</p>
                         <div class="flex gap-3 pt-2">
