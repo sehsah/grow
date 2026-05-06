@@ -337,7 +337,7 @@
                         <h4 class="text-lg font-semibold">@trans('common.services')</h4>
                         <ul class="space-y-2">
                             @if (isset($services) && is_iterable($services))
-                                @foreach ($services->take(4) as $service)
+                                @foreach ($services as $service)
                                     <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
                                             href="/services/{{ $service->slug ?? '#' }}">{{ $service->title ?? 'Service' }}</a>
                                     </li>
@@ -395,7 +395,7 @@
                     </div>
                 </div>
                 <div class="mt-12 pt-8 border-t border-border text-center">
-                    <p class="text-sm text-muted-foreground">© {{ date('Y') }} {{ $siteTitle }}.
+                    <p class="text-sm text-muted-foreground">© {{ date('Y') }} Compact.
                         @trans('common.rights_reserved').<a
                             class="mx-2 text-muted-foreground/30 hover:text-primary transition-colors"
                             href="/admin">•</a></p>
