@@ -28,20 +28,6 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute top-20 right-10 md:right-20 w-24 h-24 md:w-32 md:h-32 animate-rotate-slow"><svg
-                    viewBox="0 0 100 100" class="w-full h-full">
-                    <defs>
-                        <path id="circlePath" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"></path>
-                    </defs>
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text class="text-[8px] uppercase tracking-widest fill-muted-foreground">
-                        <textPath href="#circlePath">@trans('about.join_team_circle')
-                        </textPath>
-                    </text>
-                    <circle cx="50" cy="50" r="20" fill="hsl(var(--card))" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text x="50" y="54" text-anchor="middle"
-                        class="text-lg font-bold fill-foreground">C</text>
-                </svg></div>
         </section>
 
         <section class="section-padding">

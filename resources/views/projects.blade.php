@@ -8,7 +8,7 @@
             <div class="container-custom relative z-10">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                     <div class="max-w-2xl">
-                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in text-primary"><span
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in"><span
                                 class="">@trans('projects.title')</span></h1>
                         <div class="flex items-start gap-4 animate-fade-in animation-delay-100">
                             <div class="w-12 h-12 flex items-center justify-center shrink-0 animate-spin"
@@ -26,74 +26,69 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute top-20 right-10 md:right-20 w-24 h-24 md:w-32 md:h-32 animate-rotate-slow"><svg
-                    viewBox="0 0 100 100" class="w-full h-full">
-                    <defs>
-                        <path id="circlePath" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"></path>
-                    </defs>
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text class="text-[8px] uppercase tracking-widest fill-muted-foreground">
-                        <textPath href="#circlePath">• JOIN OUR TEAM • GROW WITH US • JOIN OUR TEAM • GROW WITH US
-                        </textPath>
-                    </text>
-                    <circle cx="50" cy="50" r="20" fill="hsl(var(--card))" stroke="hsl(var(--border))"
-                        stroke-width="1"></circle><text x="50" y="54" text-anchor="middle"
-                        class="text-lg font-bold fill-foreground">C</text>
-                </svg></div>
         </section>
-        <section class="section-padding">
-            <div class="container-custom">
-                <div class="grid md:grid-cols-2 gap-8">
-                    @forelse ($projects as $project)
-                        @php
-                            $delay = $loop->index * 100;
-                            $imageUrl = $project->image;
-                            $category = $project->category ?? null;
-                        @endphp
 
-                        <div class="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                            style="animation-delay: {{ $delay }}ms;">
-                            <div class="relative aspect-16/10 overflow-hidden">
-                                <img src="{{ Storage::disk('public')->url($imageUrl) }}" alt="{{ $project->title }}"
-                                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+        <section class="section-padding bg-dark-card">
+            <div class="container-custom">
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-8">
+                        @foreach ($projects->filter(fn($p, $i) => $i % 2 === 0)->take(2) as $index => $project)
+                            <div class="group animate-fade-in" style="animation-delay: {{ ($index + 2) * 100 }}ms;">
                                 <div
-                                    class="absolute inset-0 bg-linear-to-t from-background/80 to-transparent pointer-events-none">
+                                    class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/30 to-primary/10 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
+                                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
+                                        <img src="{{ Storage::disk('public')->url($project->image) }}"
+                                            alt="{{ $project->title }}"
+                                            class="transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    <div class="absolute bottom-8 left-8 flex gap-2">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">{{ $project->category }}</span>
+                                    </div>
                                 </div>
-                                @if ($category)
-                                    <span
-                                        class="absolute top-4 left-4 px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
-                                        {{ $category }}
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="p-6">
                                 <a href="{{ route('projects.show', $project->id) }}">
-                                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                                    <h3
+                                        class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">
                                         {{ $project->title }}</h3>
                                 </a>
-                                <p class="text-muted-foreground text-sm mb-4">
-                                    {{ \Illuminate\Support\Str::limit($project->description, 220) }}
+                                <p class="text-muted-foreground text-sm mt-2 line-clamp-2">
+                                    {{ $project->description ?? ($project->short_description ?? 'Project description') }}
                                 </p>
-                                <a class="flex items-center gap-2 text-primary text-sm font-medium"
-                                    href="{{ route('projects.show', $project->id) }}">
-                                    <span>@trans('projects.view_project')</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform">
-                                        <path d="M5 12h14"></path>
-                                        <path d="m12 5 7 7-7 7"></path>
-                                    </svg>
-                                </a>
                             </div>
-                        </div>
-                    @empty
-                        <div class="col-span-2 text-center text-muted-foreground py-12 border border-dashed border-border rounded-2xl">
-                            {{ __('No projects available yet.') }}
-                        </div>
-                    @endforelse
+                        @endforeach
+                    </div>
+                    <div class="space-y-8 md:mt-16">
+                        @foreach ($projects->filter(fn($p, $i) => $i % 2 === 1)->take(2) as $index => $project)
+                            <div class="group animate-fade-in" style="animation-delay: {{ ($index + 3) * 100 }}ms;">
+                                <div
+                                    class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-500/30 to-gray-600/30 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20">
+                                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
+                                        <img src="{{ Storage::disk('public')->url($project->image) }}"
+                                            alt="{{ $project->title }}"
+                                            class="transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    @if ($project->category)
+                                        <div class="absolute bottom-8 left-8 flex gap-2">
+                                            <span
+                                                class="px-3 py-1 rounded-full bg-background/90 text-xs font-medium">{{ $project->category }}</span>
+                                        </div>
+                                    @endif
+                                </div>
+                                <a href="{{ route('projects.show', $project->id) }}">
+                                    <h3
+                                        class="text-xl font-bold text-primary mt-4 transition-colors group-hover:text-primary/80">
+                                        {{ $project->title }}</h3>
+                                </a>
+                                <p class="text-muted-foreground text-sm mt-2 line-clamp-2">
+                                    {{ $project->description ?? ($project->short_description ?? 'Project description') }}
+                                </p>
+                            </div>
+                        @endforeach
+
+                    </div>
                 </div>
             </div>
-        </section>
+        </section>        
     </main>
 @endsection
