@@ -327,7 +327,7 @@
                                     href="/career">@trans('common.career')</a></li>
                             <li><a class="text-muted-foreground hover:text-primary transition-colors text-sm"
                                     href="/contact">@trans('common.contact')</a></li>
-                            <li><a href="https://drive.google.com/file/d/10z7YDshKngYTcqCIyvqZewuFFbijFrdY/view?usp=sharing"
+                            <li><a href="https://compactod.com/profile.pdf"
                                     target="_blank" rel="noopener noreferrer"
                                     class="text-muted-foreground hover:text-primary transition-colors text-sm">@trans('common.company_profile')</a>
                             </li>
