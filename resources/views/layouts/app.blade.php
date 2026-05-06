@@ -41,6 +41,14 @@
         .text-second{
             color: #4fc6cd;
         }
+        :lang(ar) h1,
+        :lang(ar) h2,
+        :lang(ar) h3,
+        :lang(ar) h4,
+        :lang(ar) h5,
+        :lang(ar) h6 {
+            line-height: 1.6;
+        }        
     </style>
 </head>
 
