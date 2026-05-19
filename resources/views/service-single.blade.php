@@ -63,11 +63,11 @@
                     @endforeach
                 </div>
                 <div class="text-center mt-16 animate-fade-in">
-                    <a class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
+                    <a class="inline-flex items-center gap-2 btn-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
                         href="/contact">
                         @trans('common.lets_talk')
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5">
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>

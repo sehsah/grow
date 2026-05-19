@@ -192,7 +192,7 @@
                             <p class="text-sm text-muted-foreground mb-3">@trans('common.follow_us')</p>
                             <div class="flex gap-4"><a href="https://facebook.com" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
+                                    class="w-10 h-10 rounded-full bg-primary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -200,7 +200,7 @@
                                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
                                         </path>
                                     </svg></a><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
+                                    class="w-10 h-10 rounded-full bg-primary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter">
@@ -209,7 +209,7 @@
                                         </path>
                                     </svg></a><a href="https://linkedin.com" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
+                                    class="w-10 h-10 rounded-full bg-primary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -221,7 +221,7 @@
                                         <circle cx="4" cy="4" r="2"></circle>
                                     </svg></a><a href="https://instagram.com" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center "><svg
+                                    class="w-10 h-10 rounded-full bg-primary flex items-center justify-center "><svg
                                         xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
@@ -402,7 +402,7 @@
                 </div>
             </div>
         </footer>
-        <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <div class="fixed bottom-6 left-2 z-50 flex flex-col items-end gap-3">
             <div id="contact-quick-actions"
                 class="flex flex-col gap-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
                 <a
