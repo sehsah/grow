@@ -30,7 +30,7 @@
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div class="relative rounded-2xl overflow-hidden group">
                         @php
-                            $featuredImage = $featuredBlog->image && str_starts_with($featuredBlog->image, ['http://', 'https://'])
+                            $featuredImage = $featuredBlog->image && \Illuminate\Support\Str::startsWith($featuredBlog->image, ['http://', 'https://'])
                                 ? $featuredBlog->image
                                 : ($featuredBlog->image ? asset('storage/' . $featuredBlog->image) : asset('images/default-blog.png'));
                         @endphp
