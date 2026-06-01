@@ -75,7 +75,7 @@
                         <div class="block">
                             <div class="relative rounded-xl overflow-hidden mb-4">
                                 @php
-                                    $image = $blog->image && str_starts_with($blog->image, ['http://', 'https://'])
+                                    $image = $blog->image && \Illuminate\Support\Str::startsWith($blog->image, ['http://', 'https://'])
                                         ? $blog->image
                                         : ($blog->image ? asset('storage/' . $blog->image) : asset('images/default-blog.png'));
                                 @endphp
