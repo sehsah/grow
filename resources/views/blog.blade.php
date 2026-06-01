@@ -29,7 +29,12 @@
             <div class="container-custom">
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div class="relative rounded-2xl overflow-hidden group">
-                        <img src="{{ $featuredBlog->image }}" alt="{{ $featuredBlog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover">
+                        @php
+                            $featuredImage = $featuredBlog->image && str_starts_with($featuredBlog->image, ['http://', 'https://'])
+                                ? $featuredBlog->image
+                                : ($featuredBlog->image ? asset('storage/' . $featuredBlog->image) : asset('images/default-blog.png'));
+                        @endphp
+                        <img src="{{ $featuredImage }}" alt="{{ $featuredBlog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
                     </div>
                     <div>
@@ -69,7 +74,12 @@
                     <article class="group animate-fade-in" style="animation-delay: {{ $index * 100 }}ms;">
                         <div class="block">
                             <div class="relative rounded-xl overflow-hidden mb-4">
-                                <img src="{{ $blog->image }}" alt="{{ $blog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-48 object-cover">
+                                @php
+                                    $image = $blog->image && str_starts_with($blog->image, ['http://', 'https://'])
+                                        ? $blog->image
+                                        : ($blog->image ? asset('storage/' . $blog->image) : asset('images/default-blog.png'));
+                                @endphp
+                                <img src="{{ $image }}" alt="{{ $blog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-48 object-cover">
                                 <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
                             </div>
                             <a href="{{ route('blog.show', $blog->slug) }}">
