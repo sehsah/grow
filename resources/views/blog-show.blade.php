@@ -38,7 +38,12 @@
                 <div class="max-w-4xl mx-auto">
                     @if($blog->image)
                     <div class="relative rounded-2xl overflow-hidden mb-8 group">
-                        <img src="{{ $blog->image }}" alt="{{ $blog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-[400px] md:h-[500px] object-cover">
+                        @php
+                            $image = $blog->image && \Illuminate\Support\Str::startsWith($blog->image, ['http://', 'https://'])
+                                ? $blog->image
+                                : ($blog->image ? asset('storage/' . $blog->image) : asset('images/default-blog.png'));
+                        @endphp                        
+                        <img src="{{ $image }}" alt="{{ $blog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-[400px] md:h-[500px] object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
                     </div>
                     @endif
@@ -64,7 +69,12 @@
                     @foreach($relatedBlogs as $relatedBlog)
                     <article class="group">
                         <div class="relative rounded-xl overflow-hidden mb-4">
-                            <img src="{{ $relatedBlog->image }}" alt="{{ $relatedBlog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-48 object-cover">
+                            @php
+                                $relatedImage = $relatedBlog->image && \Illuminate\Support\Str::startsWith($relatedBlog->image, ['http://', 'https://'])
+                                    ? $relatedBlog->image
+                                    : ($relatedBlog->image ? asset('storage/' . $relatedBlog->image) : asset('images/default-blog.png'));
+                            @endphp
+                            <img src="{{ $relatedImage }}" alt="{{ $relatedBlog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-48 object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
                         </div>
                         <a href="{{ route('blog.show', $relatedBlog->slug) }}">
