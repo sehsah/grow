@@ -43,7 +43,7 @@
                                 ? $blog->image
                                 : ($blog->image ? asset('storage/' . $blog->image) : asset('images/default-blog.png'));
                         @endphp                        
-                        <img src="{{ $image }}" alt="{{ $blog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-[400px] md:h-[500px] object-cover">
+                        <img src="{{ $image }}" alt="{{ $blog->title }}" class="transition-transform duration-500 group-hover:scale-105 w-full h-[400px] md:h-[500px] ">
                         <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
                     </div>
                     @endif
